@@ -51,13 +51,18 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; set smooth scrolling
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 3)))
+(setq mouse-wheel-progressive-speed nil)
+(setq scroll-step 3)
+
 ;;set cursor colors manually
 ;;(setq evil-emacs-state-cursor '("red" box))
 (setq evil-normal-state-cursor '("grey" box))
 (setq evil-visual-state-cursor '("orange" box))
-(setq evil-insert-state-cursor '("red" bar))
-(setq evil-replace-state-cursor '("red" bar))
-(setq evil-operator-state-cursor '("red" hollow))
+(setq evil-insert-state-cursor '("white" bar))
+(setq evil-replace-state-cursor '("white" hollow))
+(setq evil-operator-state-cursor '("white" hollow))
 
 
 ;;setup jedi
@@ -66,6 +71,14 @@
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:setup-keys t)                      ; optional
 (setq jedi:complete-on-dot t)                 ; optional
+
+;; Make C-c C-c behave like C-u C-c C-c in Python mode which allows for code in __main__ block
+;(define-key 'python-mode-map (kbd "C-c C-c")
+;  (lambda () (interactive) (python-shell-send-buffer t)))
+
+;setup flymake to check python syntax
+(require-package 'flymake-python-pyflakes)
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 
 
 ;;setup autoindent when pressing return
@@ -139,6 +152,8 @@
 ;(require 'auctex)
 (require 'cdlatex)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+;(add-hook 'org-mode-hook 'org-indent-mode)
+(add-hook 'org-mode-hook 'auto-fill-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -146,7 +161,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
- '(org-agenda-files (quote ("~/organisation/work_tasks.org"))))
+ '(org-agenda-files (quote ("~/Dropbox/Arbeit/science/2014/Correlation_Uncertainty.org" "~/workspace/IGARSS.org" "~/organisation/notes.org" "~/organisation/work_tasks.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
