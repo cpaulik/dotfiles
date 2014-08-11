@@ -1,10 +1,10 @@
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 (require 'init-packages)
 
-
+(require-package 'load-relative)
+(require 'load-relative)
 (require 'package)
 (package-initialize)
-(require 'load-relative)
 (require 'cl-lib)
 (define-key key-translation-map [dead-circumflex] "^")
 (require-package 'evil)
@@ -65,6 +65,10 @@
 (setq evil-operator-state-cursor '("white" hollow))
 
 
+;; setup dirtree
+(require-package 'dirtree)
+(require 'dirtree)
+
 ;;setup jedi
 (require-package 'python-environment)
 (require-package 'jedi)
@@ -72,6 +76,15 @@
 (setq jedi:setup-keys t)                      ; optional
 (setq jedi:complete-on-dot t)                 ; optional
 
+;; setup virtualenvwrapper
+(require-package 'virtualenvwrapper)
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells)
+(venv-initialize-eshell)
+(setq venv-location '("~/myenv/"
+		      "~/pytesmo_development/"
+		      "~/swi_dev/")
+)
 ;; Make C-c C-c behave like C-u C-c C-c in Python mode which allows for code in __main__ block
 ;(define-key 'python-mode-map (kbd "C-c C-c")
 ;  (lambda () (interactive) (python-shell-send-buffer t)))
@@ -147,7 +160,7 @@
 (blink-cursor-mode 0)
 
 ;;setup latex
-;(require-package 'auctex)
+(require-package 'auctex)
 (require-package 'cdlatex)
 ;(require 'auctex)
 (require 'cdlatex)
