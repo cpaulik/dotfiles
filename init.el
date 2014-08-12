@@ -48,7 +48,7 @@
 
 ;;disable tool-bar and menu
 (tool-bar-mode -1)
-(menu-bar-mode -1)
+(menu-bar-mode 1)
 (scroll-bar-mode -1)
 
 ;; set smooth scrolling
@@ -81,10 +81,7 @@
 (require 'virtualenvwrapper)
 (venv-initialize-interactive-shells)
 (venv-initialize-eshell)
-(setq venv-location '("~/myenv/"
-		      "~/pytesmo_development/"
-		      "~/swi_dev/")
-)
+
 ;; Make C-c C-c behave like C-u C-c C-c in Python mode which allows for code in __main__ block
 ;(define-key 'python-mode-map (kbd "C-c C-c")
 ;  (lambda () (interactive) (python-shell-send-buffer t)))
@@ -136,16 +133,12 @@
    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
 
+;; Set paths for python projects and virtual environments
+(require 'python_projects)
 ; Set PYTHONPATH, because we don't load .bashrc
 (defun set-python-path-from-shell-PYTHONPATH ()
   (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PYTHONPATH'")))
     (setenv "PYTHONPATH" path-from-shell)))
-
-;; set pytesmo development environment
-(defun pytesmo_env ()
-  (interactive)
-  (setenv "PYTHONPATH" "/home/cp/workspace/pytesmo")
-)
 
 (if window-system (set-python-path-from-shell-PYTHONPATH))
 
