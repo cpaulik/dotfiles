@@ -90,6 +90,9 @@
 (require-package 'flymake-python-pyflakes)
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 
+;; sr-speedbar
+(require-package 'sr-speedbar)
+(require 'sr-speedbar)
 
 ;;setup autoindent when pressing return
 (define-key global-map (kbd "RET") 'newline-and-indent)
