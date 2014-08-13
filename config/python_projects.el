@@ -15,7 +15,7 @@
   (setenv "PYTHONPATH" "/media/sf_H/Development/python/workspace/GEO_Python")
   (setq default-directory "/media/sf_H/Development/python/workspace/GEO_Python")
 )
-(defue swi_env ()
+(defun swi_env ()
   (interactive)
   (venv-workon "swi_dev")
   (setenv "PYTHONPATH" "/media/sf_H/Development/python/workspace/SWI_NRT")
