@@ -1,10 +1,10 @@
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 (require 'init-packages)
 
-
+(require-package 'load-relative)
+(require 'load-relative)
 (require 'package)
 (package-initialize)
-(require 'load-relative)
 (require 'cl-lib)
 (define-key key-translation-map [dead-circumflex] "^")
 (require-package 'evil)
@@ -48,7 +48,7 @@
 
 ;;disable tool-bar and menu
 (tool-bar-mode -1)
-(menu-bar-mode -1)
+(menu-bar-mode 1)
 (scroll-bar-mode -1)
 
 ;; set smooth scrolling
@@ -65,6 +65,10 @@
 (setq evil-operator-state-cursor '("white" hollow))
 
 
+;; setup dirtree
+(require-package 'dirtree)
+(require 'dirtree)
+
 ;;setup jedi
 (require-package 'python-environment)
 (require-package 'jedi)
@@ -72,14 +76,24 @@
 (setq jedi:setup-keys t)                      ; optional
 (setq jedi:complete-on-dot t)                 ; optional
 
+;; setup virtualenvwrapper
+(require-package 'virtualenvwrapper)
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells)
+(venv-initialize-eshell)
+
 ;; Make C-c C-c behave like C-u C-c C-c in Python mode which allows for code in __main__ block
 ;(define-key 'python-mode-map (kbd "C-c C-c")
 ;  (lambda () (interactive) (python-shell-send-buffer t)))
 
-;setup flymake to check python syntax
-(require-package 'flymake-python-pyflakes)
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+;; setup flycheck
 
+(require-package 'flycheck)
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+;; sr-speedbar
+(require-package 'sr-speedbar)
+(require 'sr-speedbar)
 
 ;;setup autoindent when pressing return
 (define-key global-map (kbd "RET") 'newline-and-indent)
@@ -126,16 +140,12 @@
    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
 
+;; Set paths for python projects and virtual environments
+(require 'python_projects)
 ; Set PYTHONPATH, because we don't load .bashrc
 (defun set-python-path-from-shell-PYTHONPATH ()
   (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PYTHONPATH'")))
     (setenv "PYTHONPATH" path-from-shell)))
-
-;; set pytesmo development environment
-(defun pytesmo_env ()
-  (interactive)
-  (setenv "PYTHONPATH" "/home/cp/workspace/pytesmo")
-)
 
 (if window-system (set-python-path-from-shell-PYTHONPATH))
 
@@ -150,7 +160,7 @@
 (blink-cursor-mode 0)
 
 ;;setup latex
-;(require-package 'auctex)
+(require-package 'auctex)
 (require-package 'cdlatex)
 ;(require 'auctex)
 (require 'cdlatex)
