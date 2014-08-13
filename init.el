@@ -86,10 +86,11 @@
 ;(define-key 'python-mode-map (kbd "C-c C-c")
 ;  (lambda () (interactive) (python-shell-send-buffer t)))
 
-;setup flymake to check python syntax
-(require-package 'flymake-python-pyflakes)
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+;; setup flycheck
 
+(require-package 'flycheck)
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 ;; sr-speedbar
 (require-package 'sr-speedbar)
 (require 'sr-speedbar)
