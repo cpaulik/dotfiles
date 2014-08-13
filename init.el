@@ -109,6 +109,9 @@
 ;; Use the clipboard, pretty please, so that copy/paste "works"
 (setq x-select-enable-clipboard t)
 
+(require-package 'virtualenvwrapper)
+(require 'virtualenvwrapper)
+(setq venv-location '("~/python_ve/"))
 ;;setup python mode
 (require 'python)
 (setq
