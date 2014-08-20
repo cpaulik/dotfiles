@@ -9,7 +9,7 @@
 
 (require-package 'color-theme-solarized)
 (require-package 'color-theme-wombat)
-(load-theme 'solarized-dark t)
+(load-theme 'wombat t)
 
 (define-key key-translation-map [dead-circumflex] "^")
 (require-package 'evil)
@@ -86,6 +86,9 @@
 (setq evil-replace-state-cursor '("white" hollow))
 (setq evil-operator-state-cursor '("white" hollow))
 
+;; shows colors in the color they represent
+(require-package 'rainbow-mode)
+(require 'rainbow-mode)
 
 ;; setup dirtree
 (require-package 'dirtree)
