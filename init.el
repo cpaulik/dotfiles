@@ -83,11 +83,10 @@
 (venv-initialize-eshell)
 
 ;; Make C-c C-c behave like C-u C-c C-c in Python mode which allows for code in __main__ block
-;(define-key 'python-mode-map (kbd "C-c C-c")
+;(define-key python-mode-map (kbd "C-c C-c")
 ;  (lambda () (interactive) (python-shell-send-buffer t)))
 
 ;; setup flycheck
-
 (require-package 'flycheck)
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -136,6 +135,8 @@
  python-shell-completion-string-code
    "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
+(require-package 'pytest)
+(require 'pytest)
 
 ;; Set paths for python projects and virtual environments
 (require 'python_projects)
@@ -145,6 +146,9 @@
     (setenv "PYTHONPATH" path-from-shell)))
 
 (if window-system (set-python-path-from-shell-PYTHONPATH))
+
+;; remove trailing whitespace on save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;highlight matching parenthesis
 (require 'paren)
@@ -164,6 +168,23 @@
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 ;(add-hook 'org-mode-hook 'org-indent-mode)
 (add-hook 'org-mode-hook 'auto-fill-mode)
+
+;; Git integration through magit
+(require-package 'magit)
+(require 'magit)
+
+(require-package 'web-mode)
+(require 'web-mode)
+
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js?\\'" . web-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
