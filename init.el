@@ -6,6 +6,11 @@
 (require 'package)
 (package-initialize)
 (require 'cl-lib)
+
+(require-package 'color-theme-solarized)
+(require-package 'color-theme-wombat)
+(load-theme 'solarized-dark t)
+
 (define-key key-translation-map [dead-circumflex] "^")
 (require-package 'evil)
 (require-package 'evil-leader)
@@ -23,6 +28,26 @@
 (require 'evil)
 (evil-mode 1)
 (setq evil-default-cursor t)
+
+(require-package 'powerline)
+(require 'powerline)
+(powerline-default-theme)
+(require-package 'powerline-evil)
+(require 'powerline-evil)
+(setq powerline-color1 "#657b83")
+(setq powerline-color2 "#839496")
+
+(set-face-attribute 'mode-line nil
+                    :foreground "#fdf6e3"
+                    :background "#859900"
+                    :box nil)
+(set-face-attribute 'mode-line-inactive nil
+                    :box nil)
+
+;; install smart parens
+(require-package 'smartparens)
+(require 'smartparens)
+(smartparens-global-mode t)
 
 ;; enable auto-complete mode
 (require-package 'auto-complete)
@@ -42,13 +67,10 @@
 ;  global-fci-mode fci-mode (lambda () (fci-mode 1)))
 ; (global-fci-mode 0)
 
-(require-package 'color-theme-solarized)
-(require-package 'color-theme-wombat)
-(load-theme 'solarized-dark t)
 
 ;;disable tool-bar and menu
 (tool-bar-mode -1)
-(menu-bar-mode 1)
+(menu-bar-mode -1)
 (scroll-bar-mode -1)
 
 ;; set smooth scrolling
@@ -122,6 +144,9 @@
 ;; Use the clipboard, pretty please, so that copy/paste "works"
 (setq x-select-enable-clipboard t)
 
+(require-package 'virtualenvwrapper)
+(require 'virtualenvwrapper)
+(setq venv-location '("~/python_ve/"))
 ;;setup python mode
 (require 'python)
 (setq
