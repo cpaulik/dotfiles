@@ -112,6 +112,16 @@
 (require-package 'flycheck-tip)
 (require 'flycheck-tip)
 (flycheck-tip-use-timer 'verbose)
+
+(defun turn-on-flyspell ()
+  "Force flyspell mode on using a positive argument. for use in hooks"
+  (interactive)
+  (flyspell-mode 1))
+(autoload 'flyspell-mode "flyspell" "On the fly spell checker" t)
+(add-hook 'message-mode-hook 'turn-on-flyspell)
+(add-hook 'text-mode-hook 'turn-on-flyspell)
+(add-hook 'python-mode-hook 'flyspell-prog-mode)
+
 ;; sr-speedbar
 (require-package 'sr-speedbar)
 (require 'sr-speedbar)
