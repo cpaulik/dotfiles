@@ -208,6 +208,7 @@
 ;;                            ;;
 ;; GROUP: Convenience -> Helm ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require-package 'helm)
 (require 'helm)
 
 ;; must set before helm-config,  otherwise helm use default
