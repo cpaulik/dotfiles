@@ -108,6 +108,10 @@
 (require-package 'flycheck)
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+;; flycheck-tip, show error messages as popup
+(require-package 'flycheck-tip)
+(require 'flycheck-tip)
+(flycheck-tip-use-timer 'verbose)
 ;; sr-speedbar
 (require-package 'sr-speedbar)
 (require 'sr-speedbar)
