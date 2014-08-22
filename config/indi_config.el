@@ -181,7 +181,6 @@
 
 (require-package 'virtualenvwrapper)
 (require 'virtualenvwrapper)
-(setq venv-location '("~/python_ve/"))
 ;;setup python mode
 (require 'python)
 (setq
@@ -197,6 +196,10 @@
 
 (require-package 'pytest)
 (require 'pytest)
+
+(require-package 'py-autopep8)
+(require 'py-autopep8)
+(add-hook 'before-save-hook 'py-autopep8-before-save)
 
 ;; Set paths for python projects and virtual environments
 (require 'python_projects)
