@@ -50,6 +50,7 @@
 (require-package 'yasnippet)
 (require 'yasnippet)
 (yas-global-mode 1)
+(setq yas-trigger-in-field t)
 
 ;; setup maximum column width
 ; deactivated since it is the cause for skipping lines on up key
