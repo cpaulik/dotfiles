@@ -1,14 +1,12 @@
 ; set virtualenv locations
-(setq venv-location '("~/myenv/"
-		      "~/pytesmo_development/"
-		      "~/swi_dev/")
+(setq venv-location '("~/python_ve/")
 )
 ;; set pytesmo development environment
 (defun pytesmo_env ()
   (interactive)
-  (venv-workon "pytesmo_development")
-  (setenv "PYTHONPATH" "/media/sf_H/Development/python/pytesmo")
-  (setq default-directory "/media/sf_H/Development/python/pytesmo")
+  (venv-workon "python_ve")
+  (setenv "PYTHONPATH" "/home/cp/workspace/pytesmo")
+  (setq default-directory "/home/cp/workspace/pytesmo")
 )
 (defun geo_env ()
   (interactive)
