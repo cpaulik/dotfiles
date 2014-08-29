@@ -1,5 +1,8 @@
 (require 'cl-lib)
 
+;; enable semantic parsing of files
+(semantic-mode 1)
+
 (require-package 'color-theme-solarized)
 (require-package 'color-theme-wombat)
 (load-theme 'wombat t)
