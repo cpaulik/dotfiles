@@ -47,4 +47,11 @@
 \\usepackage[latin1]{inputenc}
 \\usepackage{tabulary}"
                ("\\section{%s}" . "\\section*{%s}")))
+
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
+(setq org-confirm-babel-evaluate nil)
 (provide 'org_config)
