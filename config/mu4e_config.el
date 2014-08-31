@@ -5,7 +5,7 @@
 ;; use imagemagick if available
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))
-;;(setq mu4e-html2text-command "html2text -utf8 -width 80")
+(setq mu4e-html2text-command "html2text -utf8 -width 80")
 ;; default
 ;; (setq mu4e-maildir "~/Maildir")
 
