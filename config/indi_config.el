@@ -5,7 +5,10 @@
 
 (require-package 'color-theme-solarized)
 (require-package 'color-theme-wombat)
-(load-theme 'wombat t)
+(load-theme 'dichromacy)
+
+(add-to-list 'default-frame-alist '(font . "Ubuntu Mono 11"))
+(set-face-attribute 'default t :font "Ubuntu Mono 11")
 
 (define-key key-translation-map [dead-circumflex] "^")
 (require-package 'evil)
@@ -24,6 +27,8 @@
 (require 'evil)
 (evil-mode 1)
 (setq evil-default-cursor t)
+(require 'evil-surround)
+(global-evil-surround-mode 1)
 
 (require-package 'powerline)
 (require 'powerline)
@@ -35,9 +40,10 @@
 
 (set-face-attribute 'mode-line nil
                     :foreground "#fdf6e3"
-                    :background "#859900"
+                    :background "#3060aa"
                     :box nil)
 (set-face-attribute 'mode-line-inactive nil
+		    :background "#eeeeee"
                     :box nil)
 
 ;; install smart parens
@@ -88,7 +94,10 @@
 ;; shows colors in the color they represent
 (require-package 'rainbow-mode)
 (require 'rainbow-mode)
+(define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
+  (lambda () (rainbow-mode 1)))
 
+;;(my-global-rainbow-mode 1)
 ;; setup dirtree
 (require-package 'dirtree)
 (require 'dirtree)
@@ -142,8 +151,8 @@
 (line-number-mode 1)			; have line numbers and
 (column-number-mode 1)			; column numbers in the mode line
 
-(global-linum-mode 1)			; add line numbers on the left
-
+(global-linum-mode 0)			; add line numbers on the left
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;;setup ido
 ;(require 'ido)
@@ -196,6 +205,8 @@
 
 ; highlight the current line
 (global-hl-line-mode t)
+;;(custom-set-faces
+;; '(highlight ((t (:bold nil)))))
 
 ; don't blink the cursor
 (blink-cursor-mode 0)
@@ -216,7 +227,7 @@
 ;; package to save and restore window groups
 (require-package 'workgroups2)
 (require 'workgroups2)
-(workgroups-mode 1)
+;;(workgroups-mode 1)
 
 ;; helm package
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
