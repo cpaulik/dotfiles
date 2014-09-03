@@ -6,6 +6,9 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(setq org-mobile-directory "~/Dropbox/MobileOrg")
+(setq org-directory "~/Dropbox/Arbeit/organisation")
+(setq org-mobile-inbox-for-pull "~/Dropbox/Arbeit/organisation/orgmobileinbox.org")
 
 (require-package 'org-ac)
 (require 'org-ac)
