@@ -102,6 +102,49 @@
 (require-package 'dirtree)
 (require 'dirtree)
 
+(require-package 'virtualenvwrapper)
+(require 'virtualenvwrapper)
+;;setup python mode
+(require-package 'python-mode)
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+ (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+(setq
+ python-shell-interpreter "ipython"
+ python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+ python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+ python-shell-completion-setup-code
+   "from IPython.core.completerlib import module_completion"
+ python-shell-completion-module-string-code
+   "';'.join(module_completion('''%s'''))\n"
+ python-shell-completion-string-code
+   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+
+(require-package 'pytest)
+(require 'pytest)
+
+;; custom function to run pytest on current file
+(defun py-test-current ()
+  (interactive)
+  (compile (concat "py.test " (buffer-file-name)))
+)
+;; bind to C-c t
+(add-hook 'python-mode-hook
+	  (lambda () (local-set-key (kbd "C-c t") 'py-test-current)))
+
+
+(require-package 'py-autopep8)
+(require 'py-autopep8)
+(add-hook 'before-save-hook 'py-autopep8-before-save)
+
+;; Set paths for python projects and virtual environments
+(require 'python_projects)
+; Set PYTHONPATH, because we don't load .bashrc
+(defun set-python-path-from-shell-PYTHONPATH ()
+  (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PYTHONPATH'")))
+    (setenv "PYTHONPATH" path-from-shell)))
+
+(if window-system (set-python-path-from-shell-PYTHONPATH))
 ;;setup jedi
 (require-package 'python-environment)
 (require-package 'jedi)
@@ -165,36 +208,6 @@
 ;; Use the clipboard, pretty please, so that copy/paste "works"
 (setq x-select-enable-clipboard t)
 
-(require-package 'virtualenvwrapper)
-(require 'virtualenvwrapper)
-;;setup python mode
-(require 'python)
-(setq
- python-shell-interpreter "ipython"
- python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code
-   "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code
-   "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code
-   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-
-(require-package 'pytest)
-(require 'pytest)
-
-(require-package 'py-autopep8)
-(require 'py-autopep8)
-(add-hook 'before-save-hook 'py-autopep8-before-save)
-
-;; Set paths for python projects and virtual environments
-(require 'python_projects)
-; Set PYTHONPATH, because we don't load .bashrc
-(defun set-python-path-from-shell-PYTHONPATH ()
-  (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PYTHONPATH'")))
-    (setenv "PYTHONPATH" path-from-shell)))
-
-(if window-system (set-python-path-from-shell-PYTHONPATH))
 
 ;; remove trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
