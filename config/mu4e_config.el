@@ -37,7 +37,12 @@
    mu4e-compose-signature
     (concat
       ""
-      ""))
+      "")
+    mu4e-user-mail-address-list
+    '("cpaulik@gmail.com"
+      "christoph.paulik@geo.tuwien.ac.at"
+      "Christoph.Paulik@geo.tuwien.ac.at")
+    )
 
 ;; sending mail -- replace USERNAME with your gmail username
 ;; also, make sure the gnutls command line utils are installed
