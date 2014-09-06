@@ -54,7 +54,9 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((python . t)))
+ '((python . t)
+   (ditaa . t))
+ )
 
 (setq org-confirm-babel-evaluate nil)
 (provide 'org_config)

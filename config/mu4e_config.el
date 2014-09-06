@@ -1,5 +1,6 @@
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
+(require 'org-mu4e)
 
 (setq mu4e-view-show-images t)
 ;; use imagemagick if available
