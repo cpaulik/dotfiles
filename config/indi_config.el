@@ -5,8 +5,9 @@
 
 (require-package 'color-theme-solarized)
 (require-package 'color-theme-wombat)
-(load-theme 'dichromacy)
-
+(require 'color-theme-zenburn)
+;;(load-theme 'dichromacy)
+(color-theme-zenburn)
 (add-to-list 'default-frame-alist '(font . "Ubuntu Mono 11"))
 (set-face-attribute 'default t :font "Ubuntu Mono 11")
 
