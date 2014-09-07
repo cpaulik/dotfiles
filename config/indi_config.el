@@ -248,6 +248,11 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+(require-package 'projectile)
+(require 'projectile)
+(projectile-global-mode)
+
+
 ;; helm package
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PACKAGE: helm              ;;
@@ -255,12 +260,16 @@
 ;; GROUP: Convenience -> Helm ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require-package 'helm)
+
 (require 'helm)
 
 ;; must set before helm-config,  otherwise helm use default
 ;; prefix "C-x c", which is inconvenient because you can
 ;; accidentially pressed "C-x C-c"
 (setq helm-command-prefix-key "C-c h")
+
+(require-package 'helm-projectile)
+(require 'helm-projectile)
 
 (require 'helm-config)
 (require 'helm-eshell)
