@@ -99,6 +99,25 @@
 
 (setq org-agenda-diary-file "~/Dropbox/org/diary.org")
 
+
+;; Diary
+(require 'holidays)
+(setq holiday-austria-holidays '((holiday-fixed  1  1 "Neujahr")
+                                 (holiday-fixed  1  6 "Heilige Drei Könige")
+                                 (holiday-easter-etc 1 "Ostermontag")
+                                 (holiday-fixed  5  1 "Staatsfeiertag")
+                                 (holiday-easter-etc 39 "Christi Himmelfahrt")
+                                 (holiday-easter-etc 50 "Pfingstmontag")
+                                 (holiday-easter-etc 60 "Fronleichnam")
+                                 (holiday-fixed  8 15 "Mariä Himmelfahrt")
+                                 (holiday-fixed 10 26 "Nationalfeiertag")
+                                 (holiday-fixed 11  1 "Allerheiligen")
+                                 (holiday-fixed 12  8 "Maria Empfängnis")
+                                 (holiday-fixed 12 25 "Erster Weihnachtstag")
+                                 (holiday-fixed 12 26 "Zweiter Weihnachtstag")))
+(setq holiday-local-holidays holiday-austria-holidays)
+(setq calendar-holidays (append holiday-local-holidays holiday-other-holidays))
+
 (setq org-todo-state-tags-triggers
       (quote (("CANCELLED" ("CANCELLED" . t))
               ("WAITING" ("WAITING" . t))
