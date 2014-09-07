@@ -96,6 +96,9 @@
 ;; if state is changed using shift then no dates or notes are recorded
 (setq org-treat-S-cursor-todo-selection-as-state-change nil)
 ;; set tags according to state of the task
+
+(setq org-agenda-diary-file "~/Dropbox/org/diary.org")
+
 (setq org-todo-state-tags-triggers
       (quote (("CANCELLED" ("CANCELLED" . t))
               ("WAITING" ("WAITING" . t))
