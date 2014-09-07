@@ -270,6 +270,14 @@
 
 (require-package 'helm-projectile)
 (require 'helm-projectile)
+;; custom function for finding and switching projects
+(defun cp/projectile-find ()
+  "if not in a project switch to project"
+  (interactive)
+(if (projectile-project-p)
+    (helm-projectile)
+    (helm-projectile-switch-project)))
+(global-set-key (kbd "C-x f") 'cp/projectile-find)
 
 (require 'helm-config)
 (require 'helm-eshell)
