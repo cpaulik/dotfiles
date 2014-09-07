@@ -52,6 +52,8 @@
 (require 'smartparens)
 (smartparens-global-mode t)
 
+(global-auto-revert-mode)
+
 ;; enable auto-complete mode
 (require-package 'auto-complete)
 (require 'auto-complete)
