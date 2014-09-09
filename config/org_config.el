@@ -18,6 +18,10 @@
 (require 'org-ac)
 (org-ac/config-default)
 
+;;load exporters for odt and texinfo - new in org 8
+(require 'ox-odt)
+(require 'ox-texinfo)
+
 ;; any headline with level <= 2 is a target
 (setq org-refile-targets '((nil :maxlevel . 2)
                                 ; all top-level headlines in the
