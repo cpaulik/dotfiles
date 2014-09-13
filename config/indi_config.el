@@ -184,6 +184,23 @@
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
 (call-interactively 'ac-flyspell-workaround)
 
+(eval-after-load "ispell"
+  '(add-to-list 'ispell-dictionary-alist
+                '("deutsch8"
+                   "[a-zA-ZäöüßÄÖÜ]" "[^a-zA-ZäöüßÄÖÜ]" "[']" t
+                  ("-C" "-d" "de_DE-neu.multi")
+                  "~latin1" iso-8859-1)))
+
+;;switch dictionaries between German and English with F8 key
+(defun fd-switch-dictionary()
+      (interactive)
+      (let* ((dic ispell-current-dictionary)
+         (change (if (string= dic "deutsch8") "english" "deutsch8")))
+        (ispell-change-dictionary change)
+        (message "Dictionary switched from %s to %s" dic change)
+        ))
+
+(global-set-key (kbd "<f8>")   'fd-switch-dictionary)
 ;; sr-speedbar
 (require-package 'sr-speedbar)
 (require 'sr-speedbar)
