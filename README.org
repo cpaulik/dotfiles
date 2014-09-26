@@ -3,7 +3,8 @@
 $ mkdir ~/.emacs.d
 $ cd ~/.emacs.d
 $ git clone https://github.com/cpaulik/emacsconfig .
-$ git submodules init
+$ git submodule init
+$ git submodule update
 $ cd config/org-mode
 $ make autoloads
 #+END_SRC
