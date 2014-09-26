@@ -68,6 +68,8 @@
 (require 'ox-odt)
 (require 'ox-texinfo)
 (require 'ox-beamer)
+(require-package 'ox-reveal)
+(require 'ox-reveal)
 
 ;; any headline with level <= 2 is a target
 (setq org-refile-targets '((nil :maxlevel . 2)
