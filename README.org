@@ -1,7 +1,9 @@
 * approx. Installation (not tested)
-mkdir ~/.emacs.d
-cd ~/.emacs.d
-git clone https://github.com/cpaulik/emacsconfig .
-git submodules init
-cd config/org-mode
-make autoloads
+$ #+BEGIN_SRC shell
+$ mkdir ~/.emacs.d
+$ cd ~/.emacs.d
+$ git clone https://github.com/cpaulik/emacsconfig .
+$ git submodules init
+$ cd config/org-mode
+$ make autoloads
+#+END_SRC
