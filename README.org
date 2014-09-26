@@ -1,5 +1,5 @@
 * approx. Installation (not tested)
-$ #+BEGIN_SRC shell
+#+BEGIN_SRC shell
 $ mkdir ~/.emacs.d
 $ cd ~/.emacs.d
 $ git clone https://github.com/cpaulik/emacsconfig .
