@@ -67,6 +67,7 @@
 ;;load exporters for odt and texinfo - new in org 8
 (require 'ox-odt)
 (require 'ox-texinfo)
+(require 'ox-beamer)
 
 ;; any headline with level <= 2 is a target
 (setq org-refile-targets '((nil :maxlevel . 2)

@@ -183,13 +183,12 @@
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
 (call-interactively 'ac-flyspell-workaround)
-
-(eval-after-load "ispell"
-  '(add-to-list 'ispell-dictionary-alist
+(load-library "ispell")
+(add-to-list 'ispell-local-dictionary-alist
                 '("deutsch8"
                    "[a-zA-ZäöüßÄÖÜ]" "[^a-zA-ZäöüßÄÖÜ]" "[']" t
                   ("-C" "-d" "de_DE-neu.multi")
-                  "~latin1" iso-8859-1)))
+                  "~latin1" iso-8859-1))
 
 ;;switch dictionaries between German and English with F8 key
 (defun fd-switch-dictionary()
