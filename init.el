@@ -1,4 +1,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "config"))
+(add-to-list 'load-path "~/.emacs.d/config/org-mode/lisp")
+(add-to-list 'load-path "~/.emacs.d/config/org-mode/contrib/lisp" t)
+(add-to-list 'load-path "~/.emacs.d/config/org-reveal" t)
 (require 'init-packages)
 
 (require-package 'load-relative)

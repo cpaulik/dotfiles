@@ -1,0 +1,6 @@
+[submodule "config/org-mode"]
+	path = config/org-mode
+	url = git://orgmode.org/org-mode.git
+[submodule "config/org-reveal"]
+	path = config/org-reveal
+	url = https://github.com/yjwen/org-reveal.git
