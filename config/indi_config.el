@@ -5,7 +5,6 @@
 
 (require-package 'color-theme-solarized)
 (require-package 'color-theme-wombat)
-(require-package 'spacegray-theme)
 (require 'spacegray-theme)
 (require 'color-theme-zenburn)
 
