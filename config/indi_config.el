@@ -5,11 +5,14 @@
 
 (require-package 'color-theme-solarized)
 (require-package 'color-theme-wombat)
+(require-package 'spacegray-theme)
+(require 'spacegray-theme)
 (require 'color-theme-zenburn)
+
 ;;(load-theme 'dichromacy)
-(color-theme-zenburn)
-(add-to-list 'default-frame-alist '(font . "Ubuntu Mono 11"))
-(set-face-attribute 'default t :font "Ubuntu Mono 11")
+;;(color-theme-zenburn)
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 11"))
+(set-face-attribute 'default t :font "DejaVu Sans Mono 11")
 
 (define-key key-translation-map [dead-circumflex] "^")
 (require-package 'evil)
@@ -33,18 +36,17 @@
 
 (require-package 'powerline)
 (require 'powerline)
-(powerline-default-theme)
-(require-package 'powerline-evil)
-(require 'powerline-evil)
 (setq powerline-color1 "#657b83")
 (setq powerline-color2 "#839496")
+(powerline-default-theme)
 
 (set-face-attribute 'mode-line nil
                     :foreground "#fdf6e3"
-                    :background "#3060aa"
+                    :background "#8ec200"
                     :box nil)
 (set-face-attribute 'mode-line-inactive nil
-		    :background "#eeeeee"
+		    :background "#83a9ce"
+		    :foreground "#666666"
                     :box nil)
 
 ;; install smart parens
