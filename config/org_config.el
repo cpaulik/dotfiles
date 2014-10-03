@@ -4,9 +4,6 @@
 (setq org-agenda-span 'day)
 (setq org-default-notes-file "~/Dropbox/org/refile.org")
 
-(setq org-agenda-files (quote ("~/Dropbox/org"
-			       "~/Dropbox/Arbeit/organisation"
-			       "~/Dropbox/Arbeit/organisation/projects")))
 
 (setq org-mobile-inbox-for-pull "~/Dropbox/org/mobileinbox.org")
 (setq org-directory "~/Dropbox/org")
@@ -240,7 +237,7 @@ link))
   (interactive)
   (save-excursion
     (beginning-of-line 0)
-    (org-remove-empty-drawer-at "LOGBOOK" (point))))
+    (org-remove-empty-drawer-at (point))))
 
 (add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
 
