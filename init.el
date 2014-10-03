@@ -2,6 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/config/org-mode/lisp")
 (add-to-list 'load-path "~/.emacs.d/config/org-mode/contrib/lisp" t)
 (add-to-list 'load-path "~/.emacs.d/config/org-reveal" t)
+(add-to-list 'load-path "~/.emacs.d/config/evil-rebellion" t)
 (require 'init-packages)
 
 (require-package 'load-relative)
@@ -10,6 +11,8 @@
 (package-initialize)
 (require 'indi_config)
 (require 'org_config)
+(setq org-agenda-files (quote ("~/Dropbox/org"
+			       )))
 (require 'mu4e_config)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
