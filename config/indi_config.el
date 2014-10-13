@@ -14,6 +14,10 @@
 (set-face-attribute 'default t :font "DejaVu Sans Mono 10")
 
 (define-key key-translation-map [dead-circumflex] "^")
+(define-key key-translation-map [dead-acute] "´")
+(define-key key-translation-map [S-dead-grave] "`")
+
+
 (require-package 'evil)
 (require-package 'evil-leader)
 (require-package 'evil-numbers)
@@ -113,7 +117,7 @@
 (require-package 'python-mode)
 (autoload 'python-mode "python-mode" "Python Mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
- (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
 ;;(setq
 ;; python-shell-interpreter "ipython"
 ;; python-shell-prompt-regexp "In \\[[0-9]+\\]: "
@@ -136,6 +140,7 @@
 ;; bind to C-c t
 (add-hook 'python-mode-hook
 	  (lambda () (local-set-key (kbd "C-c t") 'py-test-current)))
+
 
 
 (require-package 'py-autopep8)
@@ -214,9 +219,6 @@
 (setq inhibit-splash-screen t)		; no splash screen, thanks
 (line-number-mode 1)			; have line numbers and
 (column-number-mode 1)			; column numbers in the mode line
-
-(global-linum-mode 0)			; add line numbers on the left
-(add-hook 'prog-mode-hook 'linum-mode)
 
 ;;setup ido
 ;(require 'ido)
@@ -359,4 +361,15 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js?\\'" . web-mode))
 
+(global-linum-mode 0)			; add line numbers on the left
+(add-hook 'prog-mode-hook 'linum-mode)
+
+;; bind umlaut keys to brackets in prog mode
+(add-hook 'prog-mode-hook
+	  (lambda ()
+	    (define-key prog-mode-map "ö" "[" )
+	    (define-key prog-mode-map "ä" "]" )
+	    (define-key prog-mode-map "Ä" "}" )
+	    (define-key prog-mode-map "Ö" "{" )
+	    ))
 (provide 'indi_config)
