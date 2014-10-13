@@ -32,6 +32,7 @@
 (setq evil-default-cursor t)
 (require 'evil-surround)
 (global-evil-surround-mode 1)
+(require 'evil-rebellion)
 
 (require-package 'powerline)
 (require 'powerline)

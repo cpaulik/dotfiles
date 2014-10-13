@@ -4,3 +4,6 @@
 [submodule "config/org-reveal"]
 	path = config/org-reveal
 	url = https://github.com/yjwen/org-reveal.git
+[submodule "config/evil-rebellion"]
+	path = config/evil-rebellion
+	url = https://github.com/tarleb/evil-rebellion
