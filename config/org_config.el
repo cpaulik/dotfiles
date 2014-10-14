@@ -1,6 +1,6 @@
 ;; setup standard org notes file
 (require 'org)
-(setq org-src-fontify-natively t)
+(setq org-src-fontify-natively 1)
 (setq org-agenda-span 'day)
 (setq org-default-notes-file "~/Dropbox/org/refile.org")
 
