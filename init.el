@@ -11,7 +11,10 @@
 (package-initialize)
 (require 'indi_config)
 (require 'org_config)
+
+(require 'org_jekyll)
 (setq org-agenda-files (quote ("~/Dropbox/org"
+			       "~/Dropbox/Arbeit/organisation/pytesmo.org"
 			       )))
 (require 'mu4e_config)
 (custom-set-variables
