@@ -1,4 +1,4 @@
-(defvar jekyll-directory (expand-file-name "~/workspace/website/")
+(defvar jekyll-directory (expand-file-name "~/workspace/website/org/")
   "Path to Jekyll blog.")
 (defvar jekyll-drafts-dir "_drafts/"
   "Relative path to drafts directory.")
@@ -59,12 +59,33 @@
       (find-file filename)
       (set-window-point (selected-window) old-point)))))
 
+(defun org-custom-link-img-follow (path)
+  (org-open-file-with-emacs
+   (format "../assets/article_images/%s" path)))
+
+(defun org-custom-link-img-export (path desc format)
+  (cond
+   ((eq format 'html)
+    (format "<img src=\"/assets/article_images/%s\" alt=\"%s\"/>" path desc))))
+
+(defun org-custom-link-header-img-follow (path)
+  (org-open-file-with-emacs
+   (format "../assets/header_images/%s" path)))
+
+(defun org-custom-link-header-img-export (path desc form)
+  (cond
+   ((eq form 'html)
+    (format "" ))))
+(org-add-link-type "img" 'org-custom-link-img-follow 'org-custom-link-img-export)
+(org-add-link-type "header-img" 'org-custom-link-header-img-follow 'org-custom-link-header-img-export)
 (setq org-publish-project-alist
       '(("jekyll-cpaulik-github-io" ;; settings for cute-jumper.github.io
-         :base-directory "~/workspace/website/"
+         :base-directory "~/workspace/website/org/"
          :base-extension "org"
          :publishing-directory "~/workspace/website/cpaulik.github.io"
          :recursive t
+	 :exclude-tags "noblogexport"
+	 :section-numbers nil
          :publishing-function org-html-publish-to-html
          :with-toc nil
          :headline-levels 4
@@ -72,4 +93,16 @@
          :auto-sitemap nil
          :html-extension "html"
          :body-only t)))
+
+(add-to-list 'org-publish-project-alist
+             `("cp-img"
+               :base-directory "~/workspace/website/org/"
+               :recursive t
+               :exclude "^publish"
+               :base-extension "jpg\\|gif\\|png"
+	       :publishing-directory "~/workspace/website/cpaulik.github.io"
+               :publishing-function org-publish-attachment))
+(add-to-list 'org-publish-project-alist
+             '("cp-blog" :components ("jekyll-cpaulik-github-io"
+                                 "cp-img")))
 (provide 'org_jekyll)
