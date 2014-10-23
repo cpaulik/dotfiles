@@ -5,8 +5,8 @@
 
 (require-package 'color-theme-solarized)
 (require-package 'color-theme-wombat)
-(require 'spacegray-theme)
-(require 'color-theme-zenburn)
+(require 'material-theme)
+;;(require 'color-theme-zenburn)
 
 ;;(load-theme 'dichromacy)
 ;;(color-theme-zenburn)
@@ -91,6 +91,9 @@
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 3)))
 (setq mouse-wheel-progressive-speed nil)
 (setq scroll-step 3)
+
+;; setup visual line mode
+(global-visual-line-mode)
 
 ;;set cursor colors manually
 ;;(setq evil-emacs-state-cursor '("red" box))
