@@ -66,6 +66,7 @@
 (require 'ox-texinfo)
 (require 'ox-beamer)
 (require 'ox-html)
+(require 'ox-md)
 
 (require 'ox-reveal)
 
