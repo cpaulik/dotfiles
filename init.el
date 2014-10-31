@@ -12,11 +12,11 @@
 (require 'indi_config)
 (require 'org_config)
 
-(require 'org_jekyll)
 (setq org-agenda-files (quote ("~/Dropbox/org"
-			       "~/Dropbox/Arbeit/organisation/pytesmo.org"
-			       )))
-(require 'mu4e_config)
+			       "~/Dropbox/Arbeit/organisation"
+                               "~/Dropbox/Arbeit/organisation/projects")))
+;;(require 'mu4e_config)
+(require 'org_jekyll)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

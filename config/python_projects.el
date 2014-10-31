@@ -7,7 +7,7 @@
 (defun pytesmo_env ()
   (interactive)
   (venv-workon "pytesmo_development")
-  (setenv "PYTHONPATH" "/home/cp/workspace/pytesmo")
+  (setenv "PYTHONPATH" "/media/sf_H/Development/python/pytesmo")
   (setq default-directory "/home/cp/workspace/pytesmo")
 )
 (defun geo_env ()

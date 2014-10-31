@@ -10,8 +10,8 @@
 
 ;;(load-theme 'dichromacy)
 ;;(color-theme-zenburn)
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 11"))
-(set-face-attribute 'default t :font "DejaVu Sans Mono 11")
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono 10"))
+(set-face-attribute 'default t :font "DejaVu Sans Mono 10")
 
 (define-key key-translation-map [dead-circumflex] "^")
 (define-key key-translation-map [dead-acute] "´")
