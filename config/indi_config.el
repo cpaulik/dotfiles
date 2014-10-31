@@ -375,4 +375,9 @@
 	    (define-key prog-mode-map "Ä" "}" )
 	    (define-key prog-mode-map "Ö" "{" )
 	    ))
+
+;; disable yasnippets in term mode
+(add-hook 'term-mode-hook (lambda()
+			    (setq yas-dont-activate t)))
+(add-hook 'term-mode-hook 'evil-emacs-state)
 (provide 'indi_config)
