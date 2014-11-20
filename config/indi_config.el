@@ -38,6 +38,11 @@
 (global-evil-surround-mode 1)
 (require 'evil-rebellion)
 
+(define-key evil-normal-state-map (kbd "<C-j>")  'windmove-down)
+(define-key evil-normal-state-map (kbd "<C-k>")  'windmove-up)
+(define-key evil-normal-state-map (kbd "<C-h>")  'windmove-left)
+(define-key evil-normal-state-map (kbd "<C-l>")  'windmove-right)
+
 (require-package 'powerline)
 (require 'powerline)
 (setq powerline-color1 "#657b83")
