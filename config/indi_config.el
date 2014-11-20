@@ -76,6 +76,10 @@
 (require-package 'markdown-mode)
 (require 'markdown-mode)
 
+;; yaml mode
+(require-package 'yaml-mode)
+(require 'yaml-mode)
+
 (require-package 'yasnippet)
 (require 'yasnippet)
 (yas-global-mode 1)
