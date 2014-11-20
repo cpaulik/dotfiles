@@ -72,6 +72,10 @@
 (ac-set-trigger-key "TAB")
 (add-to-list 'ac-modes 'org-mode)
 
+;; markdown mode
+(require-package 'markdown-mode)
+(require 'markdown-mode)
+
 (require-package 'yasnippet)
 (require 'yasnippet)
 (yas-global-mode 1)
