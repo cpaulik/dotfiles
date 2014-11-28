@@ -17,6 +17,8 @@
 (define-key key-translation-map [dead-acute] "´")
 (define-key key-translation-map [S-dead-grave] "`")
 
+;; convenient window configuration switching with C-c <left> and C-c <right>
+(winner-mode 1)
 
 (require-package 'evil)
 (require-package 'evil-leader)
@@ -196,6 +198,8 @@
 (require-package 'flycheck-tip)
 (require 'flycheck-tip)
 (flycheck-tip-use-timer 'verbose)
+(require-package 'flycheck-pyflakes)
+(require 'flycheck-pyflakes)
 
 (defun turn-on-flyspell ()
   "Force flyspell mode on using a positive argument. for use in hooks"
