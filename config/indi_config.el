@@ -20,6 +20,8 @@
 (require-package 'ecb)
 (require 'ecb)
 
+;; convenient window configuration switching with C-c <left> and C-c <right>
+(winner-mode 1)
 
 (require-package 'evil)
 (require-package 'evil-leader)
@@ -40,6 +42,11 @@
 (require 'evil-surround)
 (global-evil-surround-mode 1)
 (require 'evil-rebellion)
+
+(define-key evil-normal-state-map (kbd "<C-j>")  'windmove-down)
+(define-key evil-normal-state-map (kbd "<C-k>")  'windmove-up)
+(define-key evil-normal-state-map (kbd "<C-h>")  'windmove-left)
+(define-key evil-normal-state-map (kbd "<C-l>")  'windmove-right)
 
 (require-package 'powerline)
 (require 'powerline)
@@ -69,6 +76,14 @@
 (global-auto-complete-mode t)
 (ac-set-trigger-key "TAB")
 (add-to-list 'ac-modes 'org-mode)
+
+;; markdown mode
+(require-package 'markdown-mode)
+(require 'markdown-mode)
+
+;; yaml mode
+(require-package 'yaml-mode)
+(require 'yaml-mode)
 
 (require-package 'yasnippet)
 (require 'yasnippet)
@@ -186,6 +201,8 @@
 (require-package 'flycheck-tip)
 (require 'flycheck-tip)
 (flycheck-tip-use-timer 'verbose)
+(require-package 'flycheck-pyflakes)
+(require 'flycheck-pyflakes)
 
 (defun turn-on-flyspell ()
   "Force flyspell mode on using a positive argument. for use in hooks"
