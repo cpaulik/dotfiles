@@ -98,6 +98,7 @@
 (add-hook 'org-mode-hook 'org-indent-mode)
 (add-hook 'org-mode-hook 'auto-fill-mode)
 (require 'ox-latex)
+(setq org-latex-table-caption-above nil)
 (add-to-list 'org-latex-classes
              '("article"
                "\\documentclass{article}
