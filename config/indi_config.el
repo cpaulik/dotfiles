@@ -17,6 +17,9 @@
 (define-key key-translation-map [dead-acute] "´")
 (define-key key-translation-map [S-dead-grave] "`")
 
+(require-package 'ecb)
+(require 'ecb)
+
 
 (require-package 'evil)
 (require-package 'evil-leader)

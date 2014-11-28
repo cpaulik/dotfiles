@@ -98,19 +98,23 @@
 (add-hook 'org-mode-hook 'org-indent-mode)
 (add-hook 'org-mode-hook 'auto-fill-mode)
 (require 'ox-latex)
-(unless (boundp 'org-export-latex-classes)
-  (setq org-export-latex-classes nil))
-(add-to-list 'org-export-latex-classes
+(add-to-list 'org-latex-classes
              '("article"
                "\\documentclass{article}
-\\usepackage[latin1]{inputenc}
+\\usepackage{geometry}
+\\geometry{a4paper, textwidth=6.5in, textheight=10in,
+            marginparsep=7pt, marginparwidth=.6in}
 \\usepackage{tabulary}"
-               ("\\section{%s}" . "\\section*{%s}")))
-
+     ("\\section{%s}" . "\\section*{%s}")
+     ("\\subsection{%s}" . "\\subsection*{%s}")
+     ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+     ("\\paragraph{%s}" . "\\paragraph*{%s}")
+     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python . t)
-   (ditaa . t))
+   (ditaa . t)
+   (R . t))
  )
 
 (setq org-confirm-babel-evaluate nil)

@@ -1,8 +1,5 @@
 ; set virtualenv locations
-(setq venv-location '("~/myenv/"
-		      "~/pytesmo_development/"
-		      "~/swi_dev/")
-)
+(setq venv-location "~/.virtualenvs/")
 ;; set pytesmo development environment
 (defun pytesmo_env ()
   (interactive)
