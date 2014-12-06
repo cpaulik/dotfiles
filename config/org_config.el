@@ -102,7 +102,7 @@
 '(org-latex-pdf-process
    (quote
     ("pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f" "pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f" "pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f")))
-'(org-latex-table-caption-above nil)
+(setq org-latex-table-caption-above nil)
 (add-to-list 'org-latex-classes
              '("article"
                "\\documentclass{article}
