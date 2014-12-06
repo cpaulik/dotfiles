@@ -23,6 +23,11 @@
 ;; convenient window configuration switching with C-c <left> and C-c <right>
 (winner-mode 1)
 
+(require-package 'ace-jump-mode)
+(require 'ace-jump-mode)
+(define-key evil-motion-state-map (kbd "SPC") #'evil-ace-jump-char-mode)
+(define-key evil-motion-state-map (kbd "C-SPC") #'evil-ace-jump-word-mode)
+
 (require-package 'evil)
 (require-package 'evil-leader)
 (require-package 'evil-numbers)
