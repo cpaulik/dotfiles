@@ -23,10 +23,6 @@
 ;; convenient window configuration switching with C-c <left> and C-c <right>
 (winner-mode 1)
 
-(require-package 'ace-jump-mode)
-(require 'ace-jump-mode)
-(define-key evil-motion-state-map (kbd "SPC") #'evil-ace-jump-char-mode)
-(define-key evil-motion-state-map (kbd "C-SPC") #'evil-ace-jump-word-mode)
 
 (require-package 'evil)
 (require-package 'evil-leader)
@@ -52,6 +48,11 @@
 (define-key evil-normal-state-map (kbd "<C-k>")  'windmove-up)
 (define-key evil-normal-state-map (kbd "<C-h>")  'windmove-left)
 (define-key evil-normal-state-map (kbd "<C-l>")  'windmove-right)
+
+(require-package 'ace-jump-mode)
+(require 'ace-jump-mode)
+(define-key evil-motion-state-map (kbd "SPC") #'evil-ace-jump-char-mode)
+(define-key evil-motion-state-map (kbd "C-SPC") #'evil-ace-jump-word-mode)
 
 (require-package 'powerline)
 (require 'powerline)
