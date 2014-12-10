@@ -17,8 +17,12 @@
 (define-key key-translation-map [dead-acute] "´")
 (define-key key-translation-map [S-dead-grave] "`")
 
+(require-package 'ecb)
+(require 'ecb)
+
 ;; convenient window configuration switching with C-c <left> and C-c <right>
 (winner-mode 1)
+
 
 (require-package 'evil)
 (require-package 'evil-leader)
@@ -44,6 +48,11 @@
 (define-key evil-normal-state-map (kbd "<C-k>")  'windmove-up)
 (define-key evil-normal-state-map (kbd "<C-h>")  'windmove-left)
 (define-key evil-normal-state-map (kbd "<C-l>")  'windmove-right)
+
+(require-package 'ace-jump-mode)
+(require 'ace-jump-mode)
+(define-key evil-motion-state-map (kbd "SPC") #'evil-ace-jump-char-mode)
+(define-key evil-motion-state-map (kbd "C-SPC") #'evil-ace-jump-word-mode)
 
 (require-package 'powerline)
 (require 'powerline)
@@ -392,4 +401,9 @@
 	    (define-key prog-mode-map "Ä" "}" )
 	    (define-key prog-mode-map "Ö" "{" )
 	    ))
+
+;; disable yasnippets in term mode
+(add-hook 'term-mode-hook (lambda()
+			    (setq yas-dont-activate t)))
+(add-hook 'term-mode-hook 'evil-emacs-state)
 (provide 'indi_config)
