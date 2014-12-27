@@ -7,3 +7,6 @@
 [submodule "config/evil-rebellion"]
 	path = config/evil-rebellion
 	url = https://github.com/tarleb/evil-rebellion
+[submodule "config/helm-bibtex"]
+	path = config/helm-bibtex
+	url = http://github.com/tmalsburg/helm-bibtex

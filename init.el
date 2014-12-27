@@ -3,6 +3,7 @@
 (add-to-list 'load-path "~/.emacs.d/config/org-mode/contrib/lisp" t)
 (add-to-list 'load-path "~/.emacs.d/config/org-reveal" t)
 (add-to-list 'load-path "~/.emacs.d/config/evil-rebellion" t)
+(add-to-list 'load-path "~/.emacs.d/config/helm-bibtex" t)
 (require 'init-packages)
 
 (require-package 'load-relative)
@@ -18,6 +19,7 @@
 ;;(require 'mu4e_config)
 (require 'org_jekyll)
 (require 'org-pelican)
+(require 'research_config)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
