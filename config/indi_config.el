@@ -23,6 +23,10 @@
 ;; convenient window configuration switching with C-c <left> and C-c <right>
 (winner-mode 1)
 
+(require-package 'writeroom-mode)
+(require 'writeroom-mode)
+(require-package 'writegood-mode)
+(require 'writegood-mode)
 
 (require-package 'evil)
 (require-package 'evil-leader)

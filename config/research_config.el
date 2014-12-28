@@ -10,4 +10,13 @@
 (setq helm-bibtex-pdf-open-function
   (lambda (fpath)
     (start-process "evince" "*evince*" "evince" fpath)))
+(setq helm-bibtex-format-citation-functions
+   (quote
+    ((org-mode . helm-bibtex-format-citation-cite)
+     (latex-mode . helm-bibtex-format-citation-cite)
+     (markdown-mode . helm-bibtex-format-citation-pandoc-citeproc)
+     (default . helm-bibtex-format-citation-default))))
+
+(define-key global-map (kbd "C-c )") 'helm-bibtex)
+
 (provide 'research_config)
