@@ -37,6 +37,7 @@
  '(org-html-table-caption-above nil)
  '(org-html-toplevel-hlevel 3)
  '(user-full-name "Christoph Paulik")
+ '(user-mail-address "cpaulik@gmail.com")
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
