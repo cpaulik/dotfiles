@@ -80,13 +80,15 @@
 
 (global-auto-revert-mode)
 
-;; enable auto-complete mode
-(require-package 'auto-complete)
-(require 'auto-complete)
-(global-auto-complete-mode t)
-(ac-set-trigger-key "TAB")
-(add-to-list 'ac-modes 'org-mode)
+(require-package 'company)
+(require 'company)
+(global-company-mode t)
 
+(require-package 'anaconda-mode)
+(require 'anaconda-mode)
+(require-package 'company-anaconda)
+(require 'company-anaconda)
+(add-to-list 'company-backends 'company-anaconda)
 ;; markdown mode
 (require-package 'markdown-mode)
 (require 'markdown-mode)
@@ -142,13 +144,19 @@
 (require-package 'dirtree)
 (require 'dirtree)
 
-(require-package 'virtualenvwrapper)
-(require 'virtualenvwrapper)
 ;;setup python mode
 (require-package 'python-mode)
 (autoload 'python-mode "python-mode" "Python Mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+(add-hook 'python-mode-hook 'anaconda-mode)
+;; set anaconda mode keys
+(add-hook 'python-mode-hook
+	  (lambda () (local-set-key (kbd "C-c d") 'anaconda-mode-view-doc)))
+(add-hook 'python-mode-hook
+	  (lambda () (local-set-key (kbd "C-c .") 'anaconda-mode-goto-definitions)))
+(add-hook 'python-mode-hook
+	  (lambda () (local-set-key (kbd "C-c ,") 'anaconda-nav-pop-marker)))
 ;;(setq
 ;; python-shell-interpreter "ipython"
 ;; python-shell-prompt-regexp "In \\[[0-9]+\\]: "
@@ -186,18 +194,15 @@
     (setenv "PYTHONPATH" path-from-shell)))
 
 (if window-system (set-python-path-from-shell-PYTHONPATH))
-;;setup jedi
-(require-package 'python-environment)
-(require-package 'jedi)
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:setup-keys t)                      ; optional
-(setq jedi:complete-on-dot t)                 ; optional
+
 
 ;; setup virtualenvwrapper
 (require-package 'virtualenvwrapper)
 (require 'virtualenvwrapper)
 (venv-initialize-interactive-shells)
 (venv-initialize-eshell)
+(require-package 'pyvenv)
+(require 'pyvenv)
 
 ;; Make C-c C-c behave like C-u C-c C-c in Python mode which allows for code in __main__ block
 ;(define-key python-mode-map (kbd "C-c C-c")
@@ -222,7 +227,6 @@
 (add-hook 'message-mode-hook 'turn-on-flyspell)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
-(call-interactively 'ac-flyspell-workaround)
 (load-library "ispell")
 (add-to-list 'ispell-local-dictionary-alist
                 '("deutsch8"
