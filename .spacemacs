@@ -10,7 +10,7 @@
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
  dotspacemacs-configuration-layer-path '()
  ;; List of configuration layers to load.
- dotspacemacs-configuration-layers '(python git research-config)
+ dotspacemacs-configuration-layers '(python git research-config custom_org_config)
  ;; A list of packages and/or extensions that will not be install and loaded.
  dotspacemacs-excluded-packages '()
 )
@@ -84,12 +84,12 @@
 (defun dotspacemacs/init ()
   "User initialization for Spacemacs. This function is called at the very
  startup."
-  (add-to-list 'load-path "~/.emacs.additional/org-mode/lisp")
-  (add-to-list 'load-path "~/.emacs.additional/org-mode/contrib/lisp" t)
-  (add-to-list 'load-path "~/.emacs.additional" t)
-  (add-to-list 'load-path "~/.emacs.additional/org-reveal" t)
+  (add-to-list 'load-path "~/.spacemacs-config/org-mode/lisp")
+  (add-to-list 'load-path "~/.spacemacs-config/org-mode/contrib/lisp" t)
+  (add-to-list 'load-path "~/.spacemacs-config" t)
+  (add-to-list 'load-path "~/.spacemacs-config/org-reveal" t)
   (require 'init-packages)
-  (require 'org_config)
+  ;;(require 'org_config)
   )
 
 (defun dotspacemacs/config ()

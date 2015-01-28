@@ -1,10 +1,14 @@
 * approx. Installation (not tested)
+clone spacemacs into .emacs.d
 #+BEGIN_SRC shell
-$ mkdir ~/.emacs.d
-$ cd ~/.emacs.d
-$ git clone https://github.com/cpaulik/emacsconfig .
+$ cd ~
+$ git init
+$ git remote add origin https://github.com/cpaulik/emacsconfig
+$ git pull -u origin master
 $ git submodule init
 $ git submodule update
-$ cd config/org-mode
+$ rm -rf .emacs.d/private
+$ ln -s ~/.spacemacs-config/config-layers ~/.emacs.d/private
+$ cd .spacemacs-config/org-mode
 $ make autoloads
 #+END_SRC
