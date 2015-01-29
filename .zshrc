@@ -61,6 +61,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # set full color terminal
 export TERM=xterm-256color
+# set default editor
+export EDITOR=vim
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
