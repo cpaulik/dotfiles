@@ -5,3 +5,6 @@
 	path = .spacemacs-config/org-reveal
 	url = https://github.com/yjwen/org-reveal.git
 
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = ./.oh-my-zsh
