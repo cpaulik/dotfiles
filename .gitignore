@@ -3,3 +3,4 @@
 !.spacemacs-config/
 !.zshrc
 !.oh-my-zsh
+!.tmux.conf
