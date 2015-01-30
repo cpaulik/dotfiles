@@ -2,5 +2,5 @@
 *~
 !.spacemacs-config/
 !.zshrc
-!.oh-my-zsh
+!.oh-my-zsh/
 !.tmux.conf
