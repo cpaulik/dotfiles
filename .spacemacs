@@ -73,11 +73,22 @@
  dotspacemacs-default-package-repository nil
  )
 ;; set the default font
+(when (string= system-name "pydev")
+  ;; work virtual machine
+(setq dotspacemacs-default-font '("Source Code Pro"
+                                  :size 14
+                                          :weight normal
+                                          :width normal
+                                          :powerline-scale 1.3))
+  )
+(when (string= system-name "cp")
+  ;; home laptop with hdpi screen
 (setq dotspacemacs-default-font '("Source Code Pro"
                                   :size 22
                                           :weight normal
                                           :width normal
                                           :powerline-scale 1.3))
+  )
 ;; Initialization Hooks
 ;; --------------------
 
