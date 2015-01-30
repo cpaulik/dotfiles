@@ -89,3 +89,4 @@ export EDITOR=vim
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ec="emacsclient $1"
 alias eserv="emacs --daemon"
+alias phpserv="php -S 0.0.0.0:8000"
