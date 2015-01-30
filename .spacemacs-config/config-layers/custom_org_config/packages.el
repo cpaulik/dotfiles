@@ -59,6 +59,9 @@ which require an initialization must be listed explicitly in the list.")
         (run-with-idle-timer
          (* 1 secs) nil 'org-mobile-push)))
 
+(evil-leader/set-key-for-mode 'org-mode
+        "m'" 'org-edit-special)
+(evil-leader/set-key "m'" 'org-edit-src-exit)
 (add-hook 'after-save-hook
  (lambda ()
    (when (eq major-mode 'org-mode)
