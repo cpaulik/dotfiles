@@ -62,6 +62,15 @@ which require an initialization must be listed explicitly in the list.")
 (evil-leader/set-key-for-mode 'org-mode
         "m'" 'org-edit-special)
 (evil-leader/set-key "m'" 'org-edit-src-exit)
+
+;; set org agenda global
+(evil-leader/set-key "oo" 'org-agenda)
+(evil-leader/set-key "oc" 'org-capture)
+
+;; set punch in and out keys
+
+(evil-leader/set-key "oI" 'bh/punch-in)
+(evil-leader/set-key "oO" 'bh/punch-out)
 (add-hook 'after-save-hook
  (lambda ()
    (when (eq major-mode 'org-mode)
