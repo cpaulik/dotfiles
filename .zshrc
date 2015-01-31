@@ -63,6 +63,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 export TERM=xterm-256color
 # set default editor
 export EDITOR=vim
+
+# set path for miniconda
+export PATH="$HOME/miniconda/bin:$PATH"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
