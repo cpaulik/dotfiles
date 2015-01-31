@@ -7,8 +7,8 @@ $ git remote add origin https://github.com/cpaulik/emacsconfig
 $ git pull -u origin master
 $ git submodule init
 $ git submodule update
-$ rm -rf .emacs.d/private
-$ ln -s ~/.spacemacs-config/config-layers/ ~/.emacs.d/private
+$ ln -s ~/.spacemacs-config/config-layers/* ~/.emacs.d/private
+$ ln -s ~/.spacemacs-config/snippets/* ~/.emacs.d/private/snippets
 $ cd .spacemacs-config/org-mode
 $ make autoloads
 $ cd ~/.oh-my-zsh/custom/plugins
