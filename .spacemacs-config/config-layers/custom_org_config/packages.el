@@ -77,18 +77,6 @@ which require an initialization must be listed explicitly in the list.")
 ;; fetch changes from mobile org
 (org-mobile-pull) ;; run org-mobile-pull at startup
 
-;;(defun install-monitor (f p)
-;;  (run-with-timer
-;;   0 secs
-;;   (lambda (f p)
-;;     (unless (< p (second (time-since (elt (file-attributes f) 5))))
-;;       (org-mobile-pull)))))
-;;
-;;(install-monitor (file-truename
-;;                  (concat
-;;                   (file-name-as-directory org-mobile-directory)
-;;                          org-mobile-capture-file))
-;;                 5)
 
 ;; Do a pull every 5 minutes to circumvent problems with timestamping
 ;; (ie. dropbox bugs)
