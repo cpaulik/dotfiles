@@ -10,7 +10,13 @@
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
  dotspacemacs-configuration-layer-path '()
  ;; List of configuration layers to load.
- dotspacemacs-configuration-layers '(python git research-config custom_org_config my_python auctex)
+ dotspacemacs-configuration-layers '(python
+                                     git
+                                     research-config
+                                     custom_org_config
+                                     my_python
+                                     auctex
+                                     themes-megapack)
  ;; A list of packages and/or extensions that will not be install and loaded.
  dotspacemacs-excluded-packages '()
 )
