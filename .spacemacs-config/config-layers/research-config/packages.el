@@ -40,7 +40,8 @@ which require an initialization must be listed explicitly in the list.")
         (markdown-mode . helm-bibtex-format-citation-pandoc-citeproc)
         (default . helm-bibtex-format-citation-default))))
    
-   (define-key global-map (kbd "C-c )") 'helm-bibtex)
+   (setq helm-bibtex-additional-search-fields '(keywords journal))
+   (evil-leader/set-key "or" 'helm-bibtex)
    )
 ;;
 ;; Often the body of an initialize function uses `use-package'
