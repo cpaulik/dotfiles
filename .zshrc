@@ -45,7 +45,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found debian dirhistory pip python wd zsh-syntax-highlighting)
+plugins=(git command-not-found debian dirhistory pip python wd zsh-syntax-highlighting virtualenv)
 
 # User configuration
 
@@ -55,7 +55,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 
 # environment variables for virtualenvwrapper
-export WORKON_HOME=$HOME/.PEnvs
+export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/workspace
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -65,7 +65,7 @@ export TERM=xterm-256color
 export EDITOR=vim
 
 # set path for miniconda
-export PATH="$HOME/miniconda/bin:$PATH"
+# # export PATH="$HOME/miniconda/bin:$PATH"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
