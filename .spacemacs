@@ -16,6 +16,7 @@
                                      custom_org_config
                                      my_python
                                      auctex
+                                     company-mode
                                      themes-megapack)
  ;; A list of packages and/or extensions that will not be install and loaded.
  dotspacemacs-excluded-packages '()
@@ -135,6 +136,7 @@ This function is called at the very end of Spacemacs initialization."
 (define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
 (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
 (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
+(setq company-idle-delay 0.5)
 )
 
 
