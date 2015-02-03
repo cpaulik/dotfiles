@@ -137,6 +137,17 @@ This function is called at the very end of Spacemacs initialization."
 (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
 (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 (setq company-idle-delay 0.5)
+(setq golden-ratio-extra-commands
+      (append golden-ratio-extra-commands
+              '(evil-window-left
+                evil-window-right
+                evil-window-up
+                evil-window-down
+                select-window-1
+                select-window-2
+                select-window-3
+                select-window-4
+                select-window-5)))
 )
 
 
