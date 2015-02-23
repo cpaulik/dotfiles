@@ -112,8 +112,6 @@ preview-scale-function 1.6
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-mode/contrib/lisp" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-reveal" t)
-  (require 'init-packages)
-  ;;(require 'org_config)
   (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (replace-regexp-in-string
                           "[ \t\n]*$"

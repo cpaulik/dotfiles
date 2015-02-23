@@ -37,6 +37,7 @@ which require an initialization must be listed explicitly in the list.")
 ;;   "Initialize my package"
 ;;load exporters for odt and texinfo - new in org 8
 (require 'org)
+(require 'org-pelican)
 (setq org-src-fontify-natively 1)
 (setq org-agenda-span 'day)
 (setq org-default-notes-file "~/Dropbox/org/refile.org")
