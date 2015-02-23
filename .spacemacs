@@ -16,6 +16,7 @@
                                      custom_org_config
                                      my_python
                                      auctex
+                                     php
                                      company-mode
                                      themes-megapack)
  ;; A list of packages and/or extensions that will not be install and loaded.
