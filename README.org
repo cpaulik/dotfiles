@@ -1,16 +1,2 @@
-* approx. Installation (not tested)
-clone spacemacs into .emacs.d
-#+BEGIN_SRC shell
-$ cd ~
-$ git init
-$ git remote add origin https://github.com/cpaulik/emacsconfig
-$ git pull -u origin master
-$ git submodule init
-$ git submodule update
-$ ln -s ~/.spacemacs-config/config-layers/* ~/.emacs.d/private
-$ ln -s ~/.spacemacs-config/snippets/* ~/.emacs.d/private/snippets
-$ cd .spacemacs-config/org-mode
-$ make autoloads
-$ cd ~/.oh-my-zsh/custom/plugins
-$ git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-#+END_SRC
+* Installation including setup of spacemacs and oh-my-zsh
+clone this repository and call the =install_script=

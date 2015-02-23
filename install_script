@@ -1,0 +1,32 @@
+#!/bin/bash
+
+DOTFILES_ROOT=$(pwd)
+
+#symlink dotfiles into home directory
+install_dotfiles () {
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  for src in $(find "$DOTFILES_ROOT/" -maxdepth 2 -name '*.symlink')
+  do
+    dst="$HOME/$(basename "${src%.*}")"
+    ln -s "$src" "$dst"
+  done
+}
+
+install_dotfiles
+#setup oh-my-zsh
+git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
+cd ~/.oh-my-zsh/custom/plugins
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+#setup spacemacs
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+# setup custom configuration layers
+ln -s $DOTFILES_ROOT/.spacemacs-config/config-layers/* ~/.emacs.d/private
+ln -s $DOTFILES_ROOT/.spacemacs-config/snippets/* ~/.emacs.d/private/snippets
+
+#setup submodules of this repository
+git submodule init
+git submodule update
+cd $DOTFILES_ROOT/.spacemacs-config/org-mode
+make autoloads
