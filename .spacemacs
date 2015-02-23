@@ -15,6 +15,7 @@
                                      research-config
                                      custom_org_config
                                      my_python
+                                     markdown
                                      auctex
                                      php
                                      company-mode
