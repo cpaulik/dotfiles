@@ -129,15 +129,18 @@ preview-scale-function 1.6
 (defun dotspacemacs/config ()
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
-(require 'helm)
-(require 'helm-config)
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
-(define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
-(define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
-(define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
+  (use-package helm
+    defer t
+    :init
+    (progn
+        (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
+        (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+        (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+        (define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
+        (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
+        (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
+      )
+    )
 (setq company-idle-delay 0.5)
 (setq flycheck-check-syntax-automatically '(save mode-enabled idle-change))
 (setq flycheck-idle-change-delay 5)
