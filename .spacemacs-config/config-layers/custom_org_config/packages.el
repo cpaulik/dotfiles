@@ -106,11 +106,22 @@ which require an initialization must be listed explicitly in the list.")
 ;;(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (add-hook 'org-mode-hook 'org-indent-mode)
 (add-hook 'org-mode-hook 'auto-fill-mode)
+
 (require 'ox-latex)
-'(org-latex-listings (quote minted))
+(setq org-latex-listings 'minted)
+;; setup minted to have frame, small text and line numbers
+(setq org-latex-minted-options
+           '(("frame" "lines")
+             ("fontsize" "\\scriptsize")
+             ("linenos" "")))
+
+;; setup of latex processing
 (setq org-latex-pdf-process
    (quote
-    ("pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f" "bibtex %b" "pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f" "pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f")))
+    ("pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f"
+     "bibtex %b"
+     "pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f"
+     "pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f")))
 (setq org-latex-table-caption-above nil)
 (setq org-html-table-caption-above nil)
 (add-to-list 'org-latex-classes
