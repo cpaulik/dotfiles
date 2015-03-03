@@ -130,7 +130,9 @@ which require an initialization must be listed explicitly in the list.")
 \\usepackage{geometry}
 \\geometry{a4paper, textwidth=6.5in, textheight=10in,
             marginparsep=7pt, marginparwidth=.6in}
-\\usepackage{tabulary}"
+\\usepackage{tabulary}
+\\usepackage{minted}
+\\usepackage{natbib}"
      ("\\section{%s}" . "\\section*{%s}")
      ("\\subsection{%s}" . "\\subsection*{%s}")
      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
