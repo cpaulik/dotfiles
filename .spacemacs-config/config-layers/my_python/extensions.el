@@ -19,14 +19,19 @@
 (defvar my_python-post-extensions
   '(
     ;; post extension my_pythons go here
+    python-compile
     )
   "List of all extensions to load after the packages.")
 
 ;; For each extension, define a function my_python/init-<extension-my_python>
 ;;
-;; (defun my_python/init-my-extension ()
+(defun my_python/init-python-compile ()
 ;;   "Initialize my extension"
-;;   )
+  (add-hook 'python-mode-hook
+          (lambda ()
+            (set (make-local-variable 'compile-command)
+                 (format "python %s" (file-name-nondirectory buffer-file-name)))))
+)
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
