@@ -31,6 +31,15 @@
           (lambda ()
             (set (make-local-variable 'compile-command)
                  (format "python %s" (file-name-nondirectory buffer-file-name)))))
+(defadvice compile (before ad-compile-smart activate)
+  "Advises `compile' so it sets the argument COMINT to t
+if breakpoints are present in `python-mode' files"
+  (when (derived-mode-p major-mode 'python-mode)
+    (save-excursion
+      (save-match-data
+        (goto-char (point-min))
+            ;; set COMINT argument to `t'.
+            (ad-set-arg 1 t)))))
 )
 ;;
 ;; Often the body of an initialize function uses `use-package'
