@@ -21,8 +21,8 @@
                                        markdown
                                        auctex
                                        php
+                                       html
                                        company-mode
-                                       ace-window
                                        themes-megapack)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
