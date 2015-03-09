@@ -38,7 +38,7 @@
 
     (defadvice compile (before ad-compile-smart activate)
     "Advises `compile' so it sets the argument COMINT to t
-    if breakpoints are present in `python-mode' files"
+    in `python-mode' files"
     (when (derived-mode-p major-mode 'python-mode)
         (save-excursion
         (save-match-data
