@@ -1,11 +1,11 @@
-;;; spacegray-theme.el --- A Hyperminimal UI Theme
+;;; material-theme.el --- A Theme based on the colors of the Google Material Design
 
-;; Copyright (C) 2013 Bruce Williams
+;; Copyright (C) 2014 Paulik Christoph
 
-;; Author: Bruce Williams <brwcodes@gmail.com>
+;; Author: Christoph Paulik <cpaulik@gmail.com>
 ;; Keywords: themes
-;; URL: http://github.com/bruce/emacs-spacegray-theme
-;; Version: 20131230.1127
+;; URL: http://github.com/cpaulik/emacs-material-theme
+;; Version: 2015
 ;; X-Original-Version: 0.1
 ;; Package-Requires: ((emacs "24.1"))
 
@@ -26,21 +26,14 @@
 
 ;; To use it, put the following in your Emacs configuration file:
 ;;
-;;   (load-theme 'spacegray t)
+;;   (load-theme 'material t)
 ;;
 ;; Requirements: Emacs 24.
 
 ;;; Credits:
 
-;; Gadzhi Kharkharov deserves most of the credit for color selection
-;; as the author of the original Spacegray color theme for Sublime Text:
-;; The MIT License (MIT) Copyright (c) 2013 Gadzhi Kharkharov
-;; http://kkga.github.io/spacegray/
-
-;; Also thanks to Ozan Sener for afternoon-theme, used as the boilerplate:
-;; https://github.com/osener/emacs-afternoon-theme/
-;; and Steve Purcell, who wrote color-theme-sanityinc-tomorrow:
-;; https://github.com/purcell/color-theme-sanityinc-tomorrow/
+;; Thanks to Bruce Williams of the Spacegray Theme which was used as the boilerplate:
+;; https://github.com/bruce/emacs-spacegray-theme
 
 ;;; Code:
 
@@ -328,7 +321,7 @@
    `(helm-ff-file ((,class (:foreground ,aqua ))))
    `(helm-ff-directory ((,class (:background ,"#cfd8dc" :foreground ,"#000000"))))
 
-   `(helm-source-header ((,class (:background ,green :height 1.3 :bold t ))))
+   `(helm-source-header ((,class (:background ,far-background :foreground ,foreground :height 1.3 :bold t ))))
 
    ;; mark-multiple
    `(mm/master-face ((,class (:inherit region :foreground nil :background nil))))
