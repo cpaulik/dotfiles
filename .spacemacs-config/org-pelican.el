@@ -1,11 +1,11 @@
 (setq org-publish-project-alist
       '(
         ("base-pages" ;; an identifier
-         :base-directory "~/workspace/pelican_blog/org" ;; path where I put the articles and pages
+         :base-directory "~/workspace/blog/org" ;; path where I put the articles and pages
          :base-extension "org" ;; export org files
          :publishing-function org-html-publish-to-html ;; use the html publishing method
          :auto-sitemap nil ;; don't generate a sitemap (kind of an index per folder)
-         :publishing-directory "~/workspace/pelican_blog/public_html/pages" ;; where to publish those files
+         :publishing-directory "~/workspace/blog/public_html/pages" ;; where to publish those files
          :recursive nil ;; recursively publish the files
          :headline-levels 4 ;; Just the default for this project.
          :auto-preamble nil ;; Don't add any kind of html before the content
@@ -22,18 +22,18 @@
 	 :section-numbers nil ;;
          :exclude-tags ("noexport" "todo")) ;; just in case we don't want to publish some part of the files
         ("blog-static" ;; identifier for static files
-         :base-directory "~/workspace/pelican_blog/org/posts/files" ;; path where I put the articles and pages
-         :publishing-directory "~/workspace/pelican_blog/public_html/files" ;; where to publish those files
+         :base-directory "~/workspace/blog/org/posts/files" ;; path where I put the articles and pages
+         :publishing-directory "~/workspace/blog/public_html/files" ;; where to publish those files
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
          :recursive t
          :publishing-function org-publish-attachment ;; method to use for publishing those files
          )
         ("base-posts" ;; an identifier
-         :base-directory "~/workspace/pelican_blog/org/posts" ;; path where I put the articles and pages
+         :base-directory "~/workspace/blog/org/posts" ;; path where I put the articles and pages
          :base-extension "org" ;; export org files
          :publishing-function org-html-publish-to-html ;; use the html publishing method
          :auto-sitemap nil ;; don't generate a sitemap (kind of an index per folder)
-         :publishing-directory "~/workspace/pelican_blog/public_html" ;; where to publish those files
+         :publishing-directory "~/workspace/blog/public_html" ;; where to publish those files
          :recursive nil ;; recursively publish the files
          :headline-levels 4 ;; Just the default for this project.
          :auto-preamble nil ;; Don't add any kind of html before the content

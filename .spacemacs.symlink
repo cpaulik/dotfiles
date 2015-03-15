@@ -146,6 +146,7 @@ This function is called at the very end of Spacemacs initialization."
 (setq flycheck-check-syntax-automatically '(save mode-enabled idle-change))
 (setq flycheck-idle-change-delay 5)
 (require 'material-theme)
+(require 'org-pelican)
 )
 
 
