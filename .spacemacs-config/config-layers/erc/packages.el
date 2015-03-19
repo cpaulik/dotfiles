@@ -13,6 +13,7 @@
 (defvar erc-packages
   '(
     ;; package ercs go here
+    erc
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
@@ -22,9 +23,35 @@ which require an initialization must be listed explicitly in the list.")
 
 ;; For each package, define a function erc/init-<package-erc>
 ;;
-;; (defun erc/init-my-package ()
-;;   "Initialize my package"
-;;   )
+(defun erc/init-erc ()
+  "Initialize my package"
+  (use-package erc
+    :defer t
+    :init
+    (progn
+    (defun erc-list-command ()
+    "execute the list command"
+    (interactive)
+                 (insert "/list")
+                 (erc-send-current-line))
+      (evil-leader/set-key
+        "ae" 'erc
+        "oi" 'erc-iswitchb)
+      (evil-leader/set-key-for-mode 'erc-mode
+        "mb" 'erc-iswitchb
+        "md" 'erc-input-action
+        "mj" 'erc-join-channel
+        "mn" 'erc-channel-names
+        "mp" 'erc-part-from-channel
+        "mq" 'erc-quit-server
+        "ml" 'erc-list-command
+        )
+      (setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
+      (setq erc-kill-buffer-on-part t)
+      (setq erc-kill-server-buffer-on-quit t)
+      )
+    )
+  )
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
