@@ -16,6 +16,7 @@
    dotspacemacs-configuration-layers '(python
                                        git
                                        research-config
+                                       colors
                                        custom_org_config
                                        my_python
                                        erc
