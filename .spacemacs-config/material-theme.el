@@ -457,8 +457,8 @@
    ;; Powerline
    `(powerline-active1 ((t (:foreground ,foreground :background ,selection))))
    `(powerline-active2 ((t (:foreground ,foreground :background ,current-line))))
-   `(powerline-inactive1 ((t (:foreground ,foreground :background ,comment))))
-   `(powerline-inactive2 ((t (:foreground ,foreground :background ,comment))))
+   `(powerline-inactive1 ((t (:foreground ,comment :background ,"#e0e0e0"))))
+   `(powerline-inactive2 ((t (:foreground ,comment :background ,"#9e9e9e"))))
 
    ;; Outline
    `(outline-1 ((,class (:inherit nil
