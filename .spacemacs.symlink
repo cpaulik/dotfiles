@@ -18,6 +18,7 @@
                                        research-config
                                        colors
                                        custom_org_config
+                                       typing-games
                                        my_python
                                        erc
                                        markdown
@@ -48,7 +49,7 @@
     ;; List of themes, the first of the list is loaded when spacemacs starts.
     ;; Press <SPC> T n to cycle to the next theme in the list (works great
     ;; with 2 themes variants, one dark and one light)
-    dotspacemacs-themes '(zenburn solarized-light monokai adwaita)
+    dotspacemacs-themes '(material solarized-light monokai adwaita)
     ;; The leader key
     dotspacemacs-leader-key "SPC"
     ;; Major mode leader key is a shortcut key which is the equivalent of
@@ -148,7 +149,6 @@ This function is called at the very end of Spacemacs initialization."
 (setq company-idle-delay 0.5)
 (setq flycheck-check-syntax-automatically '(save mode-enabled idle-change))
 (setq flycheck-idle-change-delay 5)
-(require 'material-theme)
 (require 'org-pelican)
 )
 
