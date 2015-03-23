@@ -142,7 +142,8 @@ which require an initialization must be listed explicitly in the list.")
  'org-babel-load-languages
  '((python . t)
    (ditaa . t)
-   (R . t))
+   (R . t)
+   (shell .t))
  )
 
 (setq org-confirm-babel-evaluate nil)
