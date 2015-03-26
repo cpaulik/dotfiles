@@ -36,7 +36,7 @@ which require an initialization must be listed explicitly in the list.")
 
  )
 (defun gnus/init-gnus ()
-  "cInitialize my package"
+  "Initialize my package"
   (use-package gnus
     :defer t
     :init
@@ -73,7 +73,7 @@ which require an initialization must be listed explicitly in the list.")
     (setq gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\”]\”[#’()]")
     ; Use fancy splitting:
     (setq nnmail-split-methods 'nnmail-split-fancy)
-    (setq nnmail-split-fancy 
+    (setq nnmail-split-fancy
         '(| ("To\\|Cc" "cpaulik@gmail\\.com" "gmail")
         ("To\\|Cc" "christoph\\.paulik@geo\\.tuwien\\.ac\\.at" "job")
         ;;; Add any mailing lists you want here, like this:
@@ -117,10 +117,14 @@ which require an initialization must be listed explicitly in the list.")
     ; Don't show that annoying arrow:
     (setq gnus-summary-display-arrow nil)
     ;; (setq mm-text-html-renderer 'w3m-standalone)
-    (spacemacs/activate-evil-leader-for-map 'gnus-group-mode-map)
-    (spacemacs|evilify gnus-group-mode-map)
-    (spacemacs|evilify gnus-server-mode-map)
-    (spacemacs|evilify gnus-browse-mode-map)
+    (evilify gnus-group-mode gnus-group-mode-map)
+    (evilify gnus-server-mode gnus-server-mode-map)
+    (evilify gnus-browse-mode gnus-browse-mode-map)
+    (evilify gnus-article-mode gnus-article-mode-map)
+    (evilify gnus-summary-mode gnus-summary-mode-map
+      (kbd "J") 'gnus-summary-next-article
+      (kbd "K") 'gnus-summary-prev-article
+      (kbd "<RET>") 'browse-nnrss-url)
 
     (evil-leader/set-key "ag" 'gnus)
 
@@ -140,8 +144,7 @@ which require an initialization must be listed explicitly in the list.")
             (gnus-summary-mark-as-read-forward 1))
         (gnus-summary-scroll-up arg))))
 
-    (spacemacs|evilify gnus-summary-mode-map
-    (kbd "<RET>") 'browse-nnrss-url)
+
     (add-to-list 'nnmail-extra-headers nnrss-url-field)
     ;; setup org-mime
     (require 'org-mime)
