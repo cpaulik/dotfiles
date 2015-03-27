@@ -26,7 +26,6 @@ which require an initialization must be listed explicitly in the list.")
 ;;
 
 (defun custom_org_config/init-org-ac()
- 
 (org-ac/config-default)
 
   )
