@@ -27,6 +27,16 @@ which require an initialization must be listed explicitly in the list.")
 ;;
 (defun research-config/init-helm-bibtex()
    "Initialize my package"
+   (use-package helm-bibtex
+     :defer t
+     :commands helm-bibtex
+     :init
+     (progn
+       (evil-leader/set-key "or" 'helm-bibtex)
+       )
+     :config
+     (progn
+
    (setq helm-bibtex-bibliography "~/Dropbox/Arbeit/Papers/bibliography.bib")
    (setq helm-bibtex-library-path "~/Dropbox/Arbeit/Papers/pdf")
    (setq helm-bibtex-notes-path "~/Dropbox/Arbeit/Papers/notes")
@@ -42,7 +52,6 @@ which require an initialization must be listed explicitly in the list.")
         (default . helm-bibtex-format-citation-default))))
 
    (setq helm-bibtex-additional-search-fields '(keywords journal))
-   (evil-leader/set-key "or" 'helm-bibtex)
 
    ;; setup org-ref
 ;;;;;;; org path for loadable org-files
@@ -72,6 +81,8 @@ FEATURE is a symbol, and it is loaded from an org-file by the name of FEATURE.or
    (setq org-ref-default-bibliography '("~/Dropbox/Arbeit/Papers/bibliography.bib"))
    (setq org-ref-pdf-directory "~/Dropbox/Arbeit/Papers/pdf/")
    (setq reftex-default-bibliography '("~/Dropbox/Arbeit/Papers/bibliography.bib"))
+       )
+     )
    )
 ;;
 ;; Often the body of an initialize function uses `use-package'
