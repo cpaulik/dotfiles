@@ -16,6 +16,7 @@
    dotspacemacs-configuration-layers '(python
                                        git
                                        research-config
+                                       clojure
                                        colors
                                        custom_org_config
                                        typing-games
@@ -42,6 +43,7 @@
   "User initialization for Spacemacs. This function is called at the very
  startup."
     (setq-default
+     use-package-verbose t
     ;; Specify the startup banner. If the value is an integer then the
     ;; banner with the corresponding index is used, if the value is `random'
     ;; then the banner is chosen randomly among the available banners, if
@@ -129,13 +131,35 @@
     (setq exec-path (split-string path-from-shell path-separator))))
 
     (when window-system (set-exec-path-from-shell-PATH))
+
+    ;; Get email, and store in nnml
+    (setq gnus-secondary-select-methods '(
+                                        (nntp "gmane"
+                                                (nntp-address "news.gmane.org"))
+                                        (nntp "news.eternal-september.org")
+                                        (nntp "nntp.aioe.org")
+                                        (nntp "news.gwene.org")
+                                        ))
+    ; Send email via Gmail:
+    (setq message-send-mail-function 'smtpmail-send-it
+      smtpmail-default-smtp-server "smtp.gmail.com")
+    ; Archive outgoing email in Sent folder on imap.gmail.com:
+    (setq gnus-message-archive-method '(nnimap "imap.gmail.com")
+        gnus-message-archive-group "[Gmail]/Sent Mail")
+    (setq gnus-posting-styles
+        '(((header "to" "cpaulik@gmail.com")
+           (address "cpaulik@gmail.com"))
+	  ((header "to" "christoph.paulik@geo.tuwien.ac.at")
+         (address "christoph.paulik@geo.tuwien.ac.at"))))
+    (setq nnml-directory "~/gmail")
+    (setq message-directory "~/gmail")
   )
 
 (defun dotspacemacs/config ()
   "This is were you can ultimately override default Spacemacs configuration.
 This function is called at the very end of Spacemacs initialization."
   (use-package helm
-    :defer t
+    :defer 5
     :commands (helm-execute-persistent-action
                helm-select-action
                helm-grep-mode-jump-other-window
@@ -159,6 +183,7 @@ This function is called at the very end of Spacemacs initialization."
 ; Set name and email:
 (setq user-full-name "Christoph Paulik"
       user-mail-address "cpaulik@gmail.com")
+
 )
 
 
