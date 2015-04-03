@@ -13,7 +13,10 @@
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(python
+   dotspacemacs-configuration-layers '((auto-completion
+                                        :variables
+                                        auto-completion-enable-company-help-tooltip t)
+                                       python
                                        git
                                        research-config
                                        clojure
@@ -27,7 +30,6 @@
                                        auctex
                                        php
                                        html
-                                       company-mode
                                        themes-megapack)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(material-theme)
