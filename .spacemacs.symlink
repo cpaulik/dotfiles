@@ -14,24 +14,24 @@
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers '(ansible
+                                       auctex
                                        (auto-completion
                                         :variables
                                         auto-completion-enable-company-help-tooltip t)
-                                       python
-                                       git
-                                       research-config
                                        clojure
                                        colors
                                        custom_org_config
-                                       typing-games
-                                       my_python
                                        erc
+                                       git
                                        gnus
-                                       markdown
-                                       auctex
-                                       php
                                        html
-                                       themes-megapack)
+                                       markdown
+                                       my_python
+                                       php
+                                       python
+                                       research-config
+                                       themes-megapack
+                                       typing-games)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(material-theme)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
