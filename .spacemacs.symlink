@@ -13,7 +13,8 @@
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '((auto-completion
+   dotspacemacs-configuration-layers '(ansible
+                                       (auto-completion
                                         :variables
                                         auto-completion-enable-company-help-tooltip t)
                                        python
