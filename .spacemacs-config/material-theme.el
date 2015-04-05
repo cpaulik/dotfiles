@@ -87,6 +87,17 @@
    `(error ((,class (:foreground ,red))))
    `(warning ((,class (:foreground ,orange))))
 
+   ;; ace-window faces
+   `(aw-leading-char-face ((,class (:foreground ,
+                                    foreground
+                                    :background ,
+                                    "#ef6c00"
+                                    :height ,
+                                    1.7
+                                    :weight
+                                    bold))))
+
+
    ;; Flycheck
    `(flycheck-error ((,class (:underline (:style wave :color ,red)))))
    `(flycheck-warning ((,class (:underline (:style wave :color ,orange)))))
