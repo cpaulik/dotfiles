@@ -22,7 +22,9 @@
                                        colors
                                        custom_org_config
                                        erc
-                                       git
+                                       (git
+                                        :variables
+                                        git-enable-github-support t)
                                        gnus
                                        html
                                        markdown
