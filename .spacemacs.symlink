@@ -183,12 +183,16 @@ This function is called at the very end of Spacemacs initialization."
         (setq helm-split-window-in-side-p t)
       )
     )
-(setq flycheck-check-syntax-automatically '(save mode-enabled idle-change))
-(setq flycheck-idle-change-delay 5)
-(require 'org-pelican)
-; Set name and email:
-(setq user-full-name "Christoph Paulik"
-      user-mail-address "cpaulik@gmail.com")
+    ;; set terminal command
+    (defun start-term () (interactive) (term "/bin/zsh"))
+    (evil-leader/set-key "at" 'start-term)
+
+    (setq flycheck-check-syntax-automatically '(save mode-enabled idle-change))
+    (setq flycheck-idle-change-delay 5)
+    (require 'org-pelican)
+    ; Set name and email:
+    (setq user-full-name "Christoph Paulik"
+        user-mail-address "cpaulik@gmail.com")
 
 )
 
