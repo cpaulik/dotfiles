@@ -56,6 +56,7 @@ source $ZSH/oh-my-zsh.sh
 
 # environment variables for virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_HOOK_DIR=$HOME/dotfiles/python/venvwrapperhooks
 export PROJECT_HOME=$HOME/workspace
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -90,10 +91,10 @@ export no_proxy=dvlp1.ipf.tuwien.ac.at,$no_proxy
 # For a full list of active aliases, run `alias`.
 
 # setup environment variables for local pip wheel cache
-export STANDARD_CACHE_DIR="${XDG_CACHE_HOME:-${HOME}/.cache}/pip"
-export WHEELHOUSE="${STANDARD_CACHE_DIR}/wheelhouse"
-export PIP_FIND_LINKS="file://${WHEELHOUSE}"
-export PIP_WHEEL_DIR="${WHEELHOUSE}"
+# export STANDARD_CACHE_DIR="${XDG_CACHE_HOME:-${HOME}/.cache}/pip"
+# export WHEELHOUSE="${STANDARD_CACHE_DIR}/wheelhouse"
+# export PIP_FIND_LINKS="file://${WHEELHOUSE}"
+# export PIP_WHEEL_DIR="${WHEELHOUSE}"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
