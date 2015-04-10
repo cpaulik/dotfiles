@@ -74,7 +74,7 @@ which require an initialization must be listed explicitly in the list.")
     :defer t))
 
 (defun research-config/init-key-chord ()
-  (use-package hydra
+  (use-package key-chord
     :defer t))
 ;;
 ;; Often the body of an initialize function uses `use-package'
