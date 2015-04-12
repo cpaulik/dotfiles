@@ -97,6 +97,12 @@
                                     :weight
                                     bold))))
 
+   ;; ace-jump-faces
+   `(ace-jump-face-foreground ((,class (:foreground ,foreground
+                                        :weight bold))))
+
+   `(ace-jump-face-background ((,class (:foreground ,"#78909c"
+                                        :weight normal))))
 
    ;; Flycheck
    `(flycheck-error ((,class (:underline (:style wave :color ,red)))))
