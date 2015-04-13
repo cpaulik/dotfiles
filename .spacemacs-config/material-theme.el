@@ -99,6 +99,7 @@
 
    ;; ace-jump-faces
    `(ace-jump-face-foreground ((,class (:foreground ,foreground
+                                        :background ,"#ef6c00"
                                         :weight bold))))
 
    `(ace-jump-face-background ((,class (:foreground ,"#78909c"
