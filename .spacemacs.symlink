@@ -29,9 +29,13 @@
                                        html
                                        markdown
                                        my_python
+                                       org
+                                       ;; pandoc
                                        php
                                        python
+                                       racket
                                        research-config
+                                       syntax-checking
                                        themes-megapack
                                        typing-games)
    ;; A list of packages and/or extensions that will not be install and loaded.
