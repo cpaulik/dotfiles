@@ -24,9 +24,16 @@ which require an initialization must be listed explicitly in the list.")
 
 ;; For each package, define a function typing-games/init-<package-typing-games>
 ;;
-;; (defun typing-games/init-my-package ()
-;;   "Initialize my package"
-;;   )
+(defun typing-games/init-speed-type ()
+  "Initialize my package"
+  (use-package speed-type
+    :defer t)
+  )
+(defun typing-games/init-typing ()
+  "Initialize my package"
+  (use-package typing
+    :defer t)
+  )
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
