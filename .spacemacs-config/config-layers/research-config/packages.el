@@ -50,6 +50,7 @@ which require an initialization must be listed explicitly in the list.")
       (quote
        ((org-mode . helm-bibtex-format-citation-cite)
         (latex-mode . helm-bibtex-format-citation-cite)
+        (tex-mode . helm-bibtex-format-citation-cite)
         (markdown-mode . helm-bibtex-format-citation-pandoc-citeproc)
         (default . helm-bibtex-format-citation-default))))
 
