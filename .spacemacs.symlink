@@ -17,6 +17,7 @@
                                        auctex
                                        (auto-completion
                                         :variables
+                                        auto-completion-use-tab-instead-of-enter t
                                         auto-completion-enable-company-help-tooltip t)
                                        clojure
                                        colors
