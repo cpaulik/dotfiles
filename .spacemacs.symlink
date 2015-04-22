@@ -31,7 +31,7 @@
                                        markdown
                                        my_python
                                        org
-                                       ;; pandoc
+                                       pandoc
                                        php
                                        python
                                        racket
@@ -199,11 +199,26 @@ This function is called at the very end of Spacemacs initialization."
     (setq user-full-name "Christoph Paulik"
         user-mail-address "cpaulik@gmail.com")
 
+    (use-package erc
+      :defer t
+      :commands connect-erc
+      :init (evil-leader/set-key "oe" 'connect-erc)
+      :config
+      (progn
+        (setq erc-autojoin-channels-alist
+              '(("0.0" "#syl20bnr/spacemacs")))
+        (defun connect-erc ()
+          (interactive)
+          (erc-tls :server "irc.gitter.im" :nick "cpaulik" :password nil)
+          (erc :server "irc.freenode.net" :nick "cpaulik" :password nil))
+        )
+      )
+
 )
 
 
 ;; Custom variables
-;; ----------------
+;; ----------c------
 
 ;; Do not write anything in this section. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -214,7 +229,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-ispell-requires 4)
+ '(ac-ispell-requires 4 t)
  '(ahs-case-fold-search nil)
  '(ahs-default-range (quote ahs-range-whole-buffer))
  '(ahs-idle-interval 0.25)
