@@ -36,6 +36,7 @@
                                        python
                                        racket
                                        research-config
+                                       semantic
                                        syntax-checking
                                        themes-megapack
                                        typing-games)
