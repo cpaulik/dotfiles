@@ -23,6 +23,7 @@
                                        colors
                                        custom_org_config
                                        erc
+                                       eyebrowse
                                        (git
                                         :variables
                                         git-enable-github-support t)
