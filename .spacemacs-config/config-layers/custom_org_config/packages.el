@@ -60,10 +60,6 @@ which require an initialization must be listed explicitly in the list.")
                bh/clock-in-last-task)
     :init
     (progn
-      (evil-leader/set-key-for-mode 'org-mode
-              "mL" 'org-insert-link)
-      (evil-leader/set-key-for-mode 'org-mode
-              "m'" 'org-edit-special)
       (evil-leader/set-key "m'" 'org-edit-src-exit)
 
       ;; set org agenda global
