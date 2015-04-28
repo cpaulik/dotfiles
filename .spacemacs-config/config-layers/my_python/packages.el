@@ -25,7 +25,7 @@ which require an initialization must be listed explicitly in the list.")
 ;; For each package, define a function my_python/init-<package-my_python>
 ;;
 (defun my_python/init-py-autopep8()
-  (add-hook 'before-save-hook 'py-autopep8-before-save)
+  (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
   )
 
 (defun my_python/init-flycheck-pyflakes()
