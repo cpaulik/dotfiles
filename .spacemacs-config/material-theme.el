@@ -68,22 +68,23 @@
    `(bold-italic ((,class (:slant italic :weight bold))))
    `(underline ((,class (:underline t))))
    `(italic ((,class (:slant italic))))
-   `(font-lock-builtin-face ((,class (:foreground "#ff7043"))))
+   `(font-lock-builtin-face ((,class (:foreground "#ff8A65"))))
    `(font-lock-comment-delimiter-face ((,class (:foreground ,comment))))
    `(font-lock-comment-face ((,class (:foreground ,comment))))
    `(font-lock-constant-face ((,class (:foreground ,green))))
    `(font-lock-doc-face ((,class (:foreground "moccasin"))))
    `(font-lock-doc-string-face ((,class (:foreground ,yellow))))
-   `(font-lock-function-name-face ((,class (:foreground ,"#b3e5fc"))))
+   `(font-lock-function-name-face ((,class (:foreground ,"#84ffff"))))
    `(font-lock-keyword-face ((,class (:foreground ,yellow))))
    `(font-lock-negation-char-face ((,class (:foreground ,blue))))
    `(font-lock-preprocessor-face ((,class (:foreground "gold"))))
    `(font-lock-regexp-grouping-backslash ((,class (:foreground ,yellow))))
    `(font-lock-regexp-grouping-construct ((,class (:foreground ,purple))))
    `(font-lock-string-face ((,class (:foreground "#9ccc65"))))
-   `(font-lock-type-face ((,class (:foreground "CadetBlue1"))))
-   `(font-lock-variable-name-face ((,class (:foreground ,yellow))))
+   `(font-lock-type-face ((,class (:foreground "#84ffff"))))
+   `(font-lock-variable-name-face ((,class (:foreground ,"#ffcc80"))))
    `(font-lock-warning-face ((,class (:weight bold :foreground ,red))))
+   `(highlight-numbers-number ((,class (:foreground ,"#9ccc65"))))
    `(shadow ((,class (:foreground ,comment))))
    `(success ((,class (:foreground "SeaGreen2"))))
    `(error ((,class (:foreground ,red))))
@@ -111,25 +112,21 @@
    `(flycheck-error ((,class (:underline (:style wave :color ,red)))))
    `(flycheck-warning ((,class (:underline (:style wave :color ,orange)))))
 
-   ;; Evil
-   `(evil-search-highlight-persist-highlight-face ((,class (:foreground ,foreground
-                                                            :background ,"#ef6c00"))))
 
    ;; highlight indentation
    `(highlight-indentation-face ((,class (:background, current-line))))
    `(highlight-indentation-current-column-face ((,class (:background, far-background))))
 
-   ;; iedit
-   `(iedit-occurrence ((,class (:foreground ,foreground :background ,orange))))
 
    ;; Flymake
    `(flymake-warnline ((,class (:underline (:style wave :color ,orange) :background ,background))))
    `(flymake-errline ((,class (:underline (:style wave :color ,red) :background ,background))))
 
-   ;; Clojure errors
+   ;; Clojure
    `(clojure-test-failure-face ((,class (:background nil :inherit flymake-warnline))))
    `(clojure-test-error-face ((,class (:background nil :inherit flymake-errline))))
    `(clojure-test-success-face ((,class (:background nil :foreground nil :underline ,green))))
+   `(clojure-keyword-face ((,class (:inherit font-lock-builtin-face))))
 
    ;; EDTS errors
    `(edts-face-warning-line ((t (:background nil :inherit flymake-warnline))))
@@ -164,10 +161,21 @@
    `(mmm-output-submode-face ((,class (:background ,current-line))))
 
    ;; Search
-   `(match ((,class (:foreground ,selection :background ,current-line :inverse-video nil))))
-   `(isearch ((,class (:foreground ,selection :background ,current-line))))
-   `(isearch-lazy-highlight-face ((,class (:foreground ,selection :background nil :inverse-video nil))))
+   `(match ((,class (:foreground ,background :background ,green :inverse-video nil))))
+   `(isearch ((,class (:foreground ,foreground :background ,green))))
+   `(isearch-lazy-highlight-face ((,class (:foreground ,background :background ,green :inverse-video nil))))
+   `(lazy-highlight-face ((,class (:foreground ,background :background ,green :inverse-video nil))))
    `(isearch-fail ((,class (:background ,background :inherit font-lock-warning-face :inverse-video t))))
+
+   ;; Evil
+   `(evil-search-highlight-persist-highlight-face ((,class (:foreground ,background
+                                                            :background ,green))))
+   ;; iedit
+   `(iedit-occurrence ((,class (:foreground ,background :background ,green))))
+
+   ;; ahs
+   `(ahs-face ((,class (:foreground ,background :background ,green))))
+   `(ahs-plugin-whole-buffer-face ((,class (:foreground ,foreground :background ,green))))
 
    ;; Anzu
    `(anzu-mode-line ((,class (:foreground ,orange))))
@@ -205,7 +213,7 @@
    `(mode-line-emphasis ((,class (:foreground ,foreground :slant italic))))
    `(mode-line-highlight ((,class (:foreground ,purple :box nil))))
    `(minibuffer-prompt ((,class (:foreground ,blue))))
-   `(region ((,class (:background ,selection :foreground ,background))))
+   `(region ((,class (:background ,selection))))
    `(secondary-selection ((,class (:background ,secondary-selection))))
 
    `(header-line ((,class (:inherit mode-line :foreground ,purple :background nil))))
@@ -223,7 +231,7 @@
    `(whitespace-hspace ((,class (:background nil :foreground ,selection))))
 
    ;; Parenthesis matching (built-in)
-   `(show-paren-match-face ((,class (:background aqua :foreground "black"))))
+   `(show-paren-match-face ((,class (:background ,aqua :foreground "black"))))
    `(show-paren-mismatch-face ((,class (:background "red1" :foreground "white"))))
 
    ;; Smartparens paren matching
@@ -373,9 +381,9 @@
    `(org-agenda-date ((,class (:foreground ,blue :underline nil))))
    `(org-agenda-done ((,class (:foreground ,green))))
    `(org-agenda-dimmed-todo-face ((,class (:foreground ,comment))))
-   `(org-block ((,class (:foreground ,orange))))
-   `(org-block-background ((,class (:background "#1F2232"))))
-   `(org-code ((,class (:foreground ,yellow))))
+   `(org-block ((,class (:foreground ,green :background ,far-background))))
+   `(org-block-background ((,t (:background "#2f3a40"))))
+   `(org-code ((,class (:foreground ,green :background ,far-background))))
    `(org-column ((,class (:background ,current-line))))
    `(org-column-title ((,class (:inherit org-column :weight bold :underline t))))
    `(org-date ((,class (:foreground ,"#80cbc4" :underline t))))
@@ -396,8 +404,8 @@
    `(org-todo ((,class (:foreground ,"#ffab91" :bold t :background ,"#dd2c00"))))
    `(org-upcoming-deadline ((,class (:foreground ,orange))))
    `(org-warning ((,class (:weight bold :foreground ,red))))
-   `(org-block-begin-line ((,class (:foreground ,"#b3e5fc" :underline ,"#e1f5fe"))))
-   `(org-block-end-line ((,class (:foreground ,"#b3e5fc" :overline ,"#e1f5fe"))))
+   `(org-block-begin-line ((,class (:foreground ,"#b3e5fc" :background "#1e2930" :underline ,"#e1f5fe"))))
+   `(org-block-end-line ((,class (:foreground ,"#b3e5fc" :background "#1e2930" :overline ,"#e1f5fe"))))
 
    `(org-level-1 ((,class (:inherit nil
                          :overline ,"#b0bec5"
