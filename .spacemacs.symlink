@@ -219,6 +219,8 @@ This function is called at the very end of Spacemacs initialization."
     (global-set-key (kbd "<C-mouse-5>") 'zoom-frm-out)
     (global-set-key (kbd "C-+") 'zoom-frm-in)
     (global-set-key (kbd "C--") 'zoom-frm-out)
+    (setq dired-listings-switches "-alhk")
+    (setq compilation-finish-function nil)
 )
 
 
