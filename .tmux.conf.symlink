@@ -89,7 +89,6 @@ bind ^L refresh-client
 # More straight forward key bindings for splitting
 unbind %
 bind | split-window -h
-bind v split-window -h
 unbind '"'
 bind - split-window -v
 bind / command-prompt "split-window 'exec %%'"
@@ -149,6 +148,33 @@ bind -t vi-copy Escape cancel
 
 setw -g display-panes-time 2000
 bind ^s display-panes \; command-prompt "swap-pane -s %1"
+# panes start at 1
+set -g base-index 1
+set -g pane-base-index 1
+
+bind c new-window -c '#{pane_current_path}'
+bind C-p last-window
+
+set-option -g mouse-select-pane on
+set-option -g mouse-resize-pane on
+set-option -g mouse-select-window on
+
+# smart pane switching with awareness of emacs splits
+bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim(diff)?$|emacs.*$' && tmux send-keys C-h) || tmux select-pane -L"
+bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim(diff)?$|emacs.*$' && tmux send-keys C-j) || tmux select-pane -D"
+bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim(diff)?$|emacs.*$' && tmux send-keys C-k) || tmux select-pane -U"
+bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)vim(diff)?$|emacs.*$' && tmux send-keys C-l) || tmux select-pane -R"
+
+bind-key v split-window -h -c "#{pane_current_path}"
+bind-key s split-window -v -c "#{pane_current_path}"
+bind - resize-pane -U 2
+bind _ resize-pane -U 16
+bind = resize-pane -D 2
+bind + resize-pane -D 16
+bind 9 resize-pane -L 6
+bind ( resize-pane -L 24
+bind 0 resize-pane -R 6
+bind ) resize-pane -R 24
 
 set -g detach-on-destroy off
 setw -g alternate-screen off
