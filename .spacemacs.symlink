@@ -133,6 +133,7 @@
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-reveal" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-ref" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/pytest-el" t)
+  (add-to-list 'load-path "~/dotfiles/.spacemacs-config/material-theme" t)
 
   (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (replace-regexp-in-string
