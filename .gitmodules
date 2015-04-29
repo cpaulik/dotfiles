@@ -11,3 +11,6 @@
 [submodule ".spacemacs-config/org-ref"]
 	path = .spacemacs-config/org-ref
 	url = https://github.com/jkitchin/org-ref
+[submodule ".spacemacs-config/pytest-el"]
+	path = .spacemacs-config/pytest-el
+	url = git@github.com:cpaulik/pytest-el.git

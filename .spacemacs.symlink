@@ -32,7 +32,7 @@
                                        my_python
                                        org
                                        pandoc
-                                       php
+                                       ;; php
                                        python
                                        racket
                                        research-config
@@ -132,6 +132,8 @@
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-reveal" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-ref" t)
+  (add-to-list 'load-path "~/dotfiles/.spacemacs-config/pytest-el" t)
+
   (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (replace-regexp-in-string
                           "[ \t\n]*$"
@@ -221,6 +223,7 @@ This function is called at the very end of Spacemacs initialization."
     (global-set-key (kbd "C--") 'zoom-frm-out)
     (setq dired-listings-switches "-alhk")
     (setq compilation-finish-function nil)
+    (use-package pytest)
 )
 
 
