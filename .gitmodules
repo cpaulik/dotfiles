@@ -14,3 +14,6 @@
 [submodule ".spacemacs-config/pytest-el"]
 	path = .spacemacs-config/pytest-el
 	url = git@github.com:cpaulik/pytest-el.git
+[submodule ".spacemacs-config/material-theme"]
+	path = .spacemacs-config/material-theme
+	url = git@github.com:cpaulik/emacs-material-theme.git
