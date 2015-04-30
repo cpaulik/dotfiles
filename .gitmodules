@@ -4,10 +4,6 @@
 [submodule ".spacemacs-config/org-reveal"]
 	path = .spacemacs-config/org-reveal
 	url = https://github.com/yjwen/org-reveal.git
-
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule ".spacemacs-config/org-ref"]
 	path = .spacemacs-config/org-ref
 	url = https://github.com/jkitchin/org-ref
