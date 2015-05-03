@@ -4,3 +4,4 @@ clone this repository and call the =install_script=
 ** Awesome WM
 The =install_script= also symlinks my awesome config into the =~/.config=
 folder. So this might fail if you have a existing awesome configuration.
+
