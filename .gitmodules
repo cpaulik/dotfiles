@@ -13,3 +13,7 @@
 [submodule ".spacemacs-config/material-theme"]
 	path = .spacemacs-config/material-theme
 	url = git@github.com:cpaulik/emacs-material-theme.git
+[submodule ".config/awesome/lain"]
+	path = .config/awesome/lain
+	url=https://github.com/copycat-killer/lain
+
