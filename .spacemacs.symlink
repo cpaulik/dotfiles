@@ -28,6 +28,7 @@
                                         git-enable-github-support t)
                                        gnus
                                        html
+                                       lua
                                        markdown
                                        my_python
                                        org
@@ -39,6 +40,7 @@
                                        semantic
                                        syntax-checking
                                        themes-megapack
+                                       tmux
                                        typing-games)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(material-theme)
@@ -226,6 +228,12 @@ This function is called at the very end of Spacemacs initialization."
     (setq dired-listings-switches "-alhk")
     (setq compilation-finish-function nil)
     (use-package pytest)
+    ;; Make evil-mode up/down operate in screen lines instead of logical lines
+    (define-key evil-normal-state-map "j" 'evil-next-visual-line)
+    (define-key evil-normal-state-map "k" 'evil-previous-visual-line)
+    ;; Also in visual mode
+    (define-key evil-visual-state-map "j" 'evil-next-visual-line)
+    (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
 )
 
 
