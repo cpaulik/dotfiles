@@ -33,4 +33,4 @@ make autoloads
 
 
 # symlink config folder
-ln -s $DOTFILES_ROOT/config/* ~/.config
+ln -s $DOTFILES_ROOT/.config/* ~/.config
