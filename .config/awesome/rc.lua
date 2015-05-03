@@ -91,7 +91,7 @@ local layouts = {
 -- {{{ Tags
 tags = {
   names = { "WWW[1]", "TERM[2]", "EDIT[3]", "MEDIA[4]", "FILES[5]", "MISC[6]" },
-   layout = { layouts[1], layouts[3], layouts[1], layouts[1], layouts[7], layouts[1] }
+   layout = { layouts[1], layouts[3], layouts[2], layouts[1], layouts[7], layouts[1] }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
