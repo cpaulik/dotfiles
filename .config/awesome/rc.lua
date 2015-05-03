@@ -777,6 +777,6 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
       end)
 end
 -- }}}
+awful.util.spawn("run_once indicator-sound-switcher")
 awful.util.spawn("run_once nm-applet")
 awful.util.spawn("run_once 'dropbox start'")
-awful.util.spawn("run_once indicator-sound-switcher")
