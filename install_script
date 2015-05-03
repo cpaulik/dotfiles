@@ -30,3 +30,7 @@ git submodule init
 git submodule update
 cd $DOTFILES_ROOT/.spacemacs-config/org-mode
 make autoloads
+
+
+# symlink config folder
+ln -s $DOTFILES_ROOT/config/* ~/.config
