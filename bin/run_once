@@ -1,3 +1,3 @@
 #!/bin/bash
 #Alternative
-pgrep -f $@ > /dev/null || ($@ &)
+pgrep $@ > /dev/null || ($@ &)
