@@ -68,7 +68,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
 browser    = "google-chrome"
-browser2   = "firefox"
+browser2   = "google-chrome --incognito"
 gui_editor = "emacs"
 graphics   = "gimp"
 mail       = terminal .. " -e mutt "
@@ -90,7 +90,7 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { "web", "term", "docs", "media", "files", "other" },
+  names = { "WWW[1]", "TERM[2]", "EDIT[3]", "MEDIA[4]", "FILES[5]", "MISC[6]" },
    layout = { layouts[1], layouts[3], layouts[1], layouts[1], layouts[7], layouts[1] }
 }
 for s = 1, screen.count() do
@@ -344,7 +344,6 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the upper right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
     --right_layout:add(mailicon)
     --right_layout:add(mailwidget)
     right_layout:add(netdownicon)
@@ -365,6 +364,7 @@ for s = 1, screen.count() do
     right_layout:add(tempwidget)
     right_layout:add(baticon)
     right_layout:add(batwidget)
+    if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(clockicon)
     right_layout:add(mytextclock)
 
@@ -675,8 +675,17 @@ awful.rules.rules = {
 	  { rule = { class = "Gimp" },
      	    properties = { tag = tags[1][4] } },
 
+	  { rule = { class = "Vlc" },
+     	    properties = { tag = tags[1][4] } },
+
+	  { rule = { class = "SMPlayer" },
+     	    properties = { tag = tags[1][4] } },
+
 	  { rule = { class = "Nautilus" },
      	    properties = { tag = tags[1][5] } },
+
+	  { rule = { class = "Emacs", instance = "emacs" },
+     	    properties = { tag = tags[1][3] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized_horizontal = true,
