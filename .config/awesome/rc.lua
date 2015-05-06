@@ -678,7 +678,7 @@ awful.rules.rules = {
 	  { rule = { class = "Vlc" },
      	    properties = { tag = tags[1][4] } },
 
-	  { rule = { class = "SMPlayer" },
+	  { rule = { class = "Smplayer" },
      	    properties = { tag = tags[1][4] } },
 
 	  { rule = { class = "Nautilus" },
