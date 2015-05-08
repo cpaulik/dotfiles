@@ -17,7 +17,7 @@
                                        auctex
                                        (auto-completion
                                         :variables
-                                        auto-completion-enable-company-help-tooltip t)
+                                        auto-completion-enable-help-tooltip t)
                                        clojure
                                        colors
                                        custom_org_config
