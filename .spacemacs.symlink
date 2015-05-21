@@ -18,11 +18,14 @@
                                        (auto-completion
                                         :variables
                                         auto-completion-enable-help-tooltip t)
+                                       chrome
                                        clojure
                                        colors
                                        custom_org_config
+                                       emacs-lisp
                                        erc
                                        eyebrowse
+                                       games
                                        (git
                                         :variables
                                         git-enable-github-support t)
@@ -38,6 +41,10 @@
                                        racket
                                        research-config
                                        semantic
+                                       (shell
+                                        :variables
+                                        shell-default-shell term
+                                        shell-default-term-shell "/bin/zsh")
                                        syntax-checking
                                        themes-megapack
                                        tmux
