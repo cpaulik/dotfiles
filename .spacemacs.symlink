@@ -43,7 +43,7 @@
                                        semantic
                                        (shell
                                         :variables
-                                        shell-default-shell term
+                                        shell-default-shell 'term
                                         shell-default-term-shell "/bin/zsh")
                                        syntax-checking
                                        themes-megapack
