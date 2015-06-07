@@ -14,7 +14,6 @@
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers '(ansible
-                                       auctex
                                        (auto-completion
                                         :variables
                                         auto-completion-enable-help-tooltip t)
@@ -31,6 +30,7 @@
                                         git-enable-github-support t)
                                        gnus
                                        html
+                                       latex
                                        lua
                                        markdown
                                        my_python
@@ -40,6 +40,7 @@
                                        python
                                        racket
                                        research-config
+                                       search-engine
                                        semantic
                                        (shell
                                         :variables
