@@ -37,7 +37,9 @@
                                        org
                                        pandoc
                                        ;; php
-                                       python
+                                       (python
+                                        :variables
+                                        python-test-runner 'pytest)
                                        racket
                                        research-config
                                        search-engine
@@ -142,7 +144,6 @@
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-reveal" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-ref" t)
-  (add-to-list 'load-path "~/dotfiles/.spacemacs-config/pytest-el" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/material-theme" t)
 
   (defun set-exec-path-from-shell-PATH ()
@@ -235,7 +236,6 @@ This function is called at the very end of Spacemacs initialization."
     (setq dired-listing-switches "-alhk")
     (setq dired-listings-switches "-alhk")
     (setq compilation-finish-function nil)
-    (use-package pytest)
     ;; Make evil-mode up/down operate in screen lines instead of logical lines
     (define-key evil-normal-state-map "j" 'evil-next-visual-line)
     (define-key evil-normal-state-map "k" 'evil-previous-visual-line)
