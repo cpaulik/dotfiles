@@ -27,7 +27,8 @@
                                        games
                                        (git
                                         :variables
-                                        git-enable-github-support t)
+                                        git-enable-github-support t
+                                        git-gutter-use-fringe t)
                                        gnus
                                        html
                                        latex
