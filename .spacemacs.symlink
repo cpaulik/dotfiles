@@ -31,6 +31,7 @@
                                         git-gutter-use-fringe t)
                                        gnus
                                        html
+                                       ipython-notebook
                                        latex
                                        lua
                                        markdown
@@ -124,10 +125,10 @@
     preview-scale-function 1.6
     )
     ;; set the default font
-    (when (string= system-name "pydev")
+    (when (string= system-name "cpa")
     ;; work virtual machine
     (setq dotspacemacs-default-font '("Source Code Pro"
-                                    :size 14
+                                    :size 13
                                             :weight normal
                                             :width normal
                                             :powerline-scale 1.3))
