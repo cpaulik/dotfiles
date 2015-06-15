@@ -77,7 +77,7 @@
     ;; List of themes, the first of the list is loaded when spacemacs starts.
     ;; Press <SPC> T n to cycle to the next theme in the list (works great
     ;; with 2 themes variants, one dark and one light)
-    dotspacemacs-themes '(material adwaita)
+    dotspacemacs-themes '(material material-light)
     ;; The leader key
     dotspacemacs-leader-key "SPC"
     ;; Major mode leader key is a shortcut key which is the equivalent of
