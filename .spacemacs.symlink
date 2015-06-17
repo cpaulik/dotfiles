@@ -22,6 +22,7 @@
                                        colors
                                        custom_org_config
                                        emacs-lisp
+                                       emoji
                                        erc
                                        eyebrowse
                                        games
@@ -53,7 +54,8 @@
                                        syntax-checking
                                        themes-megapack
                                        tmux
-                                       typing-games)
+                                       typing-games
+                                       xkcd)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(material-theme)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
