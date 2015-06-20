@@ -10,7 +10,7 @@ theme                               = {}
 
 theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
 theme.wallpaper                     = theme.confdir .. "/wall.png"
-
+theme.useless_gap_width             = 8
 theme.font                          = "Helvetica 15"
 theme.taglist_font                  = "Source Code Pro 15"
 theme.menu_bg_normal                = "#000000"
@@ -31,7 +31,7 @@ theme.fg_magenta                    = "#94738c"
 theme.fg_cyan                       = "#778baf"
 theme.fg_white                      = "#aaaaaa"
 theme.fg_blu                        = "#8ebdde"
-theme.border_width                  = "2"
+theme.border_width                  = "1"
 theme.border_normal                 = "#1c2022"
 theme.border_focus                  = "#8ebdde"
 theme.border_marked                 = "#3ca4d8"
