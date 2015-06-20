@@ -10,7 +10,7 @@
   (setq-default
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/dotfiles/.spacemacs-config/config-layers/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers '(ansible
@@ -229,9 +229,8 @@ This function is called at the very end of Spacemacs initialization."
         (defun connect-erc ()
           (interactive)
           (erc-tls :server "irc.gitter.im" :nick "cpaulik" :password nil)
-          (erc :server "irc.freenode.net" :nick "cpaulik" :password nil))
         )
-      )
+      ))
 
     (global-set-key (kbd "<C-mouse-4>") 'zoom-frm-in)
     (global-set-key (kbd "<C-mouse-5>") 'zoom-frm-out)
