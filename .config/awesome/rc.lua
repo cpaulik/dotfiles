@@ -498,7 +498,6 @@ globalkeys = awful.util.table.join(
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
-    awful.key({ altkey,           }, "h",      function () fswidget.show(7) end),
     awful.key({ altkey,           }, "w",      function () yawn.show(7) end),
     -- Brightness
 
