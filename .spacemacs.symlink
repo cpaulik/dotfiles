@@ -248,6 +248,9 @@ This function is called at the very end of Spacemacs initialization."
     (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
     (setq doc-view-resolution 300)
     (setq vc-follow-symlinks t)
+    ;; set default browser
+    (setq browse-url-generic-program "google-chrome")
+    (setq browse-url-browser-function 'browse-url-generic)
 )
 
 
