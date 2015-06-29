@@ -922,3 +922,4 @@ end
 awful.util.spawn("run_once indicator-sound-switcher")
 awful.util.spawn("run_once nm-applet")
 awful.util.spawn("run_once 'dropbox start'")
+awful.util.spawn("compton --backend glx --paint-on-overlay --vsync opengl-swc")
