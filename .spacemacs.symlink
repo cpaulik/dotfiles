@@ -28,6 +28,7 @@
                                        games
                                        (git
                                         :variables
+                                        git-use-magit-next t
                                         git-gutter-use-fringe t)
                                        github
                                        gnus
