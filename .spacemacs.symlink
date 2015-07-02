@@ -38,6 +38,7 @@
                                        lua
                                        markdown
                                        my_python
+                                       notmuch
                                        org
                                        pandoc
                                        ;; php
