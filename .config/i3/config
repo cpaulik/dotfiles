@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Source Code Pro 14
+font pango:Helvetica 15
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -28,9 +28,6 @@ font pango:Source Code Pro 14
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -66,19 +63,20 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+- split h
-
+# i3 has vertical and horizontal defined differently
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+b split v
+
+# split in horizontal orientation
+bindsym $mod+v split h
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+m fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Ctrl+s layout stacking
+bindsym $mod+Ctrl+w layout tabbed
+bindsym $mod+Ctrl+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -103,6 +101,8 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
+workspace_auto_back_and_forth yes
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -150,13 +150,45 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 bindsym $mod+x kill
 
+#application shortcuts
 bindsym $mod+c exec google-chrome
 bindsym $mod+s exec emacs
+bindsym $mod+e exec nautilus
+# start a terminal
+bindsym $mod+Return exec gnome-terminal
+
+
+#backlight
+bindcode 232 exec xbacklight -dec 10
+bindcode 233 exec xbacklight -inc 10
+#audio
+bindcode 121 exec pactl set-sink-mute 1 toggle
+bindcode 122 exec pactl -- set-sink-volume 1 -5%
+bindcode 123 exec pactl -- set-sink-volume 1 +5%
+
+# visual stuff
+new_window none
+gaps inner 15
+smart_gaps on
+
+
+# default location of programs
+assign [class="Google-chrome"] 1
+assign [class="Emacs"] 3
+assign [class="Nautilus"] 2
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    position top
+    status_command i3status
+    colors {
+           background #000000
+           statusline #ffffff
+           separator #dddddd
+    }
+    separator_symbol "|"
+    font pango:DejaVu Sans Mono 15
 }
 
 exec nm-applet
