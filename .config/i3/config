@@ -151,7 +151,7 @@ bindsym $mod+x kill
 bindsym $mod+c exec google-chrome
 bindsym $mod+i exec google-chrome --incognito
 bindsym $mod+s exec emacs
-bindsym $mod+e exec nautilus
+bindsym $mod+e exec gnome-terminal -e ranger
 # start a terminal
 bindsym $mod+Return exec gnome-terminal
 
