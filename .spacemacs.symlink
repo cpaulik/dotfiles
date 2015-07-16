@@ -43,7 +43,7 @@
                                        ;; php
                                        (python
                                         :variables
-                                        python-enable-yapf-format-on-save t
+                                        python-enable-yapf-format-on-save nil
                                         python-test-runner 'pytest)
                                        racket
                                        research-config
