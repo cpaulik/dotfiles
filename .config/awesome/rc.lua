@@ -583,7 +583,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "s", function () awful.util.spawn(gui_editor) end),
     awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
     awful.key({ modkey, "Shift" }, "e", function () awful.util.spawn("nautilus -w") end),
-    awful.key({ modkey }, "e", function () awful.util.spawn("gnome-terminal -e ranger") end),
+    awful.key({ modkey }, "e", function () awful.util.spawn("urxvt -e ranger") end),
     awful.key({ }, "Print", function () awful.util.spawn("capscr") end),
 
 
@@ -707,6 +707,9 @@ awful.rules.rules = {
      	    properties = { tag = tags[1][1] } },
 
 	  { rule = { class = "Smplayer" },
+     	    properties = { tag = tags[1][4] } },
+
+	  { rule = { class = "mpv" },
      	    properties = { tag = tags[1][4] } },
 
 	  { rule = { class = "Nautilus" },
