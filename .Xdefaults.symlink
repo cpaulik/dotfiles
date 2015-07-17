@@ -5,38 +5,36 @@ Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 URxvt.font: xft:Source Code Pro-14:medium;antialias:True;hinting=True
-URxvt.background: [95]#000000
-URxvt.foreground: [95]#FFFFFF
 URxvt.letterSpace: -2
 URxvt*scrollBar_right: false
 URxvt*scrollBar: false
 !behelit color theme
-URxvt.background:    #101010
-URxvt.foreground:    #60ff60
-URxvt.cursorColor:   #60ff60
+URxvt.background:    #1c1f26
+URxvt.foreground:    #dddddd
+URxvt.cursorColor:   #606060
 
 ! black
 URxvt.color0:        #1c1c1c
 URxvt.color8:        #4d4d4d
 
 ! red
-URxvt.color1:        #d81860
-URxvt.color9:        #f00060
+URxvt.color1:        #f36c60
+URxvt.color9:        #d36c50
 
 ! green
-URxvt.color2:        #60ff60
+URxvt.color2:        #8bc34a
 URxvt.color10:       #70ff70
 
 ! yellow
-URxvt.color3:        #f9fd75
-URxvt.color11:       #f9fd80
+URxvt.color3:        #fff59d
+URxvt.color11:       #ffd880
 
 ! blue
-URxvt.color4:        #5d97fa
-URxvt.color12:       #679dfa
+URxvt.color4:        #4dd0e1
+URxvt.color12:       #81d4fa
 
 ! magenta
-URxvt.color5:        #a78edb
+URxvt.color5:        #b39ddb
 URxvt.color13:       #ad97db
 
 ! cyan
