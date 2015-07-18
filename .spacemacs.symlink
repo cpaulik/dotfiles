@@ -16,7 +16,7 @@
    dotspacemacs-configuration-layers '(ansible
                                        (auto-completion
                                         :variables
-                                        auto-completion-enable-help-tooltip t)
+                                        auto-completion-enable-help-tooltip nil)
                                        chrome
                                        clojure
                                        colors
@@ -266,6 +266,9 @@ This function is called at the very end of Spacemacs initialization."
     ;; set default browser
     (setq browse-url-generic-program "google-chrome")
     (setq browse-url-browser-function 'browse-url-generic)
+    (setq company-backends-python-mode '((company-anaconda :with company-dabbrev :with company-yasnippet)))
+    (setq company-transformers '(spacemacs//company-transformer-cancel
+                                 company-sort-by-backend-importance))
 )
 
 
