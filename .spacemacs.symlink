@@ -16,7 +16,7 @@
    dotspacemacs-configuration-layers '(ansible
                                        (auto-completion
                                         :variables
-                                        auto-completion-enable-help-tooltip nil)
+                                        auto-completion-enable-help-tooltip t)
                                        chrome
                                        clojure
                                        colors
