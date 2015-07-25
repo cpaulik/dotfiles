@@ -46,6 +46,7 @@
                                         python-enable-yapf-format-on-save nil
                                         python-test-runner 'pytest)
                                        racket
+                                       ranger
                                        research-config
                                        search-engine
                                        semantic
