@@ -98,9 +98,9 @@
     ;; By default the command key is `:' so ex-commands are executed like in Vim
     ;; with `:' and Emacs commands are executed with `<leader> :'.
     dotspacemacs-command-key ":"
-    ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
+    ;; which-key delay in seconds. The which-key is the popup buffer listing
     ;; the commands bound to the current keystrokes.
-    dotspacemacs-guide-key-delay 0.4
+    which-key-idle-delay 0.4
     ;; If non nil the frame is fullscreen when Emacs starts up (Emacs 24.4+ only).
     dotspacemacs-fullscreen-at-startup nil
     ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
