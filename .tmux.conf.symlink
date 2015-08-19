@@ -99,20 +99,20 @@ set -g set-titles on
 set -g set-titles-string '#S:#I.#P #W'
 
 # powerline setup
-set-option -g status-bg colour24
-set-option -g status-fg colour235
+set-option -g status-bg colour235
+set-option -g status-fg colour24
 set -g status-attr bright
 set-option -g status on
 set-option -g status-interval 2
 set-option -g status-utf8 on
-set-option -g status-justify "left"
+set-option -g status-justify "centre"
 set-option -g status-left-length 80
 set-option -g status-right-length 50
 
-set -g status-left '#[fg=colour255][#S] '
-set -g status-right '#[fg=colour255, bg=colour24]#H - #(date +"%F") '
+set -g status-left '#[fg=colour255, bg=colour24] #(date +"%H:%M") #[fg=colour24, bg=colour32]#[fg=colour255, bg=colour32] [#S] #[fg=colour32, bg=colour235]'
+set -g status-right '#[fg=colour32, bg=colour235]#[fg=colour255, bg=colour32] #H #[fg=colour24, bg=colour32]#[fg=colour255, bg=colour24] #(date +"%F") '
 
-set-window-option -g window-status-current-format "#[fg=colour24, bg=colour235] #[fg=colour255, bg=colour24] #I | #W #[fg=colour24, bg=colour235] "
+set-window-option -g window-status-current-format "#[fg=colour24, bg=colour235]#[fg=colour255, bg=colour24] #I | #W #[fg=colour24, bg=colour235]"
 set-window-option -g window-status-format "#[fg=colour250, bg=colour24] #I|#W "
 
 # Notifying if other windows has activities
