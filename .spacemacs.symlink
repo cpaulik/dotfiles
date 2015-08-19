@@ -268,7 +268,7 @@ This function is called at the very end of Spacemacs initialization."
     (setq browse-url-generic-program "google-chrome")
     (setq browse-url-browser-function 'browse-url-generic)
     ;; set python company backends
-    (setq company-backends-python-mode '((company-anaconda :with company-dabbrev :with company-yasnippet)))
+    (setq company-backends-python-mode '((company-anaconda :with company-dabbrev-code :with company-yasnippet)))
     (setq company-transformers '(spacemacs//company-transformer-cancel
                                  company-sort-by-backend-importance))
     ;; open file in dired with standard program
