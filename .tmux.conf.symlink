@@ -1,8 +1,6 @@
 set-option -g default-shell /bin/zsh
 # set terminal to 256 colors
 #set -g default-terminal "screen-256color"
-# load powerline
-source ~/vimide/powerline/powerline/bindings/tmux/powerline.conf
 #
 set -sg escape-time 0
 #
@@ -89,7 +87,6 @@ bind ^L refresh-client
 # More straight forward key bindings for splitting
 unbind %
 bind | split-window -h
-unbind '"'
 bind - split-window -v
 bind / command-prompt "split-window 'exec %%'"
 bind S command-prompt "new-window -n %1 'ssh %1'"
@@ -131,8 +128,7 @@ set -g mouse-select-window on
 setw -g mode-mouse on
 
 # " windowlist -b
-unbind '"'
-bind '"' choose-window
+bind a choose-window
 
 # act like vim
 setw -g mode-keys vi
