@@ -39,6 +39,7 @@
                                        my_python
                                        notmuch
                                        org
+                                       org-ipython
                                        pandoc
                                        ;; php
                                        (python
