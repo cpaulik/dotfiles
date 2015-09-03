@@ -80,6 +80,8 @@
  startup."
     (setq-default
      use-package-verbose t
+     dotspacemacs-editing-style 'vim
+     dotspacemacs-emacs-leader-key "M-m"
     ;; Specify the startup banner. If the value is an integer then the
     ;; banner with the corresponding index is used, if the value is `random'
     ;; then the banner is chosen randomly among the available banners, if
