@@ -55,6 +55,7 @@
                                         :variables
                                         shell-default-shell 'term
                                         shell-default-term-shell "/bin/zsh")
+                                       spacemacs-core
                                        syntax-checking
                                        themes-megapack
                                        tmux
