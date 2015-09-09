@@ -38,7 +38,7 @@ which require an initialization must be listed explicitly in the list.")
 
 
 
-(defun custom_org_config/init-org ()
+(defun custom_org_config/post-init-org ()
 ;;   "Initialize my package"
 ;;load exporters for odt and texinfo - new in org 8
   (use-package org
