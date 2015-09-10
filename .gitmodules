@@ -9,7 +9,7 @@
 	url = https://github.com/jkitchin/org-ref
 [submodule ".spacemacs-config/material-theme"]
 	path = .spacemacs-config/material-theme
-	url = git@github.com:cpaulik/emacs-material-theme.git
+	url = https://github.com/cpaulik/emacs-material-theme
 [submodule ".config/awesome/lain"]
 	path = .config/awesome/lain
 	url=https://github.com/copycat-killer/lain
