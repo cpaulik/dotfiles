@@ -37,6 +37,7 @@
                                        gnus
                                        html
                                        ipython-notebook
+                                       javascript
                                        latex
                                        lua
                                        markdown
@@ -280,6 +281,8 @@ This function is called at the very end of Spacemacs initialization."
     ;; set default browser
     (setq browse-url-generic-program "google-chrome")
     (setq browse-url-browser-function 'browse-url-generic)
+    ;; set javascript company backends
+    (setq company-backends-js2-mode '((company-tern :with company-dabbrev-code :with company-yasnippet)))
     ;; set python company backends
     (setq company-backends-python-mode '((company-anaconda :with company-dabbrev-code :with company-yasnippet)))
     (setq company-transformers '(spacemacs//company-transformer-cancel
