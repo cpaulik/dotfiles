@@ -27,7 +27,7 @@
      :defer t
      :commands mu4e
      :init
-     (global-set-key (kbd "<f9> g") 'mu4e)
+     (evil-leader/set-key "om" 'mu4e)
      :config
         (setq mu4e-view-show-images t)
         ;; use imagemagick if available
@@ -65,9 +65,9 @@
              (smtpmail-auth-credentials '(("smtp.gmail.com" 587 "cpaulik@gmail.com" nil)))
              (smtpmail-smtp-service 587))
             ("Work"
-             (mu4e-sent-folder "/Work/[Gmail].Sent Mail")
-             (mu4e-drafts-folder "/Work/[Gmail].Drafts")
-             (mu4e-trash-folder  "/Work/[Gmail].Trash")
+             (mu4e-sent-folder "/TU/Sent Mail")
+             (mu4e-drafts-folder "/TU/Drafts")
+             (mu4e-trash-folder  "/TU/Deleted Items")
              (user-mail-address "christoph.paulik@geo.tuwien.ac.at")
              (user-full-name  "Christoph Paulik")
              (smtpmail-smtp-user "cpaulik")
@@ -103,19 +103,18 @@
         ;; the 'All Mail' folder by pressing ``ma''.
 
         (setq mu4e-maildir-shortcuts
-            '( ("/INBOX"               . ?i)
-            ("/[Gmail].Sent Mail"   . ?s)
-            ("/[Gmail].Trash"       . ?t)
-            ("/[Gmail].All Mail"    . ?a)))
+            '( ("/Personal/INBOX"               . ?i)
+            ("/Personal/[Gmail].Sent Mail"   . ?s)
+            ("/Personal/[Gmail].Trash"       . ?t)
+            ("/Personal/[Gmail].All Mail"    . ?a)
+            ("/TU/INBOX"       . ?w)
+            ))
 
         ;; allow for updating mail using 'U' in the main view:
         (setq mu4e-get-mail-command "offlineimap")
 
         ;; something about ourselves
-        (setq mu4e-compose-signature
-            (concat
-            ""
-            "")
+        (setq mu4e-compose-signature ""
             mu4e-user-mail-address-list
             '("cpaulik@gmail.com"
             "christoph.paulik@geo.tuwien.ac.at"
@@ -232,6 +231,17 @@
         (require 'org)
         (org-add-link-type "mu4e" 'org-mu4e-open)
         (add-hook 'org-store-link-functions 'org-mu4e-store-link)
+
+        ;; spacemacs stuff
+        (evilify mu4e-main-mode mu4e-main-mode-map "J" 'mu4e~headers-jump-to-maildir)
+        (evilify mu4e-headers-mode mu4e-headers-mode-map "J" 'mu4e~headers-jump-to-maildir)
+        (evilify mu4e-view-mode mu4e-view-mode-map
+                 (kbd "J") 'mu4e~headers-jump-to-maildir
+                 (kbd "RET") 'browse-url-at-point
+                 (kbd "G") 'mu4e-view-go-to-url
+                 (kbd "C-j") 'mu4e-view-headers-next
+                 (kbd "C-k") 'mu4e-view-headers-prev)
+
      )
    )
 ;;

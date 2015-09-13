@@ -1,5 +1,5 @@
 [general]
-accounts = Personal, Work
+accounts = Personal, TU
 maxsyncaccounts = 3
 pythonfile = ~/dotfiles/mail/oimap_passret.py
 
@@ -23,22 +23,21 @@ realdelete = no
 autorefresh = 15
 folderfilter = lambda folder: folder in ['INBOX', '[Gmail]/Drafts', '[Gmail]/Sent Mail']
 
-[Account Work]
-localrepository = LocalWork
-remoterepository = RemoteWork
+[Account TU]
+localrepository = LocalTU
+remoterepository = RemoteTU
 
-[Repository LocalWork]
+[Repository LocalTU]
 type = Maildir
-localfolders = ~/Mail/Work
+localfolders = ~/Mail/TU
 
-[Repository RemoteWork]
-type = Gmail
-remotehost = imap.gmail.com
-remoteuser = cpaulik.geo@gmail.com
-remotepasseval = mailpasswd("work")
+[Repository RemoteTU]
+type = IMAP
+remotehost = mail.intern.tuwien.ac.at
+remoteuser = cpaulik
+remotepasseval = mailpasswd("tu")
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 1
-realdelete = no
+realdelete = yes
 autorefresh = 15
-folderfilter = lambda folder: folder in ['INBOX', '[Gmail]/Drafts', '[Gmail]/Trash', '[Gmail]/Sent Mail']
