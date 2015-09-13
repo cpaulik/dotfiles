@@ -1,0 +1,44 @@
+[general]
+accounts = Personal, Work
+maxsyncaccounts = 3
+pythonfile = ~/dotfiles/mail/oimap_passret.py
+
+[Account Personal]
+localrepository = LocalPersonal
+remoterepository = RemotePersonal
+
+[Repository LocalPersonal]
+type = Maildir
+localfolders = ~/Mail/Personal
+
+[Repository RemotePersonal]
+type = Gmail
+remotehost = imap.gmail.com
+remoteuser = cpaulik@gmail.com
+remotepasseval = mailpasswd("personal")
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 1
+realdelete = no
+autorefresh = 15
+folderfilter = lambda folder: folder in ['INBOX', '[Gmail]/Drafts', '[Gmail]/Sent Mail']
+
+[Account Work]
+localrepository = LocalWork
+remoterepository = RemoteWork
+
+[Repository LocalWork]
+type = Maildir
+localfolders = ~/Mail/Work
+
+[Repository RemoteWork]
+type = Gmail
+remotehost = imap.gmail.com
+remoteuser = cpaulik.geo@gmail.com
+remotepasseval = mailpasswd("work")
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 1
+realdelete = no
+autorefresh = 15
+folderfilter = lambda folder: folder in ['INBOX', '[Gmail]/Drafts', '[Gmail]/Trash', '[Gmail]/Sent Mail']
