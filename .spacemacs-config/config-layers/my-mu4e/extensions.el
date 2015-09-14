@@ -64,8 +64,8 @@
              (smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil)))
              (smtpmail-auth-credentials '(("smtp.gmail.com" 587 "cpaulik@gmail.com" nil)))
              (smtpmail-smtp-service 587))
-            ("Work"
-             (mu4e-sent-folder "/TU/Sent Mail")
+            ("TU"
+             (mu4e-sent-folder "/TU/Sent Items")
              (mu4e-drafts-folder "/TU/Drafts")
              (mu4e-trash-folder  "/TU/Deleted Items")
              (user-mail-address "christoph.paulik@geo.tuwien.ac.at")
@@ -170,6 +170,8 @@
                                 "cpaulik@gmail.com")
                                 ((mu4e-message-contact-field-matches msg :to "Christoph.Paulik@geo.tuwien.ac.at")
                                 "Christoph.Paulik@geo.tuwien.ac.at")
+                                ((mu4e-message-contact-field-matches msg :to "christoph.paulik@geo.tuwien.ac.at")
+                                 "Christoph.Paulik@geo.tuwien.ac.at")
                                 ((mu4e-message-contact-field-matches msg :to "cpa@ipf.tuwien.ac.at")
                                 "Christoph.Paulik@geo.tuwien.ac.at")
                                 (t "cpaulik@gmail.com")))))))
