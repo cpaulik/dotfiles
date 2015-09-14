@@ -235,10 +235,13 @@
         (add-hook 'org-store-link-functions 'org-mu4e-store-link)
 
         ;; spacemacs stuff
-        (evilify mu4e-main-mode mu4e-main-mode-map "J" 'mu4e~headers-jump-to-maildir)
-        (evilify mu4e-headers-mode mu4e-headers-mode-map "J" 'mu4e~headers-jump-to-maildir)
-        (evilify mu4e-view-mode mu4e-view-mode-map
-                 (kbd "J") 'mu4e~headers-jump-to-maildir
+        (spacemacs|evilify-map mu4e-main-mode-map
+          :mode mu4e-main-mode)
+        (spacemacs|evilify-map mu4e-headers-mode-map
+          :mode mu4e-headers-mode)
+        (spacemacs|evilify-map mu4e-view-mode-map
+          :mode mu4e-view-mode
+          :bindings
                  (kbd "RET") 'browse-url-at-point
                  (kbd "G") 'mu4e-view-go-to-url
                  (kbd "C-j") 'mu4e-view-headers-next
