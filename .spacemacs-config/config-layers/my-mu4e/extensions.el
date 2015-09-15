@@ -100,6 +100,7 @@
               (lambda (msg)
                 (cond
                  ((string= (mu4e-message-field msg :maildir) "/TU/INBOX") "/TU/Archive")
+                 ((string= (mu4e-message-field msg :maildir) "/Personal/INBOX") "/Personal/[Gmail].All Mail")
                   ;; messages to the mu mailing list go to the /mu folder
                   ((mu4e-message-contact-field-matches msg :to
                                                        "cpaulik@gmail.com")
@@ -122,6 +123,7 @@
               (lambda (msg)
                 (cond
                  ((string= (mu4e-message-field msg :maildir) "/TU/INBOX") "/TU/Deleted Items")
+                 ((string= (mu4e-message-field msg :maildir) "/Personal/INBOX") "/Personal/[Gmail].Trash")
                   ;; messages to the mu mailing list go to the /mu folder
                   ((mu4e-message-contact-field-matches msg :to
                                                        "cpaulik@gmail.com")
