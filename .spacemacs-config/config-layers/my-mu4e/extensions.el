@@ -94,8 +94,8 @@
                       account-vars)
               (error "No email account found"))))
         (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
-        ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
-        (setq mu4e-sent-messages-behavior 'delete)
+        ;; save message to Sent Messages
+        (setq mu4e-sent-messages-behavior 'sent)
 
         ;; setup some handy shortcuts
         ;; you can quickly switch to your Inbox -- press ``ji''
