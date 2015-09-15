@@ -33,7 +33,7 @@
         ;; use imagemagick if available
         (when (fboundp 'imagemagick-register-types)
         (imagemagick-register-types))
-        (setq mu4e-html2text-command "html2text -utf8 -width 80")
+        (setq mu4e-html2text-command "lynx -dump -width 120 -stdin")
         ;; default
         ;; sending mail -- replace USERNAME with your gmail username
         ;; also, make sure the gnutls command line utils are installed
