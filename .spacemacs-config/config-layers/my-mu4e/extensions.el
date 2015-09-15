@@ -96,7 +96,39 @@
         (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
         ;; save message to Sent Messages
         (setq mu4e-sent-messages-behavior 'sent)
+        (setq mu4e-refile-folder
+              (lambda (msg)
+                (cond
+                 ((string= (mu4e-message-field msg :maildir) "/TU/INBOX") "/TU/Archive")
+                  ;; messages to the mu mailing list go to the /mu folder
+                  ((mu4e-message-contact-field-matches msg :to
+                                                       "cpaulik@gmail.com")
+                   "/Personal/Archive")
+                 ;; messages sent directly to me go to /archive
+                 ;; also `mu4e-user-mail-address-p' can be used
+                 ((mu4e-message-contact-field-matches msg :to "christoph.paulik@geo.tuwien.ac.at")
+                  "/TU/Archive")
+                 ((mu4e-message-contact-field-matches msg :to "Christoph.Paulik@geo.tuwien.ac.at")
+                  "/TU/Archive")
+                 ((mu4e-message-contact-field-matches msg :to "Christoph.paulik@geo.tuwien.ac.at")
+                  "/TU/Archive")
+                 ((mu4e-message-contact-field-matches msg :to "christoph.Paulik@geo.tuwien.ac.at")
+                  "/TU/Archive")
+                 ;; everything else goes to /archive
+                 ;; important to have a catch-all at the end!
+                 (t  "/archive"))))
 
+        (setq mu4e-trash-folder
+              (lambda (msg)
+                (cond
+                 ((string= (mu4e-message-field msg :maildir) "/TU/INBOX") "/TU/Deleted Items")
+                  ;; messages to the mu mailing list go to the /mu folder
+                  ((mu4e-message-contact-field-matches msg :to
+                                                       "cpaulik@gmail.com")
+                   "/Personal/[Gmail].Trash")
+                 ;; everything else goes to /archive
+                 ;; important to have a catch-all at the end!
+                 (t  "/trash"))))
         ;; setup some handy shortcuts
         ;; you can quickly switch to your Inbox -- press ``ji''
         ;; then, when you want archive some messages, move them to
