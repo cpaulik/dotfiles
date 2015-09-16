@@ -19,6 +19,9 @@
       org-mu4e
       ))
 
+(defvar work-sig "Christoph Paulik
+christoph.paulik@geo.tuwien.ac.at")
+
 ;; For each package, define a function my-mu4e/init-<package-name>
 ;;
 (defun my-mu4e/init-mu4e ()
@@ -94,6 +97,22 @@
                       account-vars)
               (error "No email account found"))))
         (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
+        ;; set signature based on account
+
+        (add-hook 'mu4e-compose-pre-hook
+                  (defun my-set-signature ()
+                    "My settings for signatures."
+                        (setq mu4e-compose-signature
+                              (cond
+                               ((string-match "christoph.paulik" user-mail-address) work-sig)
+                               ((string-match "cpaulik" user-mail-address) "")
+                               (t "")))) t)
+
+        (add-hook 'mu4e-compose-mode-hook
+                  (defun my-do-compose-stuff ()
+                    "My settings for message composition."
+                    (flyspell-mode)))
+
         ;; save message to Sent Messages
         (setq mu4e-sent-messages-behavior 'sent)
         (setq mu4e-refile-folder
