@@ -47,7 +47,6 @@ christoph.paulik@geo.tuwien.ac.at")
         ;; setup main account
         (setq mu4e-sent-folder "/Personal/[Gmail].Sent Mail"
               mu4e-drafts-folder "/Personal/[Gmail].Drafts"
-              mu4e-trash-folder  "/Personal/[Gmail].Trash"
               user-mail-address "cpaulik@gmail.com"
               smtpmail-default-smtp-server "smtp.gmail.com"
               smtpmail-smtp-server "smtp.gmail.com"
@@ -59,7 +58,6 @@ christoph.paulik@geo.tuwien.ac.at")
           '(("Personal"
              (mu4e-sent-folder "/Personal/[Gmail].Sent Mail")
              (mu4e-drafts-folder "/Personal/[Gmail].Drafts")
-             (mu4e-trash-folder  "/Personal/[Gmail].Trash")
              (user-mail-address "cpaulik@gmail.com")
              (user-full-name  "Christoph Paulik")
              (smtpmail-smtp-user "cpaulik@gmail.com")
@@ -70,7 +68,6 @@ christoph.paulik@geo.tuwien.ac.at")
             ("TU"
              (mu4e-sent-folder "/TU/Sent Items")
              (mu4e-drafts-folder "/TU/Drafts")
-             (mu4e-trash-folder  "/TU/Deleted Items")
              (user-mail-address "christoph.paulik@geo.tuwien.ac.at")
              (user-full-name  "Christoph Paulik")
              (smtpmail-smtp-user "cpaulik")
@@ -111,15 +108,16 @@ christoph.paulik@geo.tuwien.ac.at")
         (add-hook 'mu4e-compose-mode-hook
                   (defun my-do-compose-stuff ()
                     "My settings for message composition."
-                    (flyspell-mode)))
+                    (flyspell-mode)
+                    (mml-secure-message-sign-pgpmime)))
 
         ;; save message to Sent Messages
         (setq mu4e-sent-messages-behavior 'sent)
         (setq mu4e-refile-folder
               (lambda (msg)
                 (cond
-                 ((string= (mu4e-message-field msg :maildir) "/TU/INBOX") "/TU/Archive")
-                 ((string= (mu4e-message-field msg :maildir) "/Personal/INBOX") "/Personal/[Gmail].All Mail")
+                 ((string-match "TU" (mu4e-message-field msg :maildir)) "/TU/Archive")
+                 ((string-match "Personal" (mu4e-message-field msg :maildir)) "/Personal/[Gmail].All Mail")
                   ;; messages to the mu mailing list go to the /mu folder
                   ((mu4e-message-contact-field-matches msg :to
                                                        "cpaulik@gmail.com")
@@ -128,11 +126,7 @@ christoph.paulik@geo.tuwien.ac.at")
                  ;; also `mu4e-user-mail-address-p' can be used
                  ((mu4e-message-contact-field-matches msg :to "christoph.paulik@geo.tuwien.ac.at")
                   "/TU/Archive")
-                 ((mu4e-message-contact-field-matches msg :to "Christoph.Paulik@geo.tuwien.ac.at")
-                  "/TU/Archive")
-                 ((mu4e-message-contact-field-matches msg :to "Christoph.paulik@geo.tuwien.ac.at")
-                  "/TU/Archive")
-                 ((mu4e-message-contact-field-matches msg :to "christoph.Paulik@geo.tuwien.ac.at")
+                 ((mu4e-message-contact-field-matches msg :to "christoph.Paulik@tuwien.ac.at")
                   "/TU/Archive")
                  ;; everything else goes to /archive
                  ;; important to have a catch-all at the end!
@@ -141,12 +135,9 @@ christoph.paulik@geo.tuwien.ac.at")
         (setq mu4e-trash-folder
               (lambda (msg)
                 (cond
-                 ((string= (mu4e-message-field msg :maildir) "/TU/INBOX") "/TU/Deleted Items")
-                 ((string= (mu4e-message-field msg :maildir) "/Personal/INBOX") "/Personal/[Gmail].Trash")
+                 ((string-match "TU" (mu4e-message-field msg :maildir)) "/TU/Deleted Items")
+                 ((string-match "Personal" (mu4e-message-field msg :maildir)) "/Personal/[Gmail].Trash")
                   ;; messages to the mu mailing list go to the /mu folder
-                  ((mu4e-message-contact-field-matches msg :to
-                                                       "cpaulik@gmail.com")
-                   "/Personal/[Gmail].Trash")
                  ;; everything else goes to /archive
                  ;; important to have a catch-all at the end!
                  (t  "/trash"))))
@@ -163,9 +154,6 @@ christoph.paulik@geo.tuwien.ac.at")
             ("/TU/INBOX"       . ?w)
             ("/TU/CGLS"       . ?C)
             ))
-
-        ;; allow for updating mail using 'U' in the main view:
-        (setq mu4e-get-mail-command "offlineimap")
 
         ;; something about ourselves
         (setq mu4e-compose-signature ""
@@ -224,7 +212,7 @@ christoph.paulik@geo.tuwien.ac.at")
                                 "cpaulik@gmail.com")
                                 ((mu4e-message-contact-field-matches msg :to "Christoph.Paulik@geo.tuwien.ac.at")
                                 "Christoph.Paulik@geo.tuwien.ac.at")
-                                ((mu4e-message-contact-field-matches msg :to "christoph.paulik@geo.tuwien.ac.at")
+                                ((mu4e-message-contact-field-matches msg :to "christoph.paulik@tuwien.ac.at")
                                  "Christoph.Paulik@geo.tuwien.ac.at")
                                 ((mu4e-message-contact-field-matches msg :to "cpa@ipf.tuwien.ac.at")
                                 "Christoph.Paulik@geo.tuwien.ac.at")
