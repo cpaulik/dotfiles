@@ -222,9 +222,12 @@
         (subseq (mu4e-message-field msg :body-txt) 0 5)
             ))))
 
-        ;;remove list from headers view
-        (setq mu4e-headers-fields (delete '(:mailing-list . 10) mu4e-headers-fields))
-        ;;(add-to-list 'mu4e-headers-fields '(:abstract . 50))
+        ;; set fields to show in headers view
+        (setq mu4e-headers-fields '(
+                                    (:human-date . 12)
+                                    (:flags . 6)
+                                    (:from-or-to . 22)
+                                    (:subject)))
 
         (setq mu4e-hide-index-messages t)
 
