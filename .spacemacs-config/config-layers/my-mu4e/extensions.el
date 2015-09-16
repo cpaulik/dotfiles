@@ -294,6 +294,32 @@ christoph.paulik@geo.tuwien.ac.at")
         ;; use helm for navigation
         (setq  mu4e-completing-read-function 'completing-read)
 
+        ;; setup helm and dired for attachments
+
+        (require 'gnus-dired)
+        ;; make the `gnus-dired-mail-buffers' function also work on
+        ;; message-mode derived modes, such as mu4e-compose-mode
+        (defun gnus-dired-mail-buffers ()
+          "Return a list of active message buffers."
+          (let (buffers)
+            (save-current-buffer
+              (dolist (buffer (buffer-list t))
+                (set-buffer buffer)
+                (when (and (derived-mode-p 'message-mode)
+                           (null message-sent-message-via))
+                  (push (buffer-name buffer) buffers))))
+            (nreverse buffers)))
+
+        (setq gnus-dired-mail-mode 'mu4e-user-agent)
+
+        (require 'helm)
+        (add-to-list 'helm-find-files-actions
+                     '("Attach files for mu4e" .
+                       helm-mu4e-attach) t)
+
+        (defun helm-mu4e-attach (_file)
+          (gnus-dired-attach (helm-marked-candidates)))
+
         ;; spacemacs stuff
         (spacemacs|evilify-map mu4e-main-mode-map
           :mode mu4e-main-mode)
