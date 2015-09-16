@@ -109,6 +109,9 @@ christoph.paulik@geo.tuwien.ac.at")
                   (defun my-do-compose-stuff ()
                     "My settings for message composition."
                     (flyspell-mode)
+                    ;; format=flowed in mails
+                    (use-hard-newlines t 'guess)
+                    ;; enable signing of emails by default
                     (mml-secure-message-sign-pgpmime)))
 
         ;; save message to Sent Messages
@@ -317,7 +320,6 @@ christoph.paulik@geo.tuwien.ac.at")
           :mode mu4e-view-mode
           :bindings
                  (kbd "RET") 'browse-url-at-point
-                 (kbd "G") 'mu4e-view-go-to-url
                  (kbd "C-j") 'mu4e-view-headers-next
                  (kbd "C-k") 'mu4e-view-headers-prev)
 
