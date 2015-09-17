@@ -311,6 +311,9 @@ christoph.paulik@geo.tuwien.ac.at")
         (defun helm-mu4e-attach (_file)
           (gnus-dired-attach (helm-marked-candidates)))
 
+        ;; set mu4e as default
+        (setq mail-user-agent 'mu4e-user-agent)
+
         ;; spacemacs stuff
         (spacemacs|evilify-map mu4e-main-mode-map
           :mode mu4e-main-mode)
