@@ -19,8 +19,22 @@
       org-mu4e
       ))
 
-(defvar work-sig "Christoph Paulik
-christoph.paulik@geo.tuwien.ac.at")
+(defvar work-sig "
+-------------------------------------------------------
+Christoph Paulik
+
+TU Wien
+Department of Geodesy and Geoinformation (GEO)
+Gusshausstrasse 27-29, 1040 Vienna, Austria
+Phone: +43 1 58801 12253
+Email: christoph.paulik@geo.tuwien.ac.at
+PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
+
+(defvar private-sig "
+-------------------------------------------------------
+Christoph Paulik
+Twitter, Github: @cpaulik
+PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
 
 ;; For each package, define a function my-mu4e/init-<package-name>
 ;;
@@ -102,7 +116,7 @@ christoph.paulik@geo.tuwien.ac.at")
                         (setq mu4e-compose-signature
                               (cond
                                ((string-match "christoph.paulik" user-mail-address) work-sig)
-                               ((string-match "cpaulik" user-mail-address) "")
+                               ((string-match "cpaulik" user-mail-address) private-sig)
                                (t "")))) t)
 
         (add-hook 'mu4e-compose-mode-hook
