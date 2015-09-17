@@ -57,7 +57,7 @@ christoph.paulik@geo.tuwien.ac.at")
         (defvar my-mu4e-account-alist
           '(("Personal"
              (mu4e-sent-folder "/Personal/[Gmail].Sent Mail")
-             (mu4e-drafts-folder "/Personal/[Gmail].Drafts")
+             (mu4e-drafts-folder "/Personal/Private Drafts")
              (user-mail-address "cpaulik@gmail.com")
              (user-full-name  "Christoph Paulik")
              (smtpmail-smtp-user "cpaulik@gmail.com")
