@@ -85,6 +85,10 @@ which require an initialization must be listed explicitly in the list.")
       )
     :config
     (progn
+      ;; set org specific keybindings
+      (add-hook 'org-agenda-mode-hook
+                '(lambda () (org-defkey org-agenda-mode-map "R" 'org-agenda-refile))
+                'append)
       (require 'org-pelican)
       (setq org-src-fontify-natively 1)
       (setq org-agenda-span 'day)
