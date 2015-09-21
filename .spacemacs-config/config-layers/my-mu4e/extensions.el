@@ -19,16 +19,14 @@
       org-mu4e
       ))
 
-(defvar work-sig "
--------------------------------------------------------
-Christoph Paulik
-
-TU Wien
-Department of Geodesy and Geoinformation (GEO)
-Gusshausstrasse 27-29, 1040 Vienna, Austria
-Phone: +43 1 58801 12253
-Email: christoph.paulik@geo.tuwien.ac.at
-PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
+(defvar work-sig (concat "-------------------------------------------------------\n"
+                         "Christoph Paulik\n\n"
+                         "TU Wien\n"
+                         "Department of Geodesy and Geoinformation (GEO)\n"
+                         "Gusshausstrasse 27-29, 1040 Vienna, Austria\n"
+                         "Phone: +43 1 58801 12253\n"
+                         "Email: christoph.paulik@geo.tuwien.ac.at\n"
+                         "PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC"))
 
 (defvar private-sig "
 -------------------------------------------------------
@@ -109,22 +107,25 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
               (error "No email account found"))))
         (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
         ;; set signature based on account
+        (defun my-set-signature ()
+          "My settings for signatures."
+          (setq message-signature
+                (cond
+                 ((string-match "christoph.paulik" user-mail-address) work-sig)
+                 ((string-match "cpaulik" user-mail-address) private-sig)
+                 (t ""))))
 
-        (add-hook 'mu4e-compose-pre-hook
-                  (defun my-set-signature ()
-                    "My settings for signatures."
-                        (setq mu4e-compose-signature
-                              (cond
-                               ((string-match "christoph.paulik" user-mail-address) work-sig)
-                               ((string-match "cpaulik" user-mail-address) private-sig)
-                               (t "")))) t)
-
+        ;; handle signatures with message buffer
+        (setq mu4e-compose-signature-auto-include nil)
         (add-hook 'mu4e-compose-mode-hook
                   (defun my-do-compose-stuff ()
                     "My settings for message composition."
                     (flyspell-mode)
                     ;; format=flowed in mails
                     (use-hard-newlines t 'guess)
+                    (my-set-signature)
+                    (message-insert-signature)
+                    (message-goto-to)
                     ;; enable signing of emails by default
                     (mml-secure-message-sign-pgpmime)))
 
@@ -339,9 +340,21 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
                  (kbd "RET") 'browse-url-at-point
                  (kbd "C-j") 'mu4e-view-headers-next
                  (kbd "C-k") 'mu4e-view-headers-prev)
+        (evil-leader/set-key-for-mode 'mu4e-compose-mode
+          "mt" 'message-goto-to
+          "mm" 'message-goto-body
+          "mb" 'message-goto-bcc
+          "ms" 'message-goto-subject)
+
 
      )
    )
+(defun my-mu4e/init-org-mu4e ()
+  "init org integration for mu4e"
+  (use-package org-mu4e
+    :defer t)
+  )
+
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
