@@ -154,7 +154,7 @@
     )
     (when (string= system-name "cp-Lenovo-Yoga-2-Pro")
     ;; home laptop with hdpi screen
-    (setq dotspacemacs-default-font '("Source Code Pro"
+    (setq dotspacemacs-default-font '("Hack"
                                     :size 22
                                             :weight normal
                                             :width normal
