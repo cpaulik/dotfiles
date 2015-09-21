@@ -43,7 +43,6 @@
                                        markdown
                                        my-mu4e
                                        my_python
-                                       notmuch
                                        org
                                        org-ipython
                                        pandoc
@@ -52,7 +51,6 @@
                                         :variables
                                         python-enable-yapf-format-on-save nil
                                         python-test-runner 'pytest)
-                                       racket
                                        ranger
                                        research-config
                                        search-engine
@@ -63,9 +61,7 @@
                                         shell-default-term-shell "/bin/zsh")
                                        syntax-checking
                                        themes-megapack
-                                       tmux
-                                       typing-games
-                                       xkcd)
+                                       tmux)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(material-theme
                                     evil-escape
