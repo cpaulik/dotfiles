@@ -28,6 +28,9 @@
                                        emacs-lisp
                                        emoji
                                        erc
+                                       (evil-snipe
+                                        :variables
+                                        evil-snipe-enable-alternate-f-and-t-behaviors t)
                                        eyebrowse
                                        games
                                        (git
