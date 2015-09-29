@@ -149,7 +149,7 @@
     ;; set the default font
     (when (string= system-name "cpa")
     ;; work virtual machine
-    (setq dotspacemacs-default-font '("Source Code Pro"
+    (setq dotspacemacs-default-font '("Hack"
                                     :size 13
                                             :weight normal
                                             :width normal
