@@ -294,6 +294,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
             link))))
 
         (require 'org)
+        (require 'org-mu4e)
         (org-add-link-type "mu4e" 'org-mu4e-open)
         (add-hook 'org-store-link-functions 'org-mu4e-store-link)
 
@@ -352,7 +353,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
 (defun my-mu4e/init-org-mu4e ()
   "init org integration for mu4e"
   (use-package org-mu4e
-    :defer t)
+    :defer nil)
   )
 
 ;;
