@@ -172,6 +172,7 @@ which require an initialization must be listed explicitly in the list.")
        '((python . t)
          (ditaa . t)
          (R . t)
+         (dot .t)
          (shell .t))
        )
 
@@ -274,6 +275,7 @@ which require an initialization must be listed explicitly in the list.")
                                 org-id
                                 org-info
                                 org-jsinfo
+                                org-license
                                 org-habit
                                 org-inlinetask
                                 org-irc
