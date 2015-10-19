@@ -50,6 +50,7 @@
                                        org
                                        org-ipython
                                        pandoc
+                                       pdf-tools
                                        ;; php
                                        (python
                                         :variables
