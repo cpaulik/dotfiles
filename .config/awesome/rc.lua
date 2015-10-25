@@ -169,9 +169,7 @@ batwidget = lain.widgets.bat({
     timeout = 5,
     settings = function()
         if bat_now.status == "Charging" then
-            widget:set_markup(" AC ")
             baticon:set_image(beautiful.widget_ac)
-            return
         elseif tonumber(bat_now.perc) <= 5 then
             baticon:set_image(beautiful.widget_battery_empty)
         elseif tonumber(bat_now.perc) <= 15 then
