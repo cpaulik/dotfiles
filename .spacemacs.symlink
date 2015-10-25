@@ -26,6 +26,7 @@
                                        clojure
                                        colors
                                        custom_org_config
+                                       dockerfile
                                        emacs-lisp
                                        emoji
                                        erc
@@ -58,15 +59,18 @@
                                         python-test-runner 'pytest)
                                        ranger
                                        research-config
+                                       ruby
                                        search-engine
                                        semantic
                                        (shell
                                         :variables
                                         shell-default-shell 'term
                                         shell-default-term-shell "/bin/zsh")
+                                       spell-checking
                                        syntax-checking
                                        themes-megapack
-                                       tmux)
+                                       tmux
+                                       vagrant)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(material-theme
                                     evil-escape
