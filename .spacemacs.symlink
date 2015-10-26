@@ -162,10 +162,10 @@
                                             :width normal
                                             :powerline-scale 1.3))
     )
-    (when (string= system-name "cp-Lenovo-Yoga-2-Pro")
+    (when (string= system-name "cp-laptop")
     ;; home laptop with hdpi screen
     (setq dotspacemacs-default-font '("Hack"
-                                    :size 22
+                                    :size 24
                                             :weight normal
                                             :width normal
                                             :powerline-scale 1.3))
