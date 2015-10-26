@@ -55,10 +55,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 
 # environment variables for virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_HOOK_DIR=$HOME/dotfiles/python/venvwrapperhooks
 export PROJECT_HOME=$HOME/workspace
-source /usr/local/bin/virtualenvwrapper.sh
 
 # set full color terminal
 export TERM=xterm-256color
@@ -96,6 +93,11 @@ export no_proxy=dvlp1.ipf.tuwien.ac.at,$NO_PROXY
 # export WHEELHOUSE="${STANDARD_CACHE_DIR}/wheelhouse"
 # export PIP_FIND_LINKS="file://${WHEELHOUSE}"
 # export PIP_WHEEL_DIR="${WHEELHOUSE}"
+
+# pyenv setup
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
