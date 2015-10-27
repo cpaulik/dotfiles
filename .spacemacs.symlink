@@ -150,6 +150,8 @@
     dotspacemacs-default-package-repository nil
     ;; set preview in latex files bigger
     preview-scale-function 1.6
+    ;; make push work in magit without nagging
+    magit-push-always-verify nil
     dotspacemacs-mode-line-unicode-symbols nil)
 
     (if window-system (setq dotspacemacs-mode-line-unicode-symbols t))
