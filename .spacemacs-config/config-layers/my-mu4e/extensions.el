@@ -69,6 +69,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (defvar my-mu4e-account-alist
           '(("Personal"
              (mu4e-sent-folder "/Personal/[Gmail].Sent Mail")
+             (mu4e-sent-messages-behavior delete)
              (mu4e-drafts-folder "/Personal/Private Drafts")
              (user-mail-address "cpaulik@gmail.com")
              (user-full-name  "Christoph Paulik")
@@ -79,6 +80,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
              (smtpmail-smtp-service 587))
             ("TU"
              (mu4e-sent-folder "/TU/Sent Items")
+             (mu4e-sent-messages-behavior sent)
              (mu4e-drafts-folder "/TU/Drafts")
              (user-mail-address "christoph.paulik@geo.tuwien.ac.at")
              (user-full-name  "Christoph Paulik")
@@ -120,7 +122,6 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (add-hook 'mu4e-compose-mode-hook
                   (defun my-do-compose-stuff ()
                     "My settings for message composition."
-                    (flyspell-mode)
                     ;; format=flowed in mails
                     (use-hard-newlines t 'guess)
                     (my-set-signature)
