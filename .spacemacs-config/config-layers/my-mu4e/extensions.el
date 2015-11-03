@@ -88,7 +88,19 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
              (smtpmail-smtp-server "mail.intern.tuwien.ac.at")
              (smtpmail-starttls-credentials '(("mail.intern.tuwien.ac.at" 587 nil nil)))
              (smtpmail-auth-credentials '(("mail.intern.tuwien.ac.at" 587 "cpaulik" nil)))
-             (smtpmail-smtp-service 587))))
+             (smtpmail-smtp-service 587))
+            ("TU-Git"
+             (mu4e-sent-folder "/TU-Git/Sent Items")
+             (mu4e-sent-messages-behavior sent)
+             (mu4e-drafts-folder "/TU-Git/Drafts")
+             (user-mail-address "git@geo.tuwien.ac.at")
+             (user-full-name  "Christoph Paulik")
+             (smtpmail-smtp-user "cpaulik")
+             (smtpmail-smtp-server "mail.intern.tuwien.ac.at")
+             (smtpmail-starttls-credentials '(("mail.intern.tuwien.ac.at" 587 nil nil)))
+             (smtpmail-auth-credentials '(("mail.intern.tuwien.ac.at" 587 "cpaulik" nil)))
+             (smtpmail-smtp-service 587))
+            ))
         (defun my-mu4e-set-account ()
           "Set the account for composing a message."
           (let* ((account
@@ -136,6 +148,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
               (lambda (msg)
                 (cond
                  ((string-match "TU" (mu4e-message-field msg :maildir)) "/TU/Archive")
+                 ((string-match "TU-Git" (mu4e-message-field msg :maildir)) "/TU-Git/INBOX.erledigt")
                  ((string-match "Personal" (mu4e-message-field msg :maildir)) "/Personal/[Gmail].All Mail")
                   ;; messages to the mu mailing list go to the /mu folder
                   ((mu4e-message-contact-field-matches msg :to
@@ -155,6 +168,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
               (lambda (msg)
                 (cond
                  ((string-match "TU" (mu4e-message-field msg :maildir)) "/TU/Deleted Items")
+                 ((string-match "TU-Git" (mu4e-message-field msg :maildir)) "/TU-Git/Gel&APY-schte Elemente")
                  ((string-match "Personal" (mu4e-message-field msg :maildir)) "/Personal/[Gmail].Trash")
                   ;; messages to the mu mailing list go to the /mu folder
                  ;; everything else goes to /archive
@@ -231,6 +245,8 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
                                 "cpaulik@gmail.com")
                                 ((mu4e-message-contact-field-matches msg :to "Christoph.Paulik@geo.tuwien.ac.at")
                                 "Christoph.Paulik@geo.tuwien.ac.at")
+                                ((mu4e-message-contact-field-matches msg :to "git@geo.tuwien.ac.at")
+                                 "git@geo.tuwien.ac.at")
                                 ((mu4e-message-contact-field-matches msg :to "christoph.paulik@tuwien.ac.at")
                                  "Christoph.Paulik@geo.tuwien.ac.at")
                                 ((mu4e-message-contact-field-matches msg :to "cpa@ipf.tuwien.ac.at")
