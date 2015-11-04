@@ -26,13 +26,11 @@
                                        clojure
                                        colors
                                        custom_org_config
+                                       django
                                        dockerfile
                                        emacs-lisp
                                        emoji
                                        erc
-                                       (evil-snipe
-                                        :variables
-                                        evil-snipe-enable-alternate-f-and-t-behaviors t)
                                        eyebrowse
                                        games
                                        (git
@@ -66,7 +64,8 @@
                                         :variables
                                         shell-default-shell 'term
                                         shell-default-term-shell "/bin/zsh")
-                                       spell-checking
+                                       (spell-checking
+                                        :variables spell-checking-enable-by-default nil)
                                        syntax-checking
                                        themes-megapack
                                        tmux
