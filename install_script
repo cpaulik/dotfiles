@@ -21,10 +21,12 @@ cd ~/.oh-my-zsh/custom/plugins
 git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 #setup pure theme for zsh
 cd ~/.oh-my-zsh/custom/
-git clone https://github.com/sindresorhus/pure .
-mv pure.zsh pure.zsh-theme
+git clone https://github.com/sindresorhus/pure
+mv pure/pure.zsh pure.zsh-theme
+mv pure/async.zsh async.zsh
 rm ~/.oh-my-zsh/themes/pure.zsh-theme
 # set terminal theme
+cd $DOTFILES_ROOT
 bash terminal-theme.sh
 #setup spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
