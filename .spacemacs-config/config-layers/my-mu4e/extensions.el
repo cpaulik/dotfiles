@@ -19,14 +19,13 @@
       org-mu4e
       ))
 
-(defvar work-sig (concat "-------------------------------------------------------\n"
-                         "Christoph Paulik\n\n"
-                         "TU Wien\n"
-                         "Department of Geodesy and Geoinformation (GEO)\n"
-                         "Gusshausstrasse 27-29, 1040 Vienna, Austria\n"
-                         "Phone: +43 1 58801 12253\n"
-                         "Email: christoph.paulik@geo.tuwien.ac.at\n"
-                         "PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC"))
+(defvar work-sig "
+-------------------------------------------------------
+Christoph Paulik
+TU Wien
+Phone: +43 1 58801 12253
+Email: christoph.paulik@geo.tuwien.ac.at
+PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
 
 (defvar private-sig "
 -------------------------------------------------------
