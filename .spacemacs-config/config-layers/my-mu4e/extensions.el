@@ -313,6 +313,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (require 'org-mu4e)
         (org-add-link-type "mu4e" 'org-mu4e-open)
         (add-hook 'org-store-link-functions 'org-mu4e-store-link)
+        (setq org-mu4e-convert-to-html t)
 
         ;; use helm for navigation
         (setq  mu4e-completing-read-function 'completing-read)
