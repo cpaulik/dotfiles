@@ -5,3 +5,6 @@ clone this repository and call the =install_script=
 The =install_script= also symlinks my awesome config into the =~/.config=
 folder. So this might fail if you have a existing awesome configuration.
 
+** GNOME Terminal color theme
+The install script adds the ~base-16-eighties-dark~ profile to the GNOME Terminal.
+Thanks to the [[https://github.com/chriskempson/base16-gnome-terminal][Base16 theme.]]

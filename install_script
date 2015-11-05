@@ -24,6 +24,8 @@ cd ~/.oh-my-zsh/custom/
 git clone https://github.com/sindresorhus/pure .
 mv pure.zsh pure.zsh-theme
 rm ~/.oh-my-zsh/themes/pure.zsh-theme
+# set terminal theme
+bash terminal-theme.sh
 #setup spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 # setup custom snippets
