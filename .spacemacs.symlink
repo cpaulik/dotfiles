@@ -49,6 +49,7 @@
                                        org
                                        org-ipython
                                        pandoc
+                                       perspectives
                                        pdf-tools
                                        ;; php
                                        (python
