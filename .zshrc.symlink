@@ -102,6 +102,24 @@ eval "$(pyenv virtualenv-init -)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# smart history search
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+
+# Show human friendly numbers and colors
+alias df='df -h'
+alias du='du -h -d 2'
+
+# search for files in current folder
+alias lsg='ls | grep'
+alias llg='ll | grep'
+alias lag='la | grep'
+
+# navigation
+alias ..='cd ..'
+
+# general commands
 alias ec="emacsclient -t $1"
 alias eserv="emacs --daemon"
 alias phpserv="php -S 0.0.0.0:8000"
