@@ -347,9 +347,14 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         ;; set mu4e as default
         (setq mail-user-agent 'mu4e-user-agent)
 
+        ;; enable mu4e maildirs extension
+        (mu4e-maildirs-extension)
+
         ;; spacemacs stuff
         (spacemacs|evilify-map mu4e-main-mode-map
-          :mode mu4e-main-mode)
+          :mode mu4e-main-mode
+          :bindings
+          (kbd "TAB") 'mu4e-maildirs-extension-toggle-maildir-at-point)
         (spacemacs|evilify-map mu4e-headers-mode-map
           :mode mu4e-headers-mode)
         (spacemacs|evilify-map mu4e-view-mode-map
