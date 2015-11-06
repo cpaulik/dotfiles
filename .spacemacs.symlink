@@ -80,7 +80,8 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(magit-annex)
+   dotspacemacs-additional-packages '(magit-annex
+                                      flycheck-package)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -135,7 +136,7 @@
     ;; can be toggled through `toggle-transparency'.
     dotspacemacs-inactive-transparency 90
     ;; If non nil unicode symbols are displayed in the mode line (e.g. for lighters)
-    dotspacemacs-mode-line-unicode-symbols t
+    dotspacemacs-mode-line-unicode-symbols nil
     ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth scrolling
     ;; overrides the default behavior of Emacs which recenters the point when
     ;; it reaches the top or bottom of the screen
@@ -151,8 +152,7 @@
     ;; set preview in latex files bigger
     preview-scale-function 1.6
     ;; make push work in magit without nagging
-    magit-push-always-verify nil
-    dotspacemacs-mode-line-unicode-symbols nil)
+    magit-push-always-verify nil)
 
     (if window-system (setq dotspacemacs-mode-line-unicode-symbols t))
     ;; set the default font
@@ -192,28 +192,6 @@
     (setq exec-path (split-string path-from-shell path-separator))))
 
     (when window-system (set-exec-path-from-shell-PATH))
-
-    ;; Get email, and store in nnml
-    (setq gnus-secondary-select-methods '(
-                                        (nntp "gmane"
-                                                (nntp-address "news.gmane.org"))
-                                        (nntp "news.eternal-september.org")
-                                        (nntp "nntp.aioe.org")
-                                        (nntp "news.gwene.org")
-                                        ))
-    ; Send email via Gmail:
-    (setq message-send-mail-function 'smtpmail-send-it
-      smtpmail-default-smtp-server "smtp.gmail.com")
-    ; Archive outgoing email in Sent folder on imap.gmail.com:
-    (setq gnus-message-archive-method '(nnimap "imap.gmail.com")
-        gnus-message-archive-group "[Gmail]/Sent Mail")
-    (setq gnus-posting-styles
-        '(((header "to" "cpaulik@gmail.com")
-           (address "cpaulik@gmail.com"))
-    ((header "to" "christoph.paulik@geo.tuwien.ac.at")
-         (address "christoph.paulik@geo.tuwien.ac.at"))))
-    (setq nnml-directory "~/gmail")
-    (setq message-directory "~/gmail")
   )
 
 (defun dotspacemacs/user-config ()
@@ -231,7 +209,6 @@ This function is called at the very end of Spacemacs initialization."
         (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebihnd tab to do persistent action
         (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
         (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-        (define-key helm-map (kbd "C-h")  'helm-find-files-up-one-level)
         (define-key helm-map (kbd "C-S-j")  'helm-scroll-other-window)
         (define-key helm-map (kbd "C-S-k")  'helm-scroll-other-window-down)
         (define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
@@ -255,7 +232,7 @@ This function is called at the very end of Spacemacs initialization."
       (setenv "NO_PROXY" "dvlp1.ipf.tuwien.ac.at,localhost,127.0.0.1")
       (setenv "no_proxy" "dvlp1.ipf.tuwien.ac.at,localhost,127.0.0.1")
       )
-    (when (string= system-name "cp-Lenovo-Yoga-2-Pro")
+    (when (string= system-name "cp-laptop")
       ;; home laptop
       (setq user-full-name "Christoph Paulik"
             user-mail-address "cpaulik@gmail.com")
@@ -298,18 +275,7 @@ This function is called at the very end of Spacemacs initialization."
     ;; set python company backends
     (setq company-backends-python-mode '((company-anaconda :with company-dabbrev-code :with company-yasnippet)))
     (setq company-transformers '(spacemacs//company-transformer-cancel
-                                 company-sort-by-backend-importance))
-    ;; open file in dired with standard program
-    (defun dired-open-file ()
-      "In dired, open the file named on this line."
-      (interactive)
-      (let* ((file (dired-get-filename nil t)))
-        (message "Opening %s..." file)
-        (call-process "xdg-open" nil 0 nil file)
-        (message "Opening %s done" file)))
-
-
-)
+                                 company-sort-by-backend-importance)))
 
 
 ;; Custom variables
