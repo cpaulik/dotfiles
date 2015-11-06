@@ -16,6 +16,7 @@
   '(
     ;; package names go here
     helm-mu
+    mu4e-maildirs-extension
     ))
 
 ;; For each package, define a function my-mu4e/init-<package-name>
@@ -26,3 +27,7 @@
     :commands helm-mu
     :init (evil-leader/set-key "oM" 'helm-mu))
   )
+
+(defun my-mu4e/init-mu4e-maildirs-extension ()
+  (use-package mu4e-maildirs-extension
+    :defer t))
