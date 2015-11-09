@@ -70,7 +70,8 @@
                                        syntax-checking
                                        themes-megapack
                                        tmux
-                                       vagrant)
+                                       vagrant
+                                       yaml)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(material-theme
                                     evil-escape
