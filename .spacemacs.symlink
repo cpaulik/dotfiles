@@ -76,6 +76,7 @@
    dotspacemacs-excluded-packages '(material-theme
                                     evil-escape
                                     evil-terminal-cursor-changer
+                                    sublime-themes
                                     org-plus-contrib)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
