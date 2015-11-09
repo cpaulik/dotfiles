@@ -49,7 +49,7 @@
                                        org
                                        org-ipython
                                        pandoc
-                                       perspectives
+                                       spacemacs-layouts
                                        pdf-tools
                                        ;; php
                                        (python
