@@ -158,6 +158,11 @@
 
     (if window-system (setq dotspacemacs-mode-line-unicode-symbols t))
     ;; set the default font
+    (setq dotspacemacs-default-font '("Hack"
+                                      :size 13
+                                      :weight normal
+                                      :width normal
+                                      :powerline-scale 1.1))
     (when (string= system-name "cpa")
     ;; work virtual machine
     (setq dotspacemacs-default-font '("Hack"
