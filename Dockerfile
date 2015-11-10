@@ -4,7 +4,7 @@ MAINTAINER Christoph Paulik <cpaulik@gmail.com>
 
 # Install packages: wget, git, and emacs
 RUN apt-get update && \
-    apt-get install -y wget git emacs24-nox bzr build-essential && \
+    apt-get install -y wget git emacs build-essential && \
     apt-get clean
 
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh \
@@ -32,6 +32,16 @@ RUN cd /home/dummy/.emacs.d \
 &&  export HOME=/home/dummy \
 &&  emacs --daemon
 
+RUN apt-get install -y unzip \
+&& wget https://github.com/chrissimpkins/Hack/releases/download/v2.018/Hack-v2_018-ttf.zip -O hack.zip \
+&&  unzip hack.zip \
+&&  mv *.ttf /usr/share/fonts/truetype/ \
+&&  fc-cache -f -v \
+&&  rm hack.zip
+
+RUN  cd /home/dummy/dotfiles \
+&&  git pull origin
+
 RUN  chown -R dummy:dummy /home/dummy
 
 USER dummy
@@ -40,5 +50,9 @@ ENV PATH /opt/conda/bin:/home/dummy/bin:$PATH
 ENV SHELL /bin/bash
 ENV HOME /home/dummy
 ENV TERM xterm-256color
+ENV LANG en_GB.UTF-8
+ENV LC_COLLATE en_GB.UTF-8
+ENV LC_CTYPE en_GB.UTF-8
+
 
 CMD ["/bin/bash"]
