@@ -105,9 +105,13 @@ eval "$(pyenv virtualenv-init -)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# smart history search
+# smart history search after typing and pressing up-down keys
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
+
+# bind C-j and C-k to up-down in history
+bindkey '^k' up-history
+bindkey '^j' down-history
 
 # Show human friendly numbers and colors
 alias df='df -h'
