@@ -71,6 +71,7 @@
                                        themes-megapack
                                        tmux
                                        vagrant
+                                       version-control
                                        yaml)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(material-theme
