@@ -126,6 +126,15 @@
     ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
     ;; Use to disable fullscreen animations in OSX."
     dotspacemacs-fullscreen-use-non-native nil
+    ;; Name of the default layout (default "Default")
+    dotspacemacs-default-layout-name "Home"
+    ;; If non nil then the last auto saved layouts are resume automatically upon
+    ;; start. (default nil)
+    dotspacemacs-auto-resume-layouts nil
+    ;; If non nil a progress bar is displayed when spacemacs is loading. This
+    ;; may increase the boot time on some systems and emacs builds, set it to
+    ;; nil to boost the loading time. (default t)
+    dotspacemacs-loading-progress-bar t
     ;; If non nil the frame is maximized when Emacs starts up (Emacs 24.4+ only).
     ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
     dotspacemacs-maximized-at-startup nil
@@ -153,6 +162,10 @@
     dotspacemacs-default-package-repository nil
     ;; set preview in latex files bigger
     preview-scale-function 1.6
+    ;; Delete whitespace while saving buffer. Possible values are `all',
+    ;; `trailing', `changed' or `nil'. Default is `changed' (cleanup whitespace
+    ;; on changed lines) (default 'changed)
+    dotspacemacs-whitespace-cleanup nil
     ;; make push work in magit without nagging
     magit-push-always-verify nil)
 
