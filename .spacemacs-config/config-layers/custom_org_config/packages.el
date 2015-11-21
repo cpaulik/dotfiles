@@ -59,16 +59,16 @@ which require an initialization must be listed explicitly in the list.")
                bh/clock-in-last-task)
     :init
     (progn
-      (evil-leader/set-key "m'" 'org-edit-src-exit)
+      (spacemacs/set-leader-keys "m'" 'org-edit-src-exit)
 
       ;; set org agenda global
-      (evil-leader/set-key "oo" 'org-agenda)
-      (evil-leader/set-key "oc" 'org-capture)
+      (spacemacs/set-leader-keys "oo" 'org-agenda)
+      (spacemacs/set-leader-keys "oc" 'org-capture)
 
       ;; set punch in and out keys
 
-      (evil-leader/set-key "oI" 'bh/punch-in)
-      (evil-leader/set-key "oO" 'bh/punch-out)
+      (spacemacs/set-leader-keys "oI" 'bh/punch-in)
+      (spacemacs/set-leader-keys "oO" 'bh/punch-out)
       ;; Custom Key Bindings
       (global-set-key "\C-cl" 'org-store-link)
       (global-set-key "\C-ca" 'org-agenda)

@@ -35,7 +35,7 @@ which require an initialization must be listed explicitly in the list.")
      :commands helm-bibtex
      :init
      (progn
-       (evil-leader/set-key "or" 'helm-bibtex)
+       (spacemacs/set-leader-keys "or" 'helm-bibtex)
        )
      :config
      (progn

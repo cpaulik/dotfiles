@@ -25,7 +25,7 @@
   (use-package helm-mu
     :defer t
     :commands helm-mu
-    :init (evil-leader/set-key "oM" 'helm-mu))
+    :init (spacemacs/set-leader-keys "oM" 'helm-mu))
   )
 
 (defun my-mu4e/init-mu4e-maildirs-extension ()

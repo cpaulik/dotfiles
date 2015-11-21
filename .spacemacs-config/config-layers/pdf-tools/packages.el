@@ -31,7 +31,7 @@
     :init
     (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
     :config
-    (spacemacs|evilify-map pdf-view-mode-map
+    (evilified-state-evilify-map pdf-view-mode-map
       :mode pdf-view-mode
       :bindings
       (kbd "j") 'pdf-view-next-line-or-next-page
