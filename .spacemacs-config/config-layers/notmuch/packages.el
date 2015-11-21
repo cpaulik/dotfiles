@@ -29,7 +29,7 @@
     :defer t
     :commands notmuch
     :init
-    (evil-leader/set-key "om" 'notmuch)
+    (spacemacs/set-leader-keys "om" 'notmuch)
     :config
     (evilify notmuch-hello-mode notmuch-hello-mode-map
              "J" 'notmuch-jump-search)

@@ -41,7 +41,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
      :defer t
      :commands mu4e
      :init
-     (evil-leader/set-key "om" 'mu4e)
+     (spacemacs/set-leader-keys "om" 'mu4e)
      :config
         (setq mu4e-view-show-images t)
         ;; use imagemagick if available
@@ -351,23 +351,23 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (mu4e-maildirs-extension)
 
         ;; spacemacs stuff
-        (spacemacs|evilify-map mu4e-main-mode-map
+        (evilified-state-evilify-map mu4e-main-mode-map
           :mode mu4e-main-mode
           :bindings
           (kbd "TAB") 'mu4e-maildirs-extension-toggle-maildir-at-point)
-        (spacemacs|evilify-map mu4e-headers-mode-map
+        (evilified-state-evilify-map mu4e-headers-mode-map
           :mode mu4e-headers-mode)
-        (spacemacs|evilify-map mu4e-view-mode-map
+        (evilified-state-evilify-map mu4e-view-mode-map
           :mode mu4e-view-mode
           :bindings
                  (kbd "RET") 'browse-url-at-point
                  (kbd "C-j") 'mu4e-view-headers-next
                  (kbd "C-k") 'mu4e-view-headers-prev)
-        (evil-leader/set-key-for-mode 'mu4e-compose-mode
-          "mt" 'message-goto-to
-          "mm" 'message-goto-body
-          "mb" 'message-goto-bcc
-          "ms" 'message-goto-subject)
+        (spacemacs/set-leader-keys-for-major-mode 'mu4e-compose-mode
+          "t" 'message-goto-to
+          "m" 'message-goto-body
+          "b" 'message-goto-bcc
+          "s" 'message-goto-subject)
 
 
      )

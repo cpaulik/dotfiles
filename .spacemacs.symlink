@@ -240,7 +240,7 @@ This function is called at the very end of Spacemacs initialization."
     )
     ;; set terminal command
     (defun start-term () (interactive) (term "/bin/zsh"))
-    (evil-leader/set-key "at" 'start-term)
+    (spacemacs/set-leader-keys "at" 'start-term)
 
     (setq flycheck-check-syntax-automatically '(save mode-enabled idle-change))
     (setq flycheck-idle-change-delay 5)
@@ -262,7 +262,7 @@ This function is called at the very end of Spacemacs initialization."
     (use-package erc
       :defer t
       :commands connect-erc
-      :init (evil-leader/set-key "oe" 'connect-erc)
+      :init (spacemacs/set-leader-keys "oe" 'connect-erc)
       :config
       (progn
         (setq erc-autojoin-channels-alist
