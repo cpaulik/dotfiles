@@ -1,5 +1,0 @@
-[user]
-	name = Christoph Paulik
-
-[include]
-	path = ~/latex_gitconfig
