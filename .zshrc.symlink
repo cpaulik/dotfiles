@@ -49,7 +49,6 @@ plugins=(git command-not-found dirhistory pip python wd zsh-syntax-highlighting 
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -97,7 +96,6 @@ export no_proxy=dvlp1.ipf.tuwien.ac.at,$NO_PROXY
 # export PIP_WHEEL_DIR="${WHEELHOUSE}"
 
 # pyenv setup
-export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
