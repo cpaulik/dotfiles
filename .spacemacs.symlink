@@ -281,6 +281,7 @@ This function is called at the very end of Spacemacs initialization."
     (global-set-key (kbd "C--") 'zoom-frm-out)
     (setq dired-listing-switches "-alhk")
     (setq dired-listings-switches "-alhk")
+    (setq delete-by-moving-to-trash nil)
     (setq wdired-allow-to-change-permissions t)
     (setq compilation-finish-function nil)
     ;; Make evil-mode up/down operate in screen lines instead of logical lines
