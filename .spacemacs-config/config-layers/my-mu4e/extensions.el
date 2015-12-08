@@ -367,6 +367,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
           "t" 'message-goto-to
           "m" 'message-goto-body
           "b" 'message-goto-bcc
+          "c" 'message-goto-cc
           "s" 'message-goto-subject)
 
 
