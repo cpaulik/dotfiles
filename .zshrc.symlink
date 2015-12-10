@@ -100,8 +100,14 @@ export no_proxy=dvlp1.ipf.tuwien.ac.at,$NO_PROXY
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # smart history search after typing and pressing up-down keys
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '\eOA' up-line-or-beginning-search
+bindkey '\e[A' up-line-or-beginning-search
+bindkey '\eOB' down-line-or-beginning-search
+bindkey '\e[B' down-line-or-beginning-search
 
 # bind C-j and C-k to up-down in history
 bindkey '^k' up-history
