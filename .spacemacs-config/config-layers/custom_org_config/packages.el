@@ -106,6 +106,7 @@ which require an initialization must be listed explicitly in the list.")
       ;; provide refile targets as paths, including the file name
       ;; (without directory) as level 1 of the path
       (setq org-refile-use-outline-path 'file)
+      (setq org-enforce-todo-dependencies t)
 
       ;; allow to create new nodes (must be confirmed by the user) as
       ;; refile targets
