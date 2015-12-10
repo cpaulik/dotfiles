@@ -399,51 +399,6 @@ which require an initialization must be listed explicitly in the list.")
 
       (defvar bh/project-list nil)
 
-      (defun bh/view-next-project ()
-        (interactive)
-        (let (num-project-left current-project)
-          (unless (marker-position org-agenda-restrict-begin)
-            (goto-char (point-min))
-            ; Clear all of the existing markers on the list
-            (while bh/project-list
-              (set-marker (pop bh/project-list) nil))
-            (re-search-forward "Tasks to Refile")
-            (forward-visible-line 1))
-
-          ; Build a new project marker list
-          (unless bh/project-list
-            (while (< (point) (point-max))
-              (while (and (< (point) (point-max))
-                          (or (not (org-get-at-bol 'org-hd-marker))
-                              (org-with-point-at (org-get-at-bol 'org-hd-marker)
-                                (or (not (bh/is-project-p))
-                                    (bh/is-project-subtree-p)))))
-                (forward-visible-line 1))
-              (when (< (point) (point-max))
-                (add-to-list 'bh/project-list (copy-marker (org-get-at-bol 'org-hd-marker)) 'append))
-              (forward-visible-line 1)))
-
-          ; Pop off the first marker on the list and display
-          (setq current-project (pop bh/project-list))
-          (when current-project
-            (org-with-point-at current-project
-              (setq bh/hide-scheduled-and-waiting-next-tasks nil)
-              (bh/narrow-to-project))
-            ; Remove the marker
-            (setq current-project nil)
-            (org-agenda-redo)
-            (beginning-of-buffer)
-            (setq num-projects-left (length bh/project-list))
-            (if (> num-projects-left 0)
-                (message "%s projects left to view" num-projects-left)
-              (beginning-of-buffer)
-              (setq bh/hide-scheduled-and-waiting-next-tasks t)
-              (error "All projects viewed.")))))
-
-      (add-hook 'org-agenda-mode-hook
-                '(lambda () (org-defkey org-agenda-mode-map "V" 'bh/view-next-project))
-                'append)
-
       (setq org-show-entry-below (quote ((default))))
 
       (add-hook 'org-agenda-mode-hook
@@ -1116,9 +1071,6 @@ which require an initialization must be listed explicitly in the list.")
                     :min-duration 0
                     :max-gap 0
                     :gap-ok-around ("4:00"))))
-
-      ;; Sometimes I change tasks I'm clocking quickly - this removes clocked tasks with 0:00 duration
-      (setq org-clock-out-remove-zero-time-clocks t)
 
       ;; Agenda clock report parameters
       (setq org-agenda-clockreport-parameter-plist
