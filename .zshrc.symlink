@@ -45,7 +45,7 @@ ZSH_THEME="pure"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found dirhistory pip python wd zsh-syntax-highlighting virtualenv vi-mode)
+plugins=(git command-not-found dirhistory pip python wd zsh-syntax-highlighting pyenv vi-mode)
 
 # User configuration
 
@@ -94,10 +94,6 @@ export no_proxy=dvlp1.ipf.tuwien.ac.at,$NO_PROXY
 # export WHEELHOUSE="${STANDARD_CACHE_DIR}/wheelhouse"
 # export PIP_FIND_LINKS="file://${WHEELHOUSE}"
 # export PIP_WHEEL_DIR="${WHEELHOUSE}"
-
-# pyenv setup
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
