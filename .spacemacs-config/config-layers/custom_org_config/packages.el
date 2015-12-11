@@ -48,7 +48,6 @@ which require an initialization must be listed explicitly in the list.")
                org-agenda
                org-capture
                org-store-link
-               org-agenda
                org-iswitchb
                org-clock-goto
                org-clock-in)
