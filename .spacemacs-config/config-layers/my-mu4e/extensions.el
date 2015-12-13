@@ -361,6 +361,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
           :mode mu4e-view-mode
           :bindings
                  (kbd "RET") 'browse-url-at-point
+                 (kbd "x") 'mu4e-mark-execute-all
                  (kbd "C-j") 'mu4e-view-headers-next
                  (kbd "C-k") 'mu4e-view-headers-prev)
         (spacemacs/set-leader-keys-for-major-mode 'mu4e-compose-mode
