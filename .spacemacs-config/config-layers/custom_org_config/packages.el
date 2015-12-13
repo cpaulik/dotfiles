@@ -345,6 +345,14 @@ which require an initialization must be listed explicitly in the list.")
       ;; Agenda clock report parameters
       (setq org-agenda-clockreport-parameter-plist
             (quote (:link t :maxlevel 5 :fileskip0 t :compact t :narrow 80)))
+
+      (setq org-agenda-custom-commands
+            '(("p" "Agenda and Personal-related tasks"
+               ((agenda "")
+                (tags-todo "personal")))
+              ("w" "Agenda and Work-related tasks"
+               ((agenda "")
+                (tags-todo "work")))))
     )
   )
 
