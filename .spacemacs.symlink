@@ -240,9 +240,11 @@ This function is called at the very end of Spacemacs initialization."
         (setq helm-split-window-in-side-p t)
       )
     )
+
     ;; set terminal command
     (defun start-term () (interactive) (term "/bin/zsh"))
     (spacemacs/set-leader-keys "at" 'start-term)
+    (add-hook 'prog-mode-hook 'turn-on-fci-mode)
 
     (setq flycheck-check-syntax-automatically '(save mode-enabled idle-change))
     (setq flycheck-idle-change-delay 5)
