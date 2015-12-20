@@ -202,7 +202,6 @@
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-mode/contrib/lisp" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-reveal" t)
-  (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-ref" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/material-theme" t)
 
   (defun set-exec-path-from-shell-PATH ()
