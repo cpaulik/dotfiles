@@ -19,6 +19,7 @@
     hydra
     key-chord
     interleave
+    org-ref
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
@@ -57,15 +58,6 @@ which require an initialization must be listed explicitly in the list.")
 
    (setq helm-bibtex-additional-search-fields '(keywords journal))
 
-   ;; setup org-ref
-
-
-   (require 'org-ref)
-   (require 'jmax-bibtex)
-   (setq org-ref-bibliography-notes "~/Dropbox/Arbeit/Papers/notes/notes.org")
-   (setq org-ref-default-bibliography '("~/Dropbox/Arbeit/Papers/bibliography.bib"))
-   (setq org-ref-pdf-directory "~/Dropbox/Arbeit/Papers/pdf/")
-   (setq reftex-default-bibliography '("~/Dropbox/Arbeit/Papers/bibliography.bib"))
 
    (defun helm-bibtex-interleave-edit-notes (key)
      "Open the notes associated with the entry using `find-file'."
@@ -79,6 +71,18 @@ which require an initialization must be listed explicitly in the list.")
      )
    )
 
+(defun research-config/init-org-ref()
+  "Init org ref package"
+  (use-package org-ref
+    :defer t
+    :config
+
+    (require 'org-ref-bibtex)
+    (setq org-ref-bibliography-notes "~/Dropbox/Arbeit/Papers/notes/notes.org")
+    (setq org-ref-default-bibliography '("~/Dropbox/Arbeit/Papers/bibliography.bib"))
+    (setq org-ref-pdf-directory "~/Dropbox/Arbeit/Papers/pdf/")
+    (setq reftex-default-bibliography '("~/Dropbox/Arbeit/Papers/bibliography.bib"))
+    ))
 
 (defun research-config/init-hydra ()
   (use-package hydra
