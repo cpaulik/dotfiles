@@ -59,8 +59,8 @@ export PROJECT_HOME=$HOME/workspace
 # set full color terminal
 export TERM=xterm-256color
 # set default editor
-export EDITOR="emacsclient -t"
-export VISUAL="emacsclient -c -a emacs"
+export EDITOR="et"
+export VISUAL="ec"
 export ALTERNATE_EDITOR=""
 
 # set path for miniconda
@@ -125,9 +125,10 @@ alias lag='la | grep'
 # navigation
 alias ..='cd ..'
 
+# emacs
+alias magit = 'ec -e "(magit-status \"$(pwd)\")"'
+
 # general commands
-alias ec="emacsclient -t $1"
-alias eserv="emacs --daemon"
 alias phpserv="php -S 0.0.0.0:8000"
 alias upbib='cat ~/Dropbox/Arbeit/Papers/bibs/*.bib | tr "\r" " " > ~/Dropbox/Arbeit/Papers/bibliography.bib'
 
