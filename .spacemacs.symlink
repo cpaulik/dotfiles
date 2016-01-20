@@ -28,6 +28,8 @@
                                        custom_org_config
                                        django
                                        dockerfile
+                                       (elfeed
+                                        :variables rmh-elfeed-org-files (list "~/Dropbox/org/feeds.org"))
                                        emacs-lisp
                                        emoji
                                        erc
