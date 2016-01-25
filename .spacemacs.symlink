@@ -57,6 +57,7 @@
                                        (python
                                         :variables
                                         python-enable-yapf-format-on-save nil
+                                        python-auto-set-local-pyenv-version 'on-project-switch
                                         python-test-runner 'pytest)
                                        ranger
                                        research-config
