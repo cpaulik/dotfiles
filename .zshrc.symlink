@@ -126,7 +126,7 @@ alias lag='la | grep'
 alias ..='cd ..'
 
 # emacs
-alias magit = 'ec -e "(magit-status \"$(pwd)\")"'
+alias magit='ec -e "(magit-status \"$(pwd)\")"'
 
 # general commands
 alias phpserv="php -S 0.0.0.0:8000"
