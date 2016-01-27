@@ -15,6 +15,7 @@
     ;; package my_pythons go here
     py-autopep8
     flycheck-pyflakes
+    python
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
@@ -31,6 +32,18 @@ which require an initialization must be listed explicitly in the list.")
 (defun my_python/init-flycheck-pyflakes()
   (use-package flycheck-pyflakes)
   )
+
+(defun my_python/post-init-python()
+
+  (defun my_python/where-am-i ()
+    (interactive)
+    (message (python-info-current-defun)))
+
+  (spacemacs/set-leader-keys-for-major-mode 'python-mode
+    "hw" 'my_python/where-am-i)
+
+  )
+
 ;; (defun my_python/init-my-package ()
 ;;   "Initialize my package"
 ;;   )
