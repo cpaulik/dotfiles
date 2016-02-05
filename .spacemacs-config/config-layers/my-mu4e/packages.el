@@ -212,6 +212,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
             ("/Personal/[Gmail].All Mail"    . ?a)
             ("/TU/INBOX"       . ?w)
             ("/TU/CGLS"       . ?C)
+            ("/TU/CCI"       . ?c)
             ))
 
         ;; something about ourselves
