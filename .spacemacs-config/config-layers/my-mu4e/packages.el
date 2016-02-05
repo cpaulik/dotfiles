@@ -19,6 +19,7 @@
     mu4e-maildirs-extension
     (mu4e :location local)
     (org-mu4e :location local)
+    (mml2015 :location local)
     persp-mode
     ))
 
@@ -36,6 +37,12 @@
   (use-package mu4e-maildirs-extension
     :defer t))
 
+
+(defun my-mu4e/init-mml2015 ()
+  (use-package mml2015
+    :config
+    (setq mml2015-signers '("5186A0AC")
+          mml2015-encrypt-to-self t)))
 
 (defvar work-sig "
 -------------------------------------------------------
