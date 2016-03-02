@@ -134,3 +134,16 @@ alias upbib='cat ~/Dropbox/Arbeit/Papers/bibs/*.bib | tr "\r" " " > ~/Dropbox/Ar
 
 # python aliases
 alias ptest="python setup.py test"
+
+# ledger and related
+
+elba_import () {
+reckon -f $1 --csv-separator ';' --encoding 'iso-8859-1' -l $2 --comma-separate-cents --ignore-columns 3,5,6 --currency EUR -o $3 --suffixed -a "Assets:Current Assets:Checking Account" -u
+ledger print -f $3 -o $3
+     }
+
+raiba_cc_import (){
+reckon -f $1 --csv-separator ' ' --encoding 'iso-8859-1' --contains-header --comma-separates-cents --ignore-columns 2,3,4,6,7,8,9 --currency EUR --suffixed -l $2 -a "Liabilities:Credit Card" -o $3 -u
+ledger print -f $3 -o $3
+}
+
