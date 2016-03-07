@@ -207,12 +207,12 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
 
         (setq mu4e-maildir-shortcuts
             '( ("/Personal/INBOX"               . ?i)
-            ("/Personal/[Gmail].Sent Mail"   . ?s)
-            ("/Personal/[Gmail].Trash"       . ?t)
-            ("/Personal/[Gmail].All Mail"    . ?a)
+            ("/Personal/Github"    . ?g)
             ("/TU/INBOX"       . ?w)
             ("/TU/CGLS"       . ?C)
             ("/TU/CCI"       . ?c)
+            ("/TU/Programming"       . ?p)
+            ("/TU/ISMN"       . ?I)
             ))
 
         ;; something about ourselves
