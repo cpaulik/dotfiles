@@ -64,7 +64,6 @@ export VISUAL="ec"
 export ALTERNATE_EDITOR=""
 
 # set path for miniconda
-# # export PATH="$HOME/miniconda/bin:$PATH"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
