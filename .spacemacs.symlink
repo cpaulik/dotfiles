@@ -84,7 +84,6 @@
    dotspacemacs-excluded-packages '(material-theme
                                     evil-escape
                                     evil-terminal-cursor-changer
-                                    org-plus-contrib
                                     ido
                                     sublime-themes)
    ;; List of additional packages that will be installed without being
@@ -205,8 +204,6 @@
                                       :powerline-scale 1.3)
           browse-url-generic-program "chromium"))
 
-  (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-mode/lisp")
-  (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-mode/contrib/lisp" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-reveal" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/material-theme" t)
