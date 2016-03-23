@@ -74,6 +74,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (when (fboundp 'imagemagick-register-types)
         (imagemagick-register-types))
         (setq mu4e-html2text-command "lynx -dump -width 120 -stdin")
+        (setq mu4e-change-filenames-when-moving t)
         ;; default
         ;; sending mail -- replace USERNAME with your gmail username
         ;; also, make sure the gnutls command line utils are installed
@@ -82,7 +83,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (require 'smtpmail-async)
         (setq send-mail-function 'async-smtpmail-send-it
               message-send-mail-function 'async-smtpmail-send-it)
-        (setq mu4e-maildir "~/Mail")
+        (setq mu4e-maildir "~/mbsync")
         ;; setup main account
         (setq mu4e-sent-folder "/Personal/[Gmail].Sent Mail"
               mu4e-drafts-folder "/Personal/[Gmail].Drafts"
@@ -173,7 +174,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
               (lambda (msg)
                 (cond
                  ((string-match "TU" (mu4e-message-field msg :maildir)) "/TU/Archive")
-                 ((string-match "TU-Git" (mu4e-message-field msg :maildir)) "/TU-Git/INBOX.erledigt")
+                 ((string-match "TU-Git" (mu4e-message-field msg :maildir)) "/TU-Git/INBOX/.erledigt")
                  ((string-match "Personal" (mu4e-message-field msg :maildir)) "/Personal/[Gmail].All Mail")
                   ;; messages to the mu mailing list go to the /mu folder
                   ((mu4e-message-contact-field-matches msg :to
@@ -254,7 +255,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
             (add-to-list 'mu4e-view-actions
                         '("View in browser" . mu4e-msgv-action-view-in-browser) t)
         (setq
-        mu4e-get-mail-command "offlineimap"   ;; or fetchmail, or ...
+        mu4e-get-mail-command "mbsync -a -V"   ;; or fetchmail, or ...
         mu4e-update-interval 300)             ;; update every 5 minutes
 
 
