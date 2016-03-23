@@ -17,7 +17,8 @@
    dotspacemacs-configuration-layer-path '("~/dotfiles/.spacemacs-config/config-layers/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(ansible
+   dotspacemacs-configuration-layers '(
+                                       ansible
                                        (auto-completion
                                         :variables
                                         auto-completion-enable-snippets-in-popup t
@@ -27,7 +28,6 @@
                                        colors
                                        custom_org_config
                                        django
-                                       dockerfile
                                        (elfeed
                                         :variables rmh-elfeed-org-files (list "~/Dropbox/org/feeds.org"))
                                        emacs-lisp
@@ -55,7 +55,7 @@
                                        pandoc
                                        spacemacs-layouts
                                        pdf-tools
-                                       ;; php
+                                       php
                                        (python
                                         :variables
                                         python-enable-yapf-format-on-save nil
@@ -64,6 +64,7 @@
                                        ranger
                                        research-config
                                        ruby
+                                       rust
                                        search-engine
                                        semantic
                                        (shell
@@ -73,7 +74,6 @@
                                        (spell-checking
                                         :variables spell-checking-enable-by-default nil)
                                        syntax-checking
-                                       themes-megapack
                                        tmux
                                        vagrant
                                        (version-control
