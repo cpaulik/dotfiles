@@ -1,0 +1,150 @@
+# mbsyncrc based on
+# http://www.ict4g.net/adolfo/notes/2014/12/27/EmacsIMAP.html
+# ACCOUNT INFORMATION
+IMAPAccount gmail
+# Address to connect to
+Host imap.gmail.com
+User cpaulik@gmail.com
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/dotfiles/mail/personal.gpg"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+# THEN WE SPECIFY THE LOCAL AND REMOTE STORAGE
+# - THE REMOTE STORAGE IS WHERE WE GET THE MAIL FROM (E.G., THE
+#   SPECIFICATION OF AN IMAP ACCOUNT)
+# - THE LOCAL STORAGE IS WHERE WE STORE THE EMAIL ON OUR COMPUTER
+
+# REMOTE STORAGE (USE THE IMAP ACCOUNT SPECIFIED ABOVE)
+IMAPStore gmail-remote
+Account gmail
+
+# LOCAL STORAGE (CREATE DIRECTORIES with mkdir -p Maildir/gmail)
+MaildirStore gmail-local
+Path ~/mbsync/Personal/
+Inbox ~/mbsync/Personal/INBOX
+
+# CONNECTIONS SPECIFY LINKS BETWEEN REMOTE AND LOCAL FOLDERS
+#
+# CONNECTIONS ARE SPECIFIED USING PATTERNS, WHICH MATCH REMOTE MAIl
+# FOLDERS. SOME COMMONLY USED PATTERS INCLUDE:
+#
+# 1 "*" TO MATCH EVERYTHING
+# 2 "!DIR" TO EXCLUDE "DIR"
+# 3 "DIR" TO MATCH DIR
+
+Channel gmail-inbox
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns * "INBOX" ![Gmail]*
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-trash
+Master :gmail-remote:"[Gmail]/Trash"
+Slave :gmail-local:"[Gmail].Trash"
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-drafts
+Master :gmail-remote:"[Gmail]/Drafts"
+Slave :gmail-local:"[Gmail].Drafts"
+Create Both
+Expunge Both
+SyncState *
+
+# GROUPS PUT TOGETHER CHANNELS, SO THAT WE CAN INVOKE
+# MBSYNC ON A GROUP TO SYNC ALL CHANNELS
+#
+# FOR INSTANCE: "mbsync gmail" GETS MAIL FROM
+# "gmail-inbox", "gmail-sent", and "gmail-trash"
+#
+Group gmail
+Channel gmail-inbox
+Channel gmail-trash
+Channel gmail-drafts
+
+
+IMAPAccount TU
+# Address to connect to
+Host mail.intern.tuwien.ac.at
+User cpaulik
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/dotfiles/mail/tu.gpg"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+
+# REMOTE STORAGE (USE THE IMAP ACCOUNT SPECIFIED ABOVE)
+IMAPStore tu-remote
+Account TU
+
+# LOCAL STORAGE (CREATE DIRECTORIES with mkdir -p Maildir/gmail)
+MaildirStore tu-local
+Path ~/mbsync/TU/
+Inbox ~/mbsync/TU/INBOX
+
+# CONNECTIONS SPECIFY LINKS BETWEEN REMOTE AND LOCAL FOLDERS
+#
+# CONNECTIONS ARE SPECIFIED USING PATTERNS, WHICH MATCH REMOTE MAIl
+# FOLDERS. SOME COMMONLY USED PATTERS INCLUDE:
+#
+# 1 "*" TO MATCH EVERYTHING
+# 2 "!DIR" TO EXCLUDE "DIR"
+# 3 "DIR" TO MATCH DIR
+
+Channel tu-inbox
+Master :tu-remote:
+Slave :tu-local:
+Patterns * 
+Create Both
+Expunge Both
+SyncState *
+
+Group tu
+Channel tu-inbox
+
+
+IMAPAccount TU-Git
+# Address to connect to
+Host mail.intern.tuwien.ac.at
+User intern/cpaulik/E120.Git
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/dotfiles/mail/tu.gpg"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+
+# REMOTE STORAGE (USE THE IMAP ACCOUNT SPECIFIED ABOVE)
+IMAPStore tu-git-remote
+Account TU-Git
+
+# LOCAL STORAGE (CREATE DIRECTORIES with mkdir -p Maildir/gmail)
+MaildirStore tu-git-local
+Path ~/mbsync/TU-Git/
+Inbox ~/mbsync/TU-Git/INBOX
+
+# CONNECTIONS SPECIFY LINKS BETWEEN REMOTE AND LOCAL FOLDERS
+#
+# CONNECTIONS ARE SPECIFIED USING PATTERNS, WHICH MATCH REMOTE MAIl
+# FOLDERS. SOME COMMONLY USED PATTERS INCLUDE:
+#
+# 1 "*" TO MATCH EVERYTHING
+# 2 "!DIR" TO EXCLUDE "DIR"
+# 3 "DIR" TO MATCH DIR
+
+Channel tu-git-inbox
+Master :tu-git-remote:
+Slave :tu-git-local:
+Patterns * 
+Create Both
+Expunge Both
+SyncState *
+
+Group tu-git
+Channel tu-git-inbox
