@@ -20,7 +20,7 @@ ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 maxconnections = 1
 realdelete = no
-folderfilter = lambda folder: folder not in ['[Gmail]/All Mail', '[Gmail]/Important', '[Gmail]/Starred', '[Gmail]/Spam']
+folderfilter = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Starred', '[Gmail]/Spam']
 
 [Account TU]
 localrepository = LocalTU
