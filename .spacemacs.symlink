@@ -208,7 +208,8 @@
                                       :weight normal
                                       :width normal
                                       :powerline-scale 1.3)
-          browse-url-generic-program "chromium"))
+          browse-url-generic-program "chromium"
+          org-odt-data-dir "/usr/share/emacs/24.5/etc/org"))
 
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config" t)
   (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-reveal" t)
