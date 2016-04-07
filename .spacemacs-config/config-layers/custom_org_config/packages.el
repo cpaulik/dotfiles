@@ -12,8 +12,9 @@
 
 (defvar custom_org_config-packages
   '(
-    org
-    org-ac
+    org-plus-contrib
+    (org :location built-in)
+    (org-ac :location built-in)
     ;; package custom_org_configs go here
     )
   "List of all packages to install and/or initialize. Built-in packages
@@ -25,6 +26,8 @@ which require an initialization must be listed explicitly in the list.")
 ;; For each package, define a function custom_org_config/init-<package-custom_org_config>
 ;;
 
+(defun custom_org_config/post-init-org-plus-contrib ())
+
 (defun custom_org_config/init-org-ac()
   (use-package org-ac
     :defer t
@@ -35,6 +38,19 @@ which require an initialization must be listed explicitly in the list.")
     )
 
   )
+
+
+(defun cpa/add-babel-languages ()
+  (add-to-list 'org-babel-load-languages '(python . t))
+  (add-to-list 'org-babel-load-languages '(ditaa . t))
+  (add-to-list 'org-babel-load-languages '(R . t))
+  (add-to-list 'org-babel-load-languages '(dot . t))
+  (add-to-list 'org-babel-load-languages '(shell . t))
+  )
+
+(defun custom_org_config/pre-init-org ()
+  (spacemacs|use-package-add-hook org
+    :post-config (cpa/add-babel-languages) ))
 
 
 
@@ -167,14 +183,6 @@ which require an initialization must be listed explicitly in the list.")
            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
            ("\\paragraph{%s}" . "\\paragraph*{%s}")
            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-      (org-babel-do-load-languages
-       'org-babel-load-languages
-       '((python . t)
-         (ditaa . t)
-         (R . t)
-         (dot .t)
-         (shell .t))
-       )
 
       (setq org-confirm-babel-evaluate nil)
       (setq org-todo-keywords
