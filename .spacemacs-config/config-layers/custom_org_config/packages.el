@@ -33,11 +33,7 @@ which require an initialization must be listed explicitly in the list.")
     :defer t
     :config
     (progn
-      (org-ac/config-default)
-      )
-    )
-
-  )
+      (org-ac/config-default))))
 
 
 (defun cpa/add-babel-languages ()
@@ -54,9 +50,10 @@ which require an initialization must be listed explicitly in the list.")
 
 
 
-(defun custom_org_config/post-init-org ()
+(defun custom_org_config/pre-init-org ()
 ;;   "Initialize my package"
 ;;load exporters for odt and texinfo - new in org 8
+
   (use-package org
     :defer t
     :commands (org-mode
@@ -72,8 +69,10 @@ which require an initialization must be listed explicitly in the list.")
                org-clock-in
                bh/org-todo
                bh/widen
-               bh/clock-in-last-task)
-    :init
+               bh/clock-in-last-task))
+
+  (spacemacs|use-package-add-hook org
+    :post-init
     (progn
       (spacemacs/set-leader-keys "m'" 'org-edit-src-exit)
 
@@ -97,9 +96,8 @@ which require an initialization must be listed explicitly in the list.")
       (global-set-key (kbd "<S-f5>") 'bh/widen)
       (global-set-key (kbd "<f9> I") 'bh/punch-in)
       (global-set-key (kbd "<f9> O") 'bh/punch-out)
-      (global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task)
-      )
-    :config
+      (global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task))
+    :post-config
     (progn
       ;; set org specific keybindings
       (add-hook 'org-agenda-mode-hook
@@ -1129,13 +1127,8 @@ which require an initialization must be listed explicitly in the list.")
 
       ;; Agenda clock report parameters
       (setq org-agenda-clockreport-parameter-plist
-            (quote (:link t :maxlevel 5 :fileskip0 t :compact t :narrow 80)))
-    )
-  )
+            (quote (:link t :maxlevel 5 :fileskip0 t :compact t :narrow 80))))))
 
-
-
-)
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
