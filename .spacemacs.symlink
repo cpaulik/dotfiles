@@ -335,8 +335,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
                                     :width normal
                                     :powerline-scale 1.3)
 
-          browse-url-generic-program "google-chrome")
-    )
+          browse-url-generic-program "google-chrome"
+          org-odt-data-dir "/usr/share/emacs/24.3/etc/org"))
     (when (string= system-name "cp-laptop")
     ;; home laptop with hdpi screen
     (setq dotspacemacs-default-font '("Hack"
