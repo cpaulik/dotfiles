@@ -105,7 +105,6 @@ which require an initialization must be listed explicitly in the list.")
       (add-hook 'org-agenda-mode-hook
                 '(lambda () (org-defkey org-agenda-mode-map "R" 'org-agenda-refile))
                 'append)
-      (require 'org-pelican)
       (setq org-src-fontify-natively 1)
       (setq org-agenda-span 'day)
       (setq org-default-notes-file "~/Dropbox/org/refile.org")
