@@ -45,7 +45,7 @@ ZSH_THEME="pure"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found dirhistory pip python wd zsh-syntax-highlighting pyenv vi-mode)
+plugins=(git command-not-found dirhistory pip python wd zsh-syntax-highlighting vi-mode)
 
 # User configuration
 
