@@ -320,6 +320,8 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+    (setq exec-path-from-shell-arguments (list "-i"))
+
     (setq dotspacemacs-default-font '("Hack"
                                       :size 13
                                       :weight normal
@@ -360,16 +362,6 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  (defun set-exec-path-from-shell-PATH ()
-    (let ((path-from-shell (replace-regexp-in-string
-                            "[ \t\n]*$"
-                            ""
-                            (shell-command-to-string "$SHELL -c 'echo $PATH'"))))
-      (setenv "PATH" path-from-shell)
-      (setq eshell-path-env path-from-shell) ; for eshell users
-      (setq exec-path (split-string path-from-shell path-separator))))
-
-  (when window-system (set-exec-path-from-shell-PATH))
   (when (string= system-name "cpa")
     ;; work machine
     (setq user-full-name "Christoph Paulik"
