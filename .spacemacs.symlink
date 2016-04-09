@@ -28,6 +28,7 @@ values."
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '("~/dotfiles/.spacemacs-config/config-layers/")
+   dotspacemacs-directory-snippets-dir '("~/dotfiles/.spacemacs-config/snippets/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -376,6 +377,20 @@ you should place your code here."
     (setq user-full-name "Christoph Paulik"
           user-mail-address "cpaulik@gmail.com")
     )
+
+  (use-package erc
+    :defer t
+    :commands connect-erc
+    :init (spacemacs/set-leader-keys "oe" 'connect-erc)
+    :config
+    (progn
+      (setq erc-autojoin-channels-alist
+            '(("0.0" "#syl20bnr/spacemacs")))
+      (defun connect-erc ()
+        (interactive)
+        (erc-tls :server "irc.gitter.im" :nick "cpaulik" :password nil)
+        )
+      ))
     (setq dired-listing-switches "-alhk")
     (setq dired-listings-switches "-alhk")
     (setq delete-by-moving-to-trash nil)
