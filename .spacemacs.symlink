@@ -48,6 +48,7 @@ values."
      emacs-lisp
      emoji
      erc
+     evil-cleverparens
      finance
      games
      (git
@@ -68,7 +69,6 @@ values."
      org-ipython
      org-page
      pandoc
-     spacemacs-layouts
      pdf-tools
      php
      (python
@@ -78,6 +78,7 @@ values."
       python-test-runner 'pytest)
      ranger
      research-config
+     restclient
      ruby
      rust
      search-engine
@@ -86,9 +87,13 @@ values."
       :variables
       shell-default-shell 'term
       shell-default-term-shell "/bin/zsh")
+     shell-scripts
      (spell-checking
       :variables spell-checking-enable-by-default nil)
+     spacemacs-helm
+     spacemacs-layouts
      syntax-checking
+     systemd
      tmux
      vagrant
      (version-control
