@@ -40,6 +40,7 @@
 
 (defun my-mu4e/init-mml2015 ()
   (use-package mml2015
+    :defer t
     :config
     (setq mml2015-signers '("5186A0AC")
           mml2015-encrypt-to-self t)))
