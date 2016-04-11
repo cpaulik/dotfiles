@@ -28,7 +28,6 @@ values."
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '("~/dotfiles/.spacemacs-config/config-layers/")
-   dotspacemacs-directory-snippets-dir '("~/dotfiles/.spacemacs-config/snippets/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -37,6 +36,7 @@ values."
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
+      auto-completion-private-snippets-directory "~/dotfiles/.spacemacs-config/snippets/"
       auto-completion-enable-help-tooltip nil)
      chrome
      clojure
