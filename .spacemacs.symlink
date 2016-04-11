@@ -320,7 +320,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-    (setq exec-path-from-shell-arguments (list "-i"))
+    (setq exec-path-from-shell-arguments (list "-i" "-l"))
 
     (setq dotspacemacs-default-font '("Hack"
                                       :size 13
@@ -328,7 +328,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                                       :width normal
                                       :powerline-scale 1.1))
     (when (string= system-name "cpa")
-    ;; work virtual machine
+    ;; work machine
     (setq dotspacemacs-default-font '("Hack"
                                     :size 13
                                     :weight normal
@@ -336,7 +336,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
                                     :powerline-scale 1.3)
 
           browse-url-generic-program "google-chrome"
-          org-odt-data-dir "/usr/share/emacs/24.3/etc/org"))
+          org-odt-data-dir "/usr/share/emacs/24.3/etc/org")
+          exec-path-from-shell-arguments (list "-i" "-l")
+    )
     (when (string= system-name "cp-laptop")
     ;; home laptop with hdpi screen
     (setq dotspacemacs-default-font '("Hack"
@@ -345,6 +347,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                                       :width normal
                                       :powerline-scale 1.3)
           browse-url-generic-program "chromium"
+          exec-path-from-shell-arguments (list "-i")
           org-odt-data-dir "/usr/share/emacs/24.5/etc/org"))
 
 
