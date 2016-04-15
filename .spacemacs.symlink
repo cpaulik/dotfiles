@@ -48,7 +48,6 @@ values."
      emacs-lisp
      emoji
      erc
-     evil-cleverparens
      finance
      games
      (git
@@ -91,7 +90,6 @@ values."
      (spell-checking
       :variables spell-checking-enable-by-default nil)
      spacemacs-helm
-     spacemacs-layouts
      syntax-checking
      systemd
      tmux
@@ -106,11 +104,12 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(material-theme
+   dotspacemacs-excluded-packages '(
+                                    material-theme
                                     evil-escape
                                     evil-terminal-cursor-changer
-                                    ido
-                                    sublime-themes)
+                                    sublime-themes
+                                    )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
