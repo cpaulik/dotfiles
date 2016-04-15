@@ -309,6 +309,10 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
+   ;; Start in fullscreen
+   dotspacemacs-fullscreen-at-startup nil
+   ;; Start maximized
+   dotspacemacs-maximized-at-startup t
    ))
 
 (defun dotspacemacs/user-init ()
