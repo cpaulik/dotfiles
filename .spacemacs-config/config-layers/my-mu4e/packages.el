@@ -259,6 +259,9 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         mu4e-get-mail-command "offlineimap"   ;; or fetchmail, or ...
         mu4e-update-interval 300)             ;; update every 5 minutes
 
+
+        ;; enable snippets in messages
+        (add-hook 'mu4e-compose-mode-hook 'spacemacs/load-yasnippet)
         (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
 
         ;; send mail from address that received it
