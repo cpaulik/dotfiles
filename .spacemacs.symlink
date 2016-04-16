@@ -379,7 +379,8 @@ you should place your code here."
     ;; home laptop
     (setq user-full-name "Christoph Paulik"
           user-mail-address "cpaulik@gmail.com")
-    )
+
+    (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
 
   (use-package erc
     :defer t
