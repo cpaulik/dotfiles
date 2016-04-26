@@ -105,13 +105,17 @@ which require an initialization must be listed explicitly in the list.")
                 'append)
       (setq org-src-fontify-natively 1)
       (setq org-agenda-span 'day)
-      (setq org-default-notes-file "~/Dropbox/org/refile.org")
 
+      (when (string= system-name "cpa")
+        (setq org-agenda-files (quote ("~/Dropbox/Arbeit/organisation"
+                                       "~/Dropbox/Arbeit/organisation/projects"))
+              org-default-notes-file "~/Dropbox/Arbeit/organisation/refile.org"
+              org-directory "~/Dropbox/Arbeit/organisation"))
 
-      (setq org-directory "~/Dropbox/org")
-      (setq org-agenda-files (quote ("~/Dropbox/org"
-                                     "~/Dropbox/Arbeit/organisation"
-                                     "~/Dropbox/Arbeit/organisation/projects")))
+      (when (string= system-name "cp-laptop")
+        (setq org-agenda-files (quote ("~/Dropbox/org"))
+              org-default-notes-file "~/Dropbox/org/refile.org"
+              org-directory "~/Dropbox/org"))
 
       (setq org-agenda-persistent-filter t)
       (require 'ox-odt)
