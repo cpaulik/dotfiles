@@ -394,6 +394,7 @@ you should place your code here."
         (interactive)
         (erc-tls :server "irc.gitter.im" :nick "cpaulik" :password nil))))
 
+  (setq powerline-default-separator 'arrow)
   ;; fancy git icon
   (defadvice vc-mode-line (after strip-backend () activate)
     (when (stringp vc-mode)
