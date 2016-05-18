@@ -390,6 +390,16 @@ you should place your code here."
         (interactive)
         (erc-tls :server "irc.gitter.im" :nick "cpaulik" :password nil))))
 
+
+  (spacemacs|define-custom-layout "@Start"
+    :binding "s"
+    :body
+    (progn
+      (org-agenda nil "A")
+      (delete-other-windows)
+      (split-window-right)
+      (mu4e)))
+
   (setq powerline-default-separator 'arrow)
   ;; fancy git icon
   (defadvice vc-mode-line (after strip-backend () activate)
