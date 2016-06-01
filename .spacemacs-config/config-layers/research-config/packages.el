@@ -10,7 +10,7 @@
 ;;
 ;;; License: GPLv3
 
-(defvar research-config-packages
+(defconst research-config-packages
   '(
     ;; package research-configs go here
     parsebib
@@ -71,7 +71,7 @@ which require an initialization must be listed explicitly in the list.")
      )
    )
 
-(defun research-config/init-org-ref()
+(defun research-config/post-init-org-ref()
   "Init org ref package"
   (use-package org-ref
     :defer t

@@ -10,15 +10,14 @@
 ;;
 ;;; License: GPLv3
 
-(defvar my_python-packages
+(defconst my_python-packages
   '(
     ;; package my_pythons go here
     py-autopep8
     flycheck-pyflakes
     python
-    )
-  "List of all packages to install and/or initialize. Built-in packages
-which require an initialization must be listed explicitly in the list.")
+    ))
+
 
 (defvar my_python-excluded-packages '()
   "List of packages to exclude.")

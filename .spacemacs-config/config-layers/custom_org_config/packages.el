@@ -10,15 +10,13 @@
 ;;
 ;;; License: GPLv3
 
-(defvar custom_org_config-packages
+(defconst custom_org_config-packages
   '(
     org-plus-contrib
     (org :location built-in)
     (org-ac :location built-in)
     ;; package custom_org_configs go here
-    )
-  "List of all packages to install and/or initialize. Built-in packages
-which require an initialization must be listed explicitly in the list.")
+    ))
 
 (defvar custom_org_config-excluded-packages '()
   "List of packages to exclude.")
