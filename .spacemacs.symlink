@@ -43,6 +43,7 @@ values."
      colors
      custom_org_config
      django
+     docker
      (elfeed
       :variables rmh-elfeed-org-files (list "~/Dropbox/org/feeds.org"))
      emacs-lisp
@@ -89,7 +90,6 @@ values."
      shell-scripts
      (spell-checking
       :variables spell-checking-enable-by-default nil)
-     spacemacs-helm
      syntax-checking
      systemd
      tmux
