@@ -160,13 +160,9 @@
                    ("linenos" "")))
 
       ;; setup of latex processing
-      (setq org-latex-pdf-process
-         (quote
-          ("pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f"
-           "bibtex %b"
-           "pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f"
-           "pdflatex -interaction nonstopmode -shell-escape -output-directory %o %f")))
-      (setq org-latex-table-caption-above nil)
+      (setq org-latex-pdf-process '("latexmk -synctex=1 -shell-escape -pdflatex=xelatex -pdf %f"))
+
+      (setq org-latex-caption-above nil)
       (setq org-html-table-caption-above nil)
       (add-to-list 'org-latex-classes
                    '("article"
