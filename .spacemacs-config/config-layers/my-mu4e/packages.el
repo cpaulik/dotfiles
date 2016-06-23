@@ -161,13 +161,14 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (add-hook 'mu4e-compose-mode-hook
                   (defun my-do-compose-stuff ()
                     "My settings for message composition."
-                    ;; format=flowed in mails
-                    (use-hard-newlines t 'guess)
                     (my-set-signature)
                     (message-insert-signature)
                     (message-goto-to)
                     ;; enable signing of emails by default
                     (mml-secure-message-sign-pgpmime)))
+
+        ;; format=flowed if appropriate
+        (add-hook 'message-send-hook (use-hard-newlines t 'guess))
 
         ;; save message to Sent Messages
         (setq mu4e-sent-messages-behavior 'sent)
