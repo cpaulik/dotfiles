@@ -123,6 +123,8 @@
       (require 'ox-md)
       (require 'ox-reveal)
 
+      ;; log into the LOGBOOK drawer. Also stores notes there.
+      (setq org-log-into-drawer t)
       ;; any headline with level <= 2 is a target
       (setq org-refile-targets '((nil :maxlevel . 2)
                                       ; all top-level headlines in the
