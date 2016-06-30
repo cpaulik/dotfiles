@@ -49,6 +49,7 @@ values."
      emacs-lisp
      emoji
      erc
+     ess
      finance
      games
      (git
@@ -70,6 +71,7 @@ values."
      org-page
      pandoc
      pdf-tools
+     plantuml
      php
      (python
       :variables
