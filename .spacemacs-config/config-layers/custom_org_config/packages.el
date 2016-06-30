@@ -162,7 +162,7 @@
                    ("linenos" "")))
 
       ;; setup of latex processing
-      (setq org-latex-pdf-process '("latexmk -synctex=1 -shell-escape -pdflatex=xelatex -pdf %f"))
+      (setq org-latex-pdf-process '("latexmk %f"))
 
       (setq org-latex-caption-above nil)
       (setq org-html-table-caption-above nil)
