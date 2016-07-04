@@ -32,12 +32,14 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     windows-scripts
      ansible
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
       auto-completion-private-snippets-directory "~/dotfiles/.spacemacs-config/snippets/"
       auto-completion-enable-help-tooltip nil)
+     bibtex
      chrome
      clojure
      colors
