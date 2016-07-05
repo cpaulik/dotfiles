@@ -111,7 +111,8 @@
               org-directory "~/Dropbox/Arbeit/organisation"))
 
       (when (string= system-name "cp-laptop")
-        (setq org-agenda-files (quote ("~/Dropbox/org"))
+        (setq org-agenda-files (quote ("~/Dropbox/org"
+                                       "~/Dropbox/Arbeit/organisation/projects/Univ_Ass.org"))
               org-default-notes-file "~/Dropbox/org/refile.org"
               org-directory "~/Dropbox/org"))
 
