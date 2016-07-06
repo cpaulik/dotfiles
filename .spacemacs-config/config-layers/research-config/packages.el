@@ -49,7 +49,7 @@ which require an initialization must be listed explicitly in the list.")
      (lambda (fpath)
        (start-process "evince" "*evince*" "evince" fpath)))
 
-   (setq helm-bibtex-additional-search-fields '(keywords journal))
+   (setq helm-bibtex-additional-search-fields '(keywords journal tags))
 
 
    (defun helm-bibtex-interleave-edit-notes (key)
