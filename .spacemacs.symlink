@@ -32,7 +32,6 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     windows-scripts
      ansible
      (auto-completion
       :variables
@@ -100,6 +99,7 @@ values."
      vagrant
      (version-control
       :variables version-control-diff-tool 'diff-hl)
+     windows-scripts
      yaml
      )
    ;; List of additional packages that will be installed without being
