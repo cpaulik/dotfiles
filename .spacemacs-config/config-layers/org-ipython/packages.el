@@ -34,7 +34,8 @@
     ;; Code
     :post-config
     ;; Code
-    (use-package ob-ipython)
+    (use-package ob-ipython
+      :defer t)
     (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
     )
   )
