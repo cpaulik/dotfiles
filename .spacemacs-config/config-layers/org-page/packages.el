@@ -54,15 +54,14 @@ Each entry is either:
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
 
-;;; packages.el ends here
 (defun org-page/init-org-page ()
   (spacemacs/declare-prefix "ab" "blog")
   (use-package org-page
-    :config (progn (setq op/repository-directory "~/workspace/org-blog/content"
+    :config (progn (setq op/repository-directory "~/workspace/personal/org-blog/content"
                          op/site-main-title "Splendid Abacus"
                          op/site-sub-title "About a man and his computer"
                          op/site-domain "http://splendidabacus.com"
-                         op/theme-root-directory "~/workspace/org-blog/themes"
+                         op/theme-root-directory "~/workspace/personal/org-blog/themes"
                          op/theme 'org-page-theme-martin
                          op/personal-disqus-shortname "livingwithacomputer"
                          op/personal-github-link "http://github.com/cpaulik"
@@ -71,3 +70,17 @@ Each entry is either:
                      "abp" 'op/do-publication-and-preview-site
                      "abP" 'op/do-publication))))
 
+
+(defun org-page/init-blog-admin ()
+  (use-package blog-admin
+    :init
+    (progn
+      (setq blog-admin-backend-type 'org-page)
+      (setq blog-admin-backend-path "~/workspace/personal/org-blog/content")
+      (setq blog-admin-backend-new-post-in-drafts t)
+      (setq blog-admin-backend-new-post-with-same-name-dir t)
+      (setq blog-admin-backend-org-page-drafts "_drafts") ;; directory to save draft
+      (setq blog-admin-backend-org-page-config-file nil) ;; if nil init.el is used
+      ))
+  )
+;;; packages.el ends here
