@@ -172,6 +172,12 @@
       (setf org-latex-default-packages-alist
             (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
 
+      ;; Set a nicer default style for the hyperref package
+      (setf org-latex-default-packages-alist
+            (remove '("" "hyperref" nil) org-latex-default-packages-alist))
+      (add-to-list 'org-latex-default-packages-alist
+                   `("colorlinks=true, linkcolor=teal, urlcolor=teal, citecolor=darkgray, anchorcolor=teal", "hyperref" nil))
+
       (add-to-list 'org-latex-classes
                    '("article"
                      "\\documentclass{article}
