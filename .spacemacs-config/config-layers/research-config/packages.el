@@ -75,7 +75,34 @@ which require an initialization must be listed explicitly in the list.")
     (setq org-ref-default-bibliography '("~/Dropbox/Arbeit/Papers/bibliography.bib"))
     (setq org-ref-pdf-directory "~/Dropbox/Arbeit/Papers/pdf/")
     (setq reftex-default-bibliography '("~/Dropbox/Arbeit/Papers/bibliography.bib"))
-    ))
+
+    (defun org-ref-include-default-bibliography (backend)
+      "Add bibliographystyle and bibliography links on export if they are needed."
+      (cond
+      ((eq backend 'latex)
+        (let* ((links (org-element-map (org-element-parse-buffer) 'link #'identity))
+        (cites (-filter (lambda (link)
+              (member (org-element-property :type link) org-ref-cite-types))
+            links))
+        (style (-filter (lambda (link)
+              (string= (org-element-property :type link) "bibliographystyle"))
+            links))
+        (bibliography (-filter (lambda (link)
+                (string= (org-element-property :type link) "bibliography"))
+              links)))
+          (when cites
+      (unless style
+        (goto-char (point-max))
+        (insert "\nbibliographystyle:unsrt"))
+      (unless bibliography
+        (goto-char (point-max))
+        (insert (format
+          "\nbibliography:%s"
+          (mapconcat (lambda (x)
+            (file-relative-name x (file-name-directory (buffer-file-name))))
+                org-ref-default-bibliography ",")))))))))
+
+    (add-hook 'org-export-before-processing-hook #'org-ref-include-default-bibliography)))
 
 (defun research-config/post-init-hydra ())
 
