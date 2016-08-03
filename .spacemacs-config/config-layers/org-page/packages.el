@@ -65,7 +65,8 @@ Each entry is either:
                          op/theme 'org-page-theme-martin
                          op/personal-disqus-shortname "livingwithacomputer"
                          op/personal-github-link "http://github.com/cpaulik"
-                         op/personal-google-analytics-id "UA-57519234-1")
+                         op/personal-google-analytics-id "UA-57519234-1"
+                         op/highlight-render 'htmlize)
                    (spacemacs/set-leader-keys
                      "abp" 'op/do-publication-and-preview-site
                      "abP" 'op/do-publication))))
