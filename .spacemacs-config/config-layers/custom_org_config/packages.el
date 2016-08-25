@@ -15,6 +15,7 @@
     org-plus-contrib
     (org :location built-in)
     (org-ac :location built-in)
+    cdlatex
     ;; package custom_org_configs go here
     ))
 
@@ -25,6 +26,9 @@
 ;;
 
 (defun custom_org_config/post-init-org-plus-contrib ())
+
+
+(defun custom_org_config/init-cdlatex())
 
 (defun custom_org_config/init-org-ac()
   (use-package org-ac
@@ -37,16 +41,10 @@
 (defun cpa/add-babel-languages ()
   (add-to-list 'org-babel-load-languages '(python . t))
   (add-to-list 'org-babel-load-languages '(ditaa . t))
-  (add-to-list 'org-babel-load-languages '(R . t))
+  (add-to-list 'org-babel-load-languages '(latex . t))
   (add-to-list 'org-babel-load-languages '(dot . t))
   (add-to-list 'org-babel-load-languages '(shell . t))
   )
-
-(defun custom_org_config/pre-init-org ()
-  (spacemacs|use-package-add-hook org
-    :post-config (cpa/add-babel-languages) ))
-
-
 
 (defun custom_org_config/pre-init-org ()
 ;;   "Initialize my package"
@@ -58,6 +56,7 @@
                org-edit-src-exit
                org-agenda
                org-capture
+               org-toggle-latex-fragment
                bh/punch-in
                bh/punch-out
                org-store-link
@@ -94,7 +93,9 @@
       (global-set-key (kbd "<S-f5>") 'bh/widen)
       (global-set-key (kbd "<f9> I") 'bh/punch-in)
       (global-set-key (kbd "<f9> O") 'bh/punch-out)
-      (global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task))
+      (global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task)
+      (spacemacs/set-leader-keys-for-major-mode 'org-mode "C-l" 'org-toggle-latex-fragment))
+
     :post-config
     (progn
       ;; set org specific keybindings
@@ -154,6 +155,7 @@
       (add-hook 'org-mode-hook 'org-indent-mode)
       (add-hook 'org-mode-hook 'auto-fill-mode)
 
+
       (require 'ox-latex)
       (setq org-latex-listings 'minted)
       ;; setup minted to have frame, small text and line numbers
@@ -161,6 +163,9 @@
                  '(("frame" "lines")
                    ("fontsize" "\\scriptsize")
                    ("linenos" "")))
+
+      ;; setup org-cdlatex minor mode
+      (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
       ;; setup of latex processing
       (setq org-latex-pdf-process '("latexmk %f"))
@@ -177,6 +182,9 @@
             (remove '("" "hyperref" nil) org-latex-default-packages-alist))
       (add-to-list 'org-latex-default-packages-alist
                    `("colorlinks=true, linkcolor=teal, urlcolor=teal, citecolor=darkgray, anchorcolor=teal", "hyperref" nil))
+      ;; add fontspec package for utf8 characters with xelatex
+      (add-to-list 'org-latex-default-packages-alist
+                   `("", "fontspec" nil) t)
 
       (add-to-list 'org-latex-classes
                    '("article"
@@ -192,6 +200,10 @@
            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
            ("\\paragraph{%s}" . "\\paragraph*{%s}")
            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+
+      ;; setup babel languages
+      (cpa/add-babel-languages)
 
       (setq org-confirm-babel-evaluate nil)
       (setq org-todo-keywords
