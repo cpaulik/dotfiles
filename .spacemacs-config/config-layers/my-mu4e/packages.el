@@ -254,9 +254,11 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
 
             (add-to-list 'mu4e-view-actions
                         '("View in browser" . mu4e-msgv-action-view-in-browser) t)
+
         (setq
-        mu4e-get-mail-command "mbsync -a -V"   ;; or fetchmail, or ...
-        mu4e-update-interval 300)             ;; update every 5 minutes
+         mu4e-get-mail-command (concat "mbsync " (my-mu4e/get-sync-channels
+                                                 (dotfiles/machine-location)))  ;; or fetchmail, or ...
+         mu4e-update-interval 300)             ;; update every 5 minutes
 
 
         ;; enable snippets in messages
@@ -387,7 +389,10 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
           :bindings
           (kbd "TAB") 'mu4e-maildirs-extension-toggle-maildir-at-point)
         (evilified-state-evilify-map mu4e-headers-mode-map
-          :mode mu4e-headers-mode)
+          :mode mu4e-headers-mode
+          :bindings
+          (kbd "C-c h") 'my-mu4e/refresh-home-only
+          (kbd "C-c w") 'my-mu4e/refresh-work-only)
         (evilified-state-evilify-map mu4e-view-mode-map
           :mode mu4e-view-mode
           :bindings
