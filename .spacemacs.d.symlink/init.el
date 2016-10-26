@@ -27,7 +27,7 @@ values."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/dotfiles/.spacemacs-config/config-layers/")
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/config-layers/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -36,9 +36,10 @@ values."
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
-      auto-completion-private-snippets-directory "~/dotfiles/.spacemacs-config/snippets/"
+      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/"
       auto-completion-enable-help-tooltip nil)
      bibtex
+     c-c++
      chrome
      clojure
      colors
@@ -58,6 +59,8 @@ values."
      github
      gnus
      graphviz
+     (gtags
+      :variables gtags-enable-by-default)
      html
      ipython-notebook
      javascript
@@ -367,11 +370,13 @@ Either returns home or work at the moment"
           org-odt-data-dir "/usr/share/emacs/25.1/etc/org"))
 
 
-    (add-to-list 'load-path "~/dotfiles/.spacemacs-config" t)
-    (add-to-list 'load-path "~/dotfiles/.spacemacs-config/org-reveal" t)
-    (add-to-list 'load-path "~/dotfiles/.spacemacs-config/material-theme" t)
+    (add-to-list 'load-path "~/.spacemacs.d" t)
+    (add-to-list 'load-path "~/.spacemacs.d/org-reveal" t)
+    (add-to-list 'load-path "~/.spacemacs.d/material-theme" t)
 
-  )
+    ;; make sure customize stuff is written into different file
+    (setq custom-file "~/.spacemacs.d/custom.el")
+    (load custom-file))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -466,6 +471,3 @@ you should place your code here."
     (setq company-backends-python-mode '((company-anaconda :with company-dabbrev-code :with company-yasnippet)))
     (setq company-transformers '(spacemacs//company-transformer-cancel
                                  company-sort-by-backend-importance)))
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
