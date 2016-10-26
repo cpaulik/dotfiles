@@ -329,6 +329,13 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+
+    (defun dotfiles/machine-location ()
+      "Get the machine location.
+Either returns home or work at the moment"
+      (let ((machines '(("cpa" . work) ("cp-laptop" . home))))
+        (cdr (assoc system-name machines))))
+
     (setq exec-path-from-shell-arguments (list "-i" "-l"))
 
     (setq dotspacemacs-default-font '("Hack"
@@ -336,7 +343,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                                       :weight normal
                                       :width normal
                                       :powerline-scale 1.1))
-    (when (string= system-name "cpa")
+    (when (eq (dotfiles/machine-location) 'work)
     ;; work machine
     (setq dotspacemacs-default-font '("Hack"
                                     :size 13
@@ -346,9 +353,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
           browse-url-generic-program "google-chrome"
           org-odt-data-dir "/usr/share/emacs/24.3/etc/org")
-          exec-path-from-shell-arguments (list "-i" "-l")
-    )
-    (when (string= system-name "cp-laptop")
+          exec-path-from-shell-arguments (list "-i" "-l"))
+
+    (when (eq (dotfiles/machine-location) 'home)
     ;; home laptop with hdpi screen
     (setq dotspacemacs-default-font '("Hack"
                                       :size 24
@@ -374,14 +381,16 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  (when (string= system-name "cpa")
+
+
+  (when (eq (dotfiles/machine-location) 'work)
     ;; work machine
     (setq user-full-name "Christoph Paulik"
           user-mail-address "christoph.paulik@geo.tuwien.ac.at")
     (setenv "NO_PROXY" "dvlp1.ipf.tuwien.ac.at,localhost,127.0.0.1")
     (setenv "no_proxy" "dvlp1.ipf.tuwien.ac.at,localhost,127.0.0.1")
     )
-  (when (string= system-name "cp-laptop")
+  (when (eq (dotfiles/machine-location) 'home)
     ;; home laptop
     (setq user-full-name "Christoph Paulik"
           user-mail-address "cpaulik@gmail.com")
