@@ -85,7 +85,7 @@ values."
      ruby
      rust
      search-engine
-     semantic
+     (semantic :disabled-for emacs-lisp)
      (shell
       :variables
       shell-default-shell 'term
