@@ -105,13 +105,13 @@
       (setq org-src-fontify-natively 1)
       (setq org-agenda-span 'day)
 
-      (when (string= system-name "cpa")
+      (when (eq (dotfiles/machine-location) 'work)
         (setq org-agenda-files (quote ("~/Dropbox/Arbeit/organisation"
                                        "~/Dropbox/Arbeit/organisation/projects"))
               org-default-notes-file "~/Dropbox/Arbeit/organisation/refile.org"
               org-directory "~/Dropbox/Arbeit/organisation"))
 
-      (when (string= system-name "cp-laptop")
+      (when (eq (dotfiles/machine-location) 'home)
         (setq org-agenda-files (quote ("~/Dropbox/org"
                                        "~/Dropbox/Arbeit/organisation/projects/Univ_Ass.org"))
               org-default-notes-file "~/Dropbox/org/refile.org"
