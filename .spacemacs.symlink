@@ -61,7 +61,8 @@ values."
      html
      ipython-notebook
      javascript
-     latex
+     (latex
+      :variables latex-view-with-pdf-tools t)
      lua
      markdown
      my-mu4e
