@@ -5,3 +5,5 @@ export PATH="$HOME/workspace/go/bin:$PATH"
 eval "$(pyenv init - --no-rehash)"
 eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"
+
+export GTAGSLABEL=pygments >> .profile
