@@ -38,3 +38,18 @@
                    (setq email-name email-name2))
                  )))
     email-name))
+
+(defun my-mu4e/get-sync-channels (location)
+  (let ((sync-channels '((home . "gmail")
+                         (work . "-a"))))
+    (cdr (assoc location sync-channels))))
+
+(defun my-mu4e/refresh-home-only ()
+  (interactive)
+  (let ((mu4e-get-mail-command (concat "mbsync " (my-mu4e/get-sync-channels 'home))))
+    (mu4e-update-mail-and-index nil)))
+
+(defun my-mu4e/refresh-work-only ()
+  (interactive)
+  (let ((mu4e-get-mail-command "mbsync tu tu-git"))
+    (mu4e-update-mail-and-index nil)))
