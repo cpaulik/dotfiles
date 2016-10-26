@@ -438,6 +438,8 @@ you should place your code here."
   ;; disable all the space-doc stuff
   (setq spacemacs-space-doc-modificators nil)
 
+  (setq evil-move-beyond-eol t)
+
   ;; fancy git icon
   (defadvice vc-mode-line (after strip-backend () activate)
     (when (stringp vc-mode)
