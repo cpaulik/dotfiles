@@ -364,7 +364,7 @@ Either returns home or work at the moment"
                                       :powerline-scale 1.6)
           browse-url-generic-program "chromium"
           exec-path-from-shell-arguments (list "-i")
-          org-odt-data-dir "/usr/share/emacs/24.5/etc/org"))
+          org-odt-data-dir "/usr/share/emacs/25.1/etc/org"))
 
 
     (add-to-list 'load-path "~/dotfiles/.spacemacs-config" t)
