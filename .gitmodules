@@ -1,8 +1,8 @@
-[submodule ".spacemacs-config/org-reveal"]
-	path = .spacemacs-config/org-reveal
+[submodule ".spacemacs.d.symlink/org-reveal"]
+	path = .spacemacs.d.symlink/org-reveal
 	url = https://github.com/yjwen/org-reveal.git
-[submodule ".spacemacs-config/material-theme"]
-	path = .spacemacs-config/material-theme
+[submodule ".spacemacs.d.symlink/material-theme"]
+	path = .spacemacs.d.symlink/material-theme
 	url = https://github.com/cpaulik/emacs-material-theme
 [submodule ".config/awesome/lain"]
 	path = .config/awesome/lain
