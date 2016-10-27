@@ -5,7 +5,7 @@ IMAPAccount gmail
 # Address to connect to
 Host imap.gmail.com
 User cpaulik@gmail.com
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/dotfiles/mail/personal.gpg"
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/dotfiles/mail/personal.gpg"
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1
@@ -96,7 +96,7 @@ IMAPAccount TU
 # Address to connect to
 Host mail.intern.tuwien.ac.at
 User cpaulik
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/dotfiles/mail/tu.gpg"
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/dotfiles/mail/tu.gpg"
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1
@@ -137,7 +137,7 @@ IMAPAccount TU-Git
 # Address to connect to
 Host mail.intern.tuwien.ac.at
 User intern/cpaulik/E120.Git
-PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/dotfiles/mail/tu.gpg"
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/dotfiles/mail/tu.gpg"
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1
