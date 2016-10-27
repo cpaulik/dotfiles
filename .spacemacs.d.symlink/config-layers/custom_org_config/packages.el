@@ -177,6 +177,11 @@
       (setf org-latex-default-packages-alist
             (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
 
+      ;; use package caption instead of capt-of which clashes with minted
+      (setf org-latex-default-packages-alist
+            (remove '("" "capt-of" t) org-latex-default-packages-alist))
+      (add-to-list 'org-latex-default-packages-alist
+                   `("", "caption" nil) t)
       ;; Set a nicer default style for the hyperref package
       (setf org-latex-default-packages-alist
             (remove '("" "hyperref" nil) org-latex-default-packages-alist))
