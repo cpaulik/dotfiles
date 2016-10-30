@@ -1,0 +1,63 @@
+[custom-keybindings/custom2]
+binding=['<Super>w']
+command='rofi -show window'
+name='rofi window'
+
+[custom-keybindings/custom5]
+binding=['<Super>o']
+command='rofi -show ssh'
+name='rofi ssh'
+
+[custom-keybindings/custom1]
+binding=['<Super>i']
+command='chromium --incognito'
+name='Chromium incognito'
+
+[custom-keybindings/custom4]
+binding=['<Super>space']
+command='rofi -show drun'
+name='rofi drun'
+
+[custom-keybindings/custom0]
+binding=['<Super>s']
+command='emacsclient -c -a emacs'
+name='emacs'
+
+[custom-keybindings/custom3]
+binding=['<Super>r']
+command='rofi -show combi'
+name='rofi -show combi'
+
+[/]
+looking-glass-keybinding=['<Shift><Super>d']
+custom-list=['custom0', 'custom1', 'custom2', 'custom3', 'custom4', 'custom5']
+
+[media-keys]
+terminal=['<Primary><Alt>t', '<Super>Return']
+www=['XF86WWW', '<Super>c']
+search=['XF86Search']
+
+[wm]
+maximize=@as []
+toggle-maximized=['<Super>m']
+close=['<Alt>F4', '<Super>x']
+push-tile-up=['<Super>Up', '<Super>k']
+move-to-workspace-1=['<Shift><Super>exclam']
+move-to-workspace-2=['<Shift><Super>quotedbl']
+move-to-workspace-3=['<Shift><Super>section']
+move-to-workspace-4=['<Shift><Super>dollar']
+move-to-workspace-5=['<Shift><Super>percent']
+move-to-workspace-6=['<Shift><Super>ampersand']
+switch-to-workspace-1=['<Super>1']
+switch-to-workspace-2=['<Super>2']
+panel-run-dialog=['<Alt>F2']
+switch-to-workspace-4=['<Super>4']
+switch-to-workspace-5=['<Super>5']
+switch-to-workspace-6=['<Super>6']
+switch-to-workspace-3=['<Super>3']
+toggle-above=['<Super>t']
+push-tile-left=['<Super>Left', '<Super>h']
+toggle-on-all-workspaces=['<Super>a']
+push-tile-right=['<Super>Right', '<Super>l']
+push-tile-down=['<Super>Down', '<Super>j']
+minimize=['<Super>n']

@@ -8,3 +8,14 @@ folder. So this might fail if you have a existing awesome configuration.
 ** GNOME Terminal color theme
 The install script adds the ~base-16-eighties-dark~ profile to the GNOME Terminal.
 Thanks to the [[https://github.com/chriskempson/base16-gnome-terminal][Base16 theme.]]
+
+** Cinnamon keybindings
+
+To restore the cinnamon keybindings load the dconf file manually like this:
+
+#+begin_src shell
+conf load /org/cinnamon/desktop/keybindings/ < ~/dotfiles/cinnamon/keybindings-backup.dconf
+#+end_src
+
+This is not included in the default install script on purpose for now.
+
