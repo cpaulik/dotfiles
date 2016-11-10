@@ -30,8 +30,6 @@ cd $DOTFILES_ROOT
 bash terminal-theme.sh
 #setup spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-# setup custom snippets
-ln -s $DOTFILES_ROOT/.spacemacs-config/snippets/* ~/.emacs.d/private/snippets
 
 #setup submodules of this repository
 git submodule init
