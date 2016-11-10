@@ -29,35 +29,19 @@
 
 ;;; Code:
 
-(defconst org-page-packages
-  '(org-page
+(setq org-page-packages
+  '(
+    org-page
     (blog-admin :location (recipe
                            :fetcher github
-                           :repo "codefalling/blog-admin")))
-
-  "The list of Lisp packages required by the org-page layer.
-Each entry is either:
-1. A symbol, which is interpreted as a package to be installed, or
-2. A list of the form (PACKAGE KEYS...), where PACKAGE is the
-    name of the package to be installed or loaded, and KEYS are
-    any number of keyword-value-pairs.
-    The following keys are accepted:
-    - :excluded (t or nil): Prevent the package from being loaded
-      if value is non-nil
-    - :location: Specify a custom installation location.
-      The following values are legal:
-      - The symbol `elpa' (default) means PACKAGE will be
-        installed using the Emacs package manager.
-      - The symbol `local' directs Spacemacs to load the file at
-        `./local/PACKAGE/PACKAGE.el'
-      - A list beginning with the symbol `recipe' is a melpa
-        recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
-
+                           :repo "codefalling/blog-admin"))
+    ))
 
 (defun org-page/init-org-page ()
   (spacemacs/declare-prefix "ab" "blog")
   (use-package org-page
-    :config (progn (setq op/repository-directory "~/workspace/personal/org-blog/content"
+    :defer t
+    :init (progn (setq op/repository-directory "~/workspace/personal/org-blog/content"
                          op/site-main-title "Splendid Abacus"
                          op/site-sub-title "About a man and his computer"
                          op/site-domain "http://splendidabacus.com"
@@ -74,7 +58,8 @@ Each entry is either:
 
 (defun org-page/init-blog-admin ()
   (use-package blog-admin
-    :init
+    :defer t
+    :config
     (progn
       (setq blog-admin-backend-type 'org-page)
       (setq blog-admin-backend-path "~/workspace/personal/org-blog/content")
