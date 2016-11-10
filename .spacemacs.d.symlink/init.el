@@ -70,7 +70,8 @@ values."
      markdown
      my-mu4e
      my_python
-     org
+     (org
+      :variables org-enable-reveal-js-support t)
      org-ipython
      org-page
      pandoc
@@ -371,7 +372,6 @@ Either returns home or work at the moment"
 
 
     (add-to-list 'load-path "~/.spacemacs.d" t)
-    (add-to-list 'load-path "~/.spacemacs.d/org-reveal" t)
     (add-to-list 'load-path "~/.spacemacs.d/material-theme" t)
 
     ;; make sure customize stuff is written into different file

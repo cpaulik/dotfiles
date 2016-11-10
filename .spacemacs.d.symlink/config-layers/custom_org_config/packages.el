@@ -123,7 +123,6 @@
       (require 'ox-beamer)
       (require 'ox-html)
       (require 'ox-md)
-      (require 'ox-reveal)
 
       ;; log into the LOGBOOK drawer. Also stores notes there.
       (setq org-log-into-drawer t)
