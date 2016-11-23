@@ -442,6 +442,11 @@ you should place your code here."
 
   (setq evil-move-beyond-eol t)
 
+  ;; enable fundamental-mode snippets for all modes
+  (add-hook 'yas-minor-mode-hook
+            (lambda ()
+              (yas-activate-extra-mode 'fundamental-mode)))
+
   ;; fancy git icon
   (defadvice vc-mode-line (after strip-backend () activate)
     (when (stringp vc-mode)
