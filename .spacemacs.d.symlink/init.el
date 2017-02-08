@@ -175,7 +175,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(material
+   dotspacemacs-themes '((material :location "~/.spacemacs.d/material-theme")
                          spacemacs-dark
                          spacemacs-light
                          solarized-light
@@ -369,7 +369,6 @@ Either returns home or work at the moment"
 
 
     (add-to-list 'load-path "~/.spacemacs.d" t)
-    (add-to-list 'load-path "~/.spacemacs.d/material-theme" t)
 
     ;; make sure customize stuff is written into different file
     (setq custom-file "~/.spacemacs.d/custom.el")
