@@ -134,6 +134,9 @@ alias upbib='cat ~/Dropbox/Arbeit/Papers/bibs/*.bib | tr "\r" " " > ~/Dropbox/Ar
 # python aliases
 alias ptest="python setup.py test"
 
+#mpv alias for wayland
+alias mpv="mpv --opengl-backend=x11egl"
+
 # ledger and related
 
 elba_import () {
