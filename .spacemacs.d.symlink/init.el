@@ -433,8 +433,12 @@ you should place your code here."
   (global-set-key [remap fill-paragraph]
                   #'endless/fill-or-unfill)
 
-  (setq sp-highlight-pair-overlay nil)
+  (setq sp-highlight-pair-overlay nil
+        sp-escape-quotes-after-insert nil
+        sp-escape-wrapped-region nil)
+
   (setq powerline-default-separator 'arrow)
+
 
   ;; disable all the space-doc stuff
   (setq spacemacs-space-doc-modificators nil)
