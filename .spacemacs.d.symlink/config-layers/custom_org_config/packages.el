@@ -172,6 +172,7 @@
       (setq org-latex-caption-above nil)
       (setq org-html-table-caption-above nil)
 
+      (setq org-latex-compiler "xelatex")
       ;; remove "inputenc" from default packages as it clashes with xelatex
       (setf org-latex-default-packages-alist
             (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
