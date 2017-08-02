@@ -378,6 +378,9 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (defun helm-mu4e-attach (_file)
           (gnus-dired-attach (helm-marked-candidates)))
 
+        ;; store all attachments of an email into the same folder
+        (setq mu4e-save-multiple-attachments-without-asking t)
+
         ;; set mu4e as default
         (setq mail-user-agent 'mu4e-user-agent)
 
