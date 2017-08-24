@@ -347,6 +347,7 @@ Either returns home or work at the moment"
     ;; work machine
       (setq shell-file-name "/usr/local/bin/zsh")
       (setenv "SHELL" "/usr/local/bin/zsh")
+      (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e" t)
       (setq dotspacemacs-default-font '("Hack"
                                         :size 13
                                         :weight normal
