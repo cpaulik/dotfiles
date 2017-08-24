@@ -2,8 +2,9 @@ eval $(gnome-keyring-daemon --start)
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/workspace/go/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"
 eval "$(pyenv init - --no-rehash)"
 eval "$(pyenv virtualenv-init -)"
-export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"
+export http_proxy=http://proxy.geo.tuwien.ac.at:3128
+export https_proxy=https://proxy.geo.tuwien.ac.at:3128
 
-export GTAGSLABEL=pygments >> .profile
