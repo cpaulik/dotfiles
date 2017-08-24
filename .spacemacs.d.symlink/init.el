@@ -338,8 +338,6 @@ Either returns home or work at the moment"
       (let ((machines '(("cpa" . work) ("cp-laptop" . home))))
         (cdr (assoc system-name machines))))
 
-    (setq exec-path-from-shell-arguments (list "-i" "-l"))
-
     (setq dotspacemacs-default-font '("Hack"
                                       :size 13
                                       :weight normal
@@ -347,15 +345,16 @@ Either returns home or work at the moment"
                                       :powerline-scale 1.1))
     (when (eq (dotfiles/machine-location) 'work)
     ;; work machine
-    (setq dotspacemacs-default-font '("Hack"
-                                    :size 13
-                                    :weight normal
-                                    :width normal
-                                    :powerline-scale 1.3)
+      (setq shell-file-name "/usr/local/bin/zsh")
+      (setenv "SHELL" "/usr/local/bin/zsh")
+      (setq dotspacemacs-default-font '("Hack"
+                                        :size 13
+                                        :weight normal
+                                        :width normal
+                                        :powerline-scale 1.3)
 
-          browse-url-generic-program "google-chrome"
-          org-odt-data-dir "/usr/share/emacs/24.3/etc/org")
-          exec-path-from-shell-arguments (list "-i" "-l"))
+            browse-url-generic-program "google-chrome"
+            org-odt-data-dir "/usr/share/emacs/24.3/etc/org"))
 
     (when (eq (dotfiles/machine-location) 'home)
     ;; home laptop with hdpi screen
