@@ -80,8 +80,8 @@ export ALTERNATE_EDITOR=""
 # ssh
 #export SSH_KEY_PATH="~/.ssh/dsa_id"
 # set no proxy for internal pip server at work
-NO_PROXY=${no_proxy-localhost}
-export no_proxy=dvlp1.geo.tuwien.ac.at,$NO_PROXY
+#NO_PROXY=${no_proxy-localhost}
+#export no_proxy=dvlp1.geo.tuwien.ac.at,$NO_PROXY
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
