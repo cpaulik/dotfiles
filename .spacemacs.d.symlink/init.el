@@ -335,7 +335,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (defun dotfiles/machine-location ()
       "Get the machine location.
 Either returns home or work at the moment"
-      (let ((machines '(("cpa" . work) ("cp-laptop" . home))))
+      (let ((machines '(("cpaulik-laptop" . work) ("cp-laptop" . home))))
         (cdr (assoc system-name machines))))
 
     (setq dotspacemacs-default-font '("Hack"
@@ -345,17 +345,17 @@ Either returns home or work at the moment"
                                       :powerline-scale 1.1))
     (when (eq (dotfiles/machine-location) 'work)
     ;; work machine
-      (setq shell-file-name "/usr/local/bin/zsh")
-      (setenv "SHELL" "/usr/local/bin/zsh")
-      (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e" t)
+      (setq shell-file-name "/usr/bin/zsh")
+      (setenv "SHELL" "/usr/bin/zsh")
+      (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e" t)
       (setq dotspacemacs-default-font '("Hack"
                                         :size 13
                                         :weight normal
                                         :width normal
                                         :powerline-scale 1.3)
 
-            browse-url-generic-program "google-chrome"
-            org-odt-data-dir "/usr/share/emacs/24.3/etc/org"))
+            browse-url-generic-program "chromium"
+            org-odt-data-dir "/usr/share/emacs/25.3/etc/org"))
 
     (when (eq (dotfiles/machine-location) 'home)
     ;; home laptop with hdpi screen
@@ -445,6 +445,7 @@ you should place your code here."
   (setq spacemacs-space-doc-modificators nil)
 
   (setq evil-move-beyond-eol t)
+  (setq helm-window-prefer-horizontal-split t)
 
   ;; enable fundamental-mode snippets for all modes
   (add-hook 'yas-minor-mode-hook
