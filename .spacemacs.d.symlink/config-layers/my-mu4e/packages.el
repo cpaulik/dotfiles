@@ -47,10 +47,11 @@
 
 (defvar work-sig "
 -------------------------------------------------------
-Christoph Paulik
-TU Wien
-Phone: +43 1 58801 12253
-Email: christoph.paulik@geo.tuwien.ac.at
+Christoph Paulik | Head of Infrastructure
+VanderSat // Satellite observed water data. Globally. Daily.
+Wilhelminastraat 43a, 2011 VK, Haarlem (NL), The Netherlands
+W: www.vandersat.com
+M: +31 (0) 6 1827 1928
 PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
 
 (defvar private-sig "
@@ -73,7 +74,8 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         ;; use imagemagick if available
         (when (fboundp 'imagemagick-register-types)
         (imagemagick-register-types))
-        (setq mu4e-html2text-command "lynx -dump -width 120 -stdin")
+        (setq mu4e-html2text-command "lynx -dump -display-charset UTF-8 -width 120 -stdin")
+        (setq mu4e-view-html-plaintext-ratio-heuristic 2305843009213693951)
         (setq mu4e-change-filenames-when-moving t)
         ;; default
         ;; sending mail -- replace USERNAME with your gmail username
@@ -106,27 +108,16 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
              (smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil)))
              (smtpmail-auth-credentials '(("smtp.gmail.com" 587 "cpaulik@gmail.com" nil)))
              (smtpmail-smtp-service 587))
-            ("TU"
-             (mu4e-sent-folder "/TU/Sent Items")
+            ("VanderSat"
+             (mu4e-sent-folder "/VanderSat/[Gmail].Sent Mail")
              (mu4e-sent-messages-behavior sent)
-             (mu4e-drafts-folder "/TU/Drafts")
-             (user-mail-address "christoph.paulik@geo.tuwien.ac.at")
+             (mu4e-drafts-folder "/VanderSat/[Gmail].Drafts")
+             (user-mail-address "cpaulik@vandersat.com")
              (user-full-name  "Christoph Paulik")
-             (smtpmail-smtp-user "cpaulik")
-             (smtpmail-smtp-server "mail.intern.tuwien.ac.at")
-             (smtpmail-starttls-credentials '(("mail.intern.tuwien.ac.at" 587 nil nil)))
-             (smtpmail-auth-credentials '(("mail.intern.tuwien.ac.at" 587 "cpaulik" nil)))
-             (smtpmail-smtp-service 587))
-            ("TU-Git"
-             (mu4e-sent-folder "/TU-Git/Sent Items")
-             (mu4e-sent-messages-behavior sent)
-             (mu4e-drafts-folder "/TU-Git/Drafts")
-             (user-mail-address "git@geo.tuwien.ac.at")
-             (user-full-name  "Christoph Paulik")
-             (smtpmail-smtp-user "cpaulik")
-             (smtpmail-smtp-server "mail.intern.tuwien.ac.at")
-             (smtpmail-starttls-credentials '(("mail.intern.tuwien.ac.at" 587 nil nil)))
-             (smtpmail-auth-credentials '(("mail.intern.tuwien.ac.at" 587 "cpaulik" nil)))
+             (smtpmail-smtp-user "cpaulik@vandersat.com")
+             (smtpmail-smtp-server "smtp.gmail.com")
+             (smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil)))
+             (smtpmail-auth-credentials '(("smtp.gmail.com" 587 "cpaulik@vandersat.com" nil)))
              (smtpmail-smtp-service 587))
             ))
         (defun my-mu4e-set-account ()
@@ -153,8 +144,8 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
           "My settings for signatures."
           (setq message-signature
                 (cond
-                 ((string-match "christoph.paulik" user-mail-address) work-sig)
-                 ((string-match "cpaulik" user-mail-address) private-sig)
+                 ((string-match "vandersat" user-mail-address) work-sig)
+                 ((string-match "gmail" user-mail-address) private-sig)
                  (t ""))))
 
         ;; handle signatures with message buffer
@@ -173,8 +164,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (setq mu4e-refile-folder
               (lambda (msg)
                 (cond
-                 ((string-match "TU" (mu4e-message-field msg :maildir)) "/TU/Archive")
-                 ((string-match "TU-Git" (mu4e-message-field msg :maildir)) "/TU-Git/INBOX/.erledigt")
+                 ((string-match "VanderSat" (mu4e-message-field msg :maildir)) "/VanderSat/Archive")
                  ((string-match "Personal" (mu4e-message-field msg :maildir)) "/Personal/[Gmail].All Mail")
                   ;; messages to the mu mailing list go to the /mu folder
                   ((mu4e-message-contact-field-matches msg :to
@@ -182,10 +172,8 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
                    "/Personal/Archive")
                  ;; messages sent directly to me go to /archive
                  ;; also `mu4e-user-mail-address-p' can be used
-                 ((mu4e-message-contact-field-matches msg :to "christoph.paulik@geo.tuwien.ac.at")
-                  "/TU/Archive")
-                 ((mu4e-message-contact-field-matches msg :to "christoph.Paulik@tuwien.ac.at")
-                  "/TU/Archive")
+                 ((mu4e-message-contact-field-matches msg :to "cpaulik@vandersat.com")
+                  "/VanderSat/Archive")
                  ;; everything else goes to /archive
                  ;; important to have a catch-all at the end!
                  (t  "/archive"))))
@@ -193,8 +181,7 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (setq mu4e-trash-folder
               (lambda (msg)
                 (cond
-                 ((string-match "TU" (mu4e-message-field msg :maildir)) "/TU/Deleted Items")
-                 ((string-match "TU-Git" (mu4e-message-field msg :maildir)) "/TU-Git/Gel&APY-schte Elemente")
+                 ((string-match "VanderSat" (mu4e-message-field msg :maildir)) "/VanderSat/[Gmail].Trash")
                  ((string-match "Personal" (mu4e-message-field msg :maildir)) "/Personal/[Gmail].Trash")
                   ;; messages to the mu mailing list go to the /mu folder
                  ;; everything else goes to /archive
@@ -208,19 +195,15 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
         (setq mu4e-maildir-shortcuts
             '( ("/Personal/INBOX"               . ?i)
             ("/Personal/Github"    . ?g)
-            ("/TU/INBOX"       . ?w)
-            ("/TU/CGLS"       . ?C)
-            ("/TU/CCI"       . ?c)
-            ("/TU/C3S"       . ?3)
-            ("/TU/Programming"       . ?p)
-            ("/TU/ISMN"       . ?I)
+            ("/VanderSat/INBOX"       . ?w)
+            ("/VanderSat/C3S"       . ?3)
             ))
 
         ;; something about ourselves
         (setq mu4e-compose-signature ""
             mu4e-user-mail-address-list
             '("cpaulik@gmail.com"
-            "christoph.paulik@geo.tuwien.ac.at"
+            "cpaulik@vandersat.com"
             "Christoph.Paulik@geo.tuwien.ac.at")
             )
 
@@ -276,6 +259,8 @@ PGP: 8CFC D7DF 2867 B2DC 749B  1B0A 6E3B A262 5186 A0AC")
                                 (cond
                                 ((mu4e-message-contact-field-matches msg :to "@gmail")
                                 "cpaulik@gmail.com")
+                                ((mu4e-message-contact-field-matches msg :to "@vandersat.com")
+                                 "cpaulik@vandersat.com")
                                 ((mu4e-message-contact-field-matches msg :to "Christoph.Paulik@geo.tuwien.ac.at")
                                 "Christoph.Paulik@geo.tuwien.ac.at")
                                 ((mu4e-message-contact-field-matches msg :to "git@geo.tuwien.ac.at")
