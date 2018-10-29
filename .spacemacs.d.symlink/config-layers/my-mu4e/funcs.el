@@ -41,7 +41,7 @@
 
 (defun my-mu4e/get-sync-channels (location)
   (let ((sync-channels '((home . "gmail")
-                         (work . "tu tu-git gmail"))))
+                         (work . "gmail-vandersat gmail"))))
     (cdr (assoc location sync-channels))))
 
 (defun my-mu4e/refresh-home-only ()
@@ -51,5 +51,5 @@
 
 (defun my-mu4e/refresh-work-only ()
   (interactive)
-  (let ((mu4e-get-mail-command "mbsync tu tu-git"))
+  (let ((mu4e-get-mail-command "mbsync gmail"))
     (mu4e-update-mail-and-index nil)))
