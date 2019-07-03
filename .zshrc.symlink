@@ -159,9 +159,6 @@ alias upbib='cat ~/Dropbox/Arbeit/Papers/bibs/*.bib | tr "\r" " " > ~/Dropbox/Ar
 # python aliases
 alias ptest="python setup.py test"
 
-#mpv alias for wayland
-alias mpv="mpv --opengl-backend=x11egl"
-
 # ledger and related
 
 elba_import () {
@@ -173,4 +170,10 @@ raiba_cc_import (){
 reckon -f $1 --csv-separator ' ' --encoding 'iso-8859-1' --contains-header --comma-separates-cents --ignore-columns 2,3,4,6,7,8,9 --currency EUR --suffixed -l $2 -a "Liabilities:Credit Card" -u -o $3
 ledger print -f $3 -o $3
 }
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
