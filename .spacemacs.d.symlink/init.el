@@ -31,7 +31,8 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(typescript
+   '(csv
+     typescript
      sql
      ansible
      (auto-completion
@@ -62,17 +63,17 @@ values."
      (gtags
       :variables gtags-enable-by-default)
      html
-     ipython-notebook
      javascript
+     kubernetes
      (latex
       :variables latex-view-with-pdf-tools t)
      lua
      markdown
+     mermaid
      my-mu4e
      my_python
      (org
       :variables org-enable-reveal-js-support t)
-     org-ipython
      org-page
      pandoc
      pdf-tools
@@ -80,6 +81,7 @@ values."
      php
      (python
       :variables
+      python-backend 'anaconda
       python-enable-yapf-format-on-save nil
       python-auto-set-local-pyenv-version 'on-project-switch
       python-test-runner 'pytest)
@@ -355,7 +357,7 @@ Either returns home or work at the moment"
                                         :width normal
                                         :powerline-scale 1.3)
 
-            browse-url-generic-program "chromium"
+            browse-url-generic-program "firefox"
             org-odt-data-dir "/usr/share/emacs/25.3/etc/org"))
 
     (when (eq (dotfiles/machine-location) 'home)
@@ -446,6 +448,8 @@ you should place your code here."
   (setq spacemacs-space-doc-modificators nil)
 
   (setq evil-move-beyond-eol t)
+  (customize-set-variable 'evil-want-Y-yank-to-eol t)
+
   (setq helm-window-prefer-horizontal-split t)
 
   ;; enable fundamental-mode snippets for all modes
