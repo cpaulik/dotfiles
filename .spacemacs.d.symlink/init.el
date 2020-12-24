@@ -42,24 +42,15 @@ values."
       auto-completion-enable-help-tooltip nil)
      bibtex
      c-c++
-     clojure
      colors
      custom_org_config
-     django
-     docker
      (elfeed
       :variables rmh-elfeed-org-files (list "~/Dropbox/org/feeds.org"))
      emacs-lisp
-     emoji
-     erc
-     finance
-     games
      (git
       :variables
       git-gutter-use-fringe t)
      github
-     gnus
-     graphviz
      (gtags
       :variables gtags-enable-by-default)
      html
@@ -67,29 +58,19 @@ values."
      kubernetes
      (latex
       :variables latex-view-with-pdf-tools t)
-     lua
      markdown
      mermaid
      my-mu4e
      my_python
      (org
       :variables org-enable-reveal-js-support t)
-     org-page
-     pandoc
-     pdf-tools
-     plantuml
-     php
      (python
       :variables
       python-backend 'anaconda
       python-enable-yapf-format-on-save nil
       python-auto-set-local-pyenv-version 'on-project-switch
       python-test-runner 'pytest)
-     ranger
      research-config
-     restclient
-     ruby
-     rust
      search-engine
      (semantic :disabled-for emacs-lisp)
      (shell
@@ -100,12 +81,8 @@ values."
      (spell-checking
       :variables spell-checking-enable-by-default nil)
      syntax-checking
-     systemd
-     tmux
-     vagrant
      (version-control
       :variables version-control-diff-tool 'diff-hl)
-     windows-scripts
      yaml
      )
    ;; List of additional packages that will be installed without being
