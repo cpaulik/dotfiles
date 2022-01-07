@@ -31,7 +31,8 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(sql
+   '(rust
+     sql
      csv
      ansible
      (auto-completion
@@ -50,8 +51,6 @@ values."
       :variables
       git-gutter-use-fringe t)
      github
-     (gtags
-      :variables gtags-enable-by-default)
      html
      javascript
      kubernetes
@@ -448,7 +447,7 @@ values."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `rg', `ag', `pt', `ack' and `grep'.
    ;; (default '("rg" "ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("ag" "rg" "pt" "ack" "grep")
 
    ;; Format specification for setting the frame title.
    ;; %a - the `abbreviated-file-name', or `buffer-name'
@@ -664,11 +663,6 @@ you should place your code here."
     (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
     (setq doc-view-resolution 300)
     (setq vc-follow-symlinks t)
+    (setq lsp-pyls-plugins-jedi-use-pyenv-environment t)
     ;; set default browser
-    (setq browse-url-browser-function 'browse-url-generic)
-    ;; set javascript company backends
-    (setq company-backends-js2-mode '((company-tern :with company-dabbrev-code :with company-yasnippet)))
-    ;; set python company backends
-    (setq company-backends-python-mode '((company-anaconda :with company-dabbrev-code :with company-yasnippet)))
-    (setq company-transformers '(spacemacs//company-transformer-cancel
-                                 company-sort-by-backend-importance)))
+    (setq browse-url-browser-function 'browse-url-generic))
