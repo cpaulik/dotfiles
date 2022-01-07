@@ -13,7 +13,7 @@
 (defconst my_python-packages
   '(
     ;; package my_pythons go here
-    py-autopep8
+    ;; py-autopep8
     flycheck-pyflakes
     python
     ))
@@ -24,9 +24,9 @@
 
 ;; For each package, define a function my_python/init-<package-my_python>
 ;;
-(defun my_python/init-py-autopep8()
-  (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-  )
+;; (defun my_python/init-py-autopep8()
+;;   (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+;;   )
 
 (defun my_python/init-flycheck-pyflakes()
   (use-package flycheck-pyflakes)
