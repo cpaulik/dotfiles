@@ -1,0 +1,8 @@
+#!/bin/sh
+
+
+_proxy=proxy.ipf.tuwien.ac.at
+_proxyport=3128
+
+exec socat STDIO PROXY:$_proxy:$1:$2,proxyport=$_proxyport
+

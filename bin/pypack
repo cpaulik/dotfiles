@@ -1,0 +1,32 @@
+#!/bin/bash
+
+PYPACK_BUILD_DIR=$HOME/python_build_dir
+WORKSPACE_SRC_DIR=${2-$HOME/workspace}
+
+PROJECT_NAME=$1
+PACKAGE_SRC_DIR=$PYPACK_BUILD_DIR/$PROJECT_NAME
+PACKAGE_DIST_PATH=$PYPACK_BUILD_DIR/$PROJECT_NAME/dist/$PROJECT_NAME-*.tar.gz
+PACKAGE_EXTRACT_DIR=$PYPACK_BUILD_DIR/dist
+PACKAGE_DOCS_DIR=$PYPACK_BUILD_DIR/docs
+PROJECT_SRC_DIR=$WORKSPACE_SRC_DIR/$PROJECT_NAME
+
+# remove previous build directory
+rm -rf $PACKAGE_SRC_DIR
+# copy current source into build_dir
+cp -r $PROJECT_SRC_DIR $PYPACK_BUILD_DIR
+cd $PACKAGE_SRC_DIR
+# build source distribution
+python setup.py sdist
+# untar in external dist folder
+tar -xf $PACKAGE_DIST_PATH -C $PACKAGE_EXTRACT_DIR
+cd $PACKAGE_EXTRACT_DIR/$PROJECT_NAME-*
+# test untarred version
+python setup.py test
+# build documentation
+python setup.py docs
+# copy documentation to docs folder
+rm -r $PACKAGE_DOCS_DIR/$PROJECT_NAME
+cp -r ./docs/_build/html $PACKAGE_DOCS_DIR/$PROJECT_NAME
+# remove untared version
+rm -rf $PACKAGE_EXTRACT_DIR/$PROJECT_NAME-*
+

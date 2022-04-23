@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: dear name
+# key: dear
+# --
+Dear ${1:`(bjm/mu4e-get-names-for-yasnippet)`},
+
+$0
+
+Best regards,
+Christoph
