@@ -31,7 +31,8 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(rust
+   '((go :variables go-backend 'lsp)
+     rust
      sql
      csv
      ansible
@@ -40,16 +41,18 @@ values."
       auto-completion-enable-snippets-in-popup t
       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/"
       auto-completion-enable-help-tooltip nil)
-     bibtex
+     ;; bibtex
      colors
      ;; custom_org_config
      docker
+     (dart
+      :variables lsp-dart-sdk-dir "/Users/cpaulik/Downloads/flutter/bin/cache/dart-sdk/")
      (elfeed
       :variables rmh-elfeed-org-files (list "~/Dropbox/org/feeds.org"))
      emacs-lisp
      (git
-      :variables
-      git-gutter-use-fringe t)
+     :variables
+     git-gutter-use-fringe t)
      github
      html
      javascript
@@ -57,22 +60,23 @@ values."
      (latex
       :variables latex-view-with-pdf-tools t)
      markdown
-     mermaid
-     my-mu4e
-     my_python
+     ;; mermaid
+     ;; my-mu4e
+     ;; my_python
      (org
       :variables org-enable-reveal-js-support t)
      org-page
-     pandoc
-     pdf-tools
+     ;; pandoc
+     ;; pdf-tools
      (python
       :variables
-      python-backend 'anaconda
+      python-backend 'lsp python-lsp-server 'pyright
       python-enable-yapf-format-on-save nil
       python-auto-set-local-pyenv-version 'on-project-switch
       python-test-runner 'pytest)
-     research-config
+     ;; research-config
      restclient
+     rust
      (semantic :disabled-for emacs-lisp)
      (shell
       :variables
@@ -90,7 +94,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(gptel)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     material-theme
@@ -524,7 +528,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (defun dotfiles/machine-location ()
       "Get the machine location.
 Either returns home or work at the moment"
-      (let ((machines '(("cpaulik-laptop" . work) ("cp-laptop" . home))))
+      (let ((machines '(("cpaulik-laptop" . work) ("MacBook-Air" . home))))
         (cdr (assoc system-name machines))))
 
     (setq dotspacemacs-default-font '("Hack"
@@ -553,11 +557,11 @@ Either returns home or work at the moment"
                                       :weight normal
                                       :width normal
                                       :powerline-scale 1.6)
-          browse-url-generic-program "chromium"
+          browse-url-generic-program "open"
           exec-path-from-shell-arguments (list "-i")
           org-odt-data-dir "/usr/share/emacs/25.1/etc/org"))
 
-
+    (setq browse-url-generic-program "open")
     (add-to-list 'load-path "~/.spacemacs.d" t)
 
     ;; make sure customize stuff is written into different file
@@ -634,11 +638,17 @@ you should place your code here."
 
   ;; disable all the space-doc stuff
   (setq spacemacs-space-doc-modificators nil)
+  (setq-default tab-width 4)
 
   (setq evil-move-beyond-eol t)
   (customize-set-variable 'evil-want-Y-yank-to-eol t)
 
   (setq helm-window-prefer-horizontal-split t)
+  (require 'gptel)
+  (gptel-make-ollama "Ollama"             ;Any name of your choosing
+                     :host "localhost:11434"               ;Where it's running
+                     :stream t                             ;Stream responses
+                     :models '("llama3.1:latest"))          ;List of models
 
   ;; enable fundamental-mode snippets for all modes
   (add-hook 'yas-minor-mode-hook
