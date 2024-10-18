@@ -1,6 +1,0 @@
-[alias]
-    wdiff = diff --color-words --ignore-all-space
-    ldiff = difftool -y -t latex
-
-[difftool.latex]
-    cmd = latexdiff "$LOCAL" "$REMOTE" --exclude-textcmd="section,subsection,subsubsection"
