@@ -88,7 +88,7 @@ export ALTERNATE_EDITOR=""
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# smart history search after typing and pressing up-down keys
+# smart history search after typing and pressing up-down keys or C-j and C-k
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -97,10 +97,8 @@ bindkey '\eOA' up-line-or-beginning-search
 bindkey '\e[A' up-line-or-beginning-search
 bindkey '\eOB' down-line-or-beginning-search
 bindkey '\e[B' down-line-or-beginning-search
-
-# bind C-j and C-k to up-down in history
-bindkey '^k' up-history
-bindkey '^j' down-history
+bindkey '^k' up-line-or-beginning-search
+bindkey '^j' down-line-or-beginning-search
 
 # Show human friendly numbers and colors
 alias df='df -h'
