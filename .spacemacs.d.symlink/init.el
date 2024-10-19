@@ -53,7 +53,6 @@ values."
      (git
      :variables
      git-gutter-use-fringe t)
-     github
      html
      javascript
      kubernetes
@@ -247,7 +246,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '((material :location "~/.spacemacs.d/material-theme")
+   dotspacemacs-themes '((gruvbox-dark-medium
+                         material :location "~/.spacemacs.d/material-theme")
                          spacemacs-dark
                          spacemacs-light
                          solarized-light
@@ -532,7 +532,7 @@ Either returns home or work at the moment"
       (let ((machines '(("cpaulik-laptop" . work) ("MacBook-Air" . home))))
         (cdr (assoc system-name machines))))
 
-    (setq dotspacemacs-default-font '("Hack"
+    (setq dotspacemacs-default-font '("Hack Nerd Font Propo"
                                       :size 13
                                       :weight normal
                                       :width normal
@@ -542,7 +542,7 @@ Either returns home or work at the moment"
       (setq shell-file-name "/usr/bin/zsh")
       (setenv "SHELL" "/usr/bin/zsh")
       (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e" t)
-      (setq dotspacemacs-default-font '("Hack"
+      (setq dotspacemacs-default-font '("Hack Nerd Font Propo"
                                         :size 13
                                         :weight normal
                                         :width normal
@@ -553,7 +553,7 @@ Either returns home or work at the moment"
 
     (when (eq (dotfiles/machine-location) 'home)
     ;; home laptop with hdpi screen
-    (setq dotspacemacs-default-font '("Hack"
+    (setq dotspacemacs-default-font '("Hack Nerd Font Propo"
                                       :size 24
                                       :weight normal
                                       :width normal
