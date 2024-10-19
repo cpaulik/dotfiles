@@ -30,6 +30,11 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 git submodule init
 git submodule update
 
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+brew install eza
+brew install fzf
+brew install bat
+
 # symlink config folder
 ln -s $DOTFILES_ROOT/.config/* ~/.config
 # symlink bin folder
