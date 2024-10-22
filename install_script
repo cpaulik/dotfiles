@@ -28,6 +28,7 @@ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 brew install eza
 brew install fzf
 brew install bat
+brew install zoxide
 brew install --cask font-hack-nerd-font
 
 #setup spacemacs
@@ -43,3 +44,6 @@ ln -s $DOTFILES_ROOT/.config/* ~/.config
 # symlink bin folder
 mkdir ~/bin
 ln -s $DOTFILES_ROOT/bin/* ~/bin
+
+# symlink espanso folder
+ln -s $DOTFILES_ROOT/espanso ~/Library/Application\ Support/
