@@ -1,0 +1,5 @@
+filter_title: "Planet Jira"
+extra_includes:
+  - "../match/_jira.yml"
+extra_excludes:
+  - "../match/markdown.yml"

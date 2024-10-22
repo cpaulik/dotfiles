@@ -31,17 +31,17 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '((go :variables go-backend 'lsp)
+   '(react
+     typescript
+     (go :variables go-backend 'lsp)
      rust
      sql
      csv
-     ansible
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/"
       auto-completion-enable-help-tooltip nil)
-     ;; bibtex
      colors
      ;; custom_org_config
      docker
@@ -51,27 +51,23 @@ values."
       :variables rmh-elfeed-org-files (list "~/Dropbox/org/feeds.org"))
      emacs-lisp
      (git
-     :variables
-     git-gutter-use-fringe t)
+      :variables
+      git-gutter-use-fringe t)
      html
      javascript
      kubernetes
      (latex
       :variables latex-view-with-pdf-tools t)
      markdown
-     ;; mermaid
-     ;; my-mu4e
-     ;; my_python
      (org
       :variables org-enable-reveal-js-support t)
-     org-page
-     ;; pandoc
-     ;; pdf-tools
+     lsp
      (python
       :variables
-      python-backend 'lsp python-lsp-server 'pyright
+      python-backend 'lsp
+      python-lsp-server 'pyright
       python-enable-yapf-format-on-save nil
-      python-auto-set-local-pyenv-version 'on-project-switch
+      python-auto-set-local-pyenv-version nil
       python-test-runner 'pytest)
      ;; research-config
      restclient
@@ -85,6 +81,7 @@ values."
      (spell-checking
       :variables spell-checking-enable-by-default nil)
      syntax-checking
+     (terraform :variables terraform-auto-format-on-save t)
      (version-control
       :variables version-control-diff-tool 'diff-hl)
      yaml
@@ -93,8 +90,13 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(gptel
-                                      gruvbox-theme)
+   dotspacemacs-additional-packages
+   '(gruvbox-theme
+     (copilot :location (recipe
+                         :fetcher github
+                         :repo "copilot-emacs/copilot.el"
+                         :files ("*.el" "dist"))))
+
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     material-theme
@@ -247,7 +249,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '((gruvbox-dark-medium
-                         material :location "~/.spacemacs.d/material-theme")
+                          material :location "~/.spacemacs.d/material-theme")
                          spacemacs-dark
                          spacemacs-light
                          solarized-light
@@ -259,7 +261,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Hack Nerd Font Propo"
                                :size 13
                                :weight normal
                                :width normal
@@ -525,33 +527,42 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+  (eval-after-load 'git-link
+    '(progn
+       (add-to-list 'git-link-remote-alist
+                    '("code\\.earth\\.planet\\.com" git-link-gitlab))
+       (add-to-list 'git-link-commit-remote-alist
+                    '("code\\.earth\\.planet\\.com" git-link-commit-gitlab))))
 
-    (defun dotfiles/machine-location ()
-      "Get the machine location.
+
+  (defun dotfiles/machine-location ()
+    "Get the machine location.
 Either returns home or work at the moment"
-      (let ((machines '(("cpaulik-laptop" . work) ("MacBook-Air" . home))))
-        (cdr (assoc system-name machines))))
+    (let ((machines '(("Pixel-4a.corporate.hrm.earth.planet.com" . work) ("FQXGFTJFPP.local" . work) ("FQXGFTJFPP" . work) ("FQXGFTJFPP.corporate.hrm.earth.planet.com" . work) ("cp-laptop" . home))))
+      (cdr (assoc system-name machines))))
 
+  (setq dotspacemacs-default-font '("Hack Nerd Font Propo"
+                                    :size 13
+                                    :weight normal
+                                    :width normal
+                                    :powerline-scale 1.1))
+  (when (eq (dotfiles/machine-location) 'work)
+    ;; work machine
+    (setq shell-file-name "/bin/zsh")
+    (setenv "SHELL" "/bin/zsh")
+    (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e" t)
     (setq dotspacemacs-default-font '("Hack Nerd Font Propo"
                                       :size 13
                                       :weight normal
                                       :width normal
-                                      :powerline-scale 1.1))
-    (when (eq (dotfiles/machine-location) 'work)
-    ;; work machine
-      (setq shell-file-name "/usr/bin/zsh")
-      (setenv "SHELL" "/usr/bin/zsh")
-      (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e" t)
-      (setq dotspacemacs-default-font '("Hack Nerd Font Propo"
-                                        :size 13
-                                        :weight normal
-                                        :width normal
-                                        :powerline-scale 1.3)
+                                      :powerline-scale 1.3)
 
-            browse-url-generic-program "firefox"
-            org-odt-data-dir "/usr/share/emacs/25.3/etc/org"))
+          exec-path-from-shell-arguments (list "-i")
+          org-odt-data-dir "/usr/share/emacs/25.3/etc/org"))
 
-    (when (eq (dotfiles/machine-location) 'home)
+  (add-to-list 'exec-path "/Users/christoph/google-cloud-sdk/bin")
+
+  (when (eq (dotfiles/machine-location) 'home)
     ;; home laptop with hdpi screen
     (setq dotspacemacs-default-font '("Hack Nerd Font Propo"
                                       :size 24
@@ -562,12 +573,12 @@ Either returns home or work at the moment"
           exec-path-from-shell-arguments (list "-i")
           org-odt-data-dir "/usr/share/emacs/25.1/etc/org"))
 
-    (setq browse-url-generic-program "open")
-    (add-to-list 'load-path "~/.spacemacs.d" t)
+  (setq browse-url-generic-program "open")
+  (setq image-types (cons 'svg image-types))
 
-    ;; make sure customize stuff is written into different file
-    (setq custom-file "~/.spacemacs.d/custom.el")
-    (load custom-file))
+  ;; make sure customize stuff is written into different file
+  (setq custom-file "~/.spacemacs.d/custom.el")
+  (load custom-file))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -577,7 +588,17 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  (with-eval-after-load 'company
+    ;; disable inline previews
+    (delq 'company-preview-if-just-one-frontend company-frontends))
 
+  ;; (with-eval-after-load 'copilot
+  ;;   (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+  ;;   (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+  ;;   (define-key copilot-completion-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
+  ;;   (define-key copilot-completion-map (kbd "C-<tab>") 'copilot-accept-completion-by-word))
+
+  ;; (add-hook 'prog-mode-hook 'copilot-mode)
 
   (when (eq (dotfiles/machine-location) 'work)
     ;; work machine
@@ -661,19 +682,18 @@ you should place your code here."
     (when (stringp vc-mode)
       (let ((gitlogo (replace-regexp-in-string "^ Git." " Ⱶ " vc-mode)))
         (setq vc-mode gitlogo))))
-    (setq dired-listing-switches "-alhk")
-    (setq dired-listings-switches "-alhk")
-    (setq delete-by-moving-to-trash nil)
-    (setq wdired-allow-to-change-permissions t)
-    (setq compilation-finish-function nil)
-    ;; Make evil-mode up/down operate in screen lines instead of logical lines
-    (define-key evil-normal-state-map "j" 'evil-next-visual-line)
-    (define-key evil-normal-state-map "k" 'evil-previous-visual-line)
-    ;; Also in visual mode
-    (define-key evil-visual-state-map "j" 'evil-next-visual-line)
-    (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
-    (setq doc-view-resolution 300)
-    (setq vc-follow-symlinks t)
-    (setq lsp-pyls-plugins-jedi-use-pyenv-environment t)
-    ;; set default browser
-    (setq browse-url-browser-function 'browse-url-generic))
+  (setq dired-listing-switches "-alhk")
+  (setq delete-by-moving-to-trash nil)
+  (setq wdired-allow-to-change-permissions t)
+  (setq compilation-finish-function nil)
+  ;; Make evil-mode up/down operate in screen lines instead of logical lines
+  (define-key evil-normal-state-map "j" 'evil-next-visual-line)
+  (define-key evil-normal-state-map "k" 'evil-previous-visual-line)
+  ;; Also in visual mode
+  (define-key evil-visual-state-map "j" 'evil-next-visual-line)
+  (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
+  (setq doc-view-resolution 300)
+  (setq vc-follow-symlinks t)
+  (setq lsp-pyls-plugins-jedi-use-pyenv-environment t)
+  ;; set default browser
+  (setq browse-url-browser-function 'browse-url-generic))
