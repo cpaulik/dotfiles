@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: email-org
+# key: oemail
+# binding: direct-keybinding
+# --
+
+#+OPTIONS: toc:nil num:nil
+* $0

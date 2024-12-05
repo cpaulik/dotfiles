@@ -1,12 +1,10 @@
-[submodule "config/org-mode"]
-	path = config/org-mode
-	url = git://orgmode.org/org-mode.git
-[submodule "config/org-reveal"]
-	path = config/org-reveal
+[submodule ".spacemacs.d.symlink/org-reveal"]
+	path = .spacemacs.d.symlink/org-reveal
 	url = https://github.com/yjwen/org-reveal.git
-[submodule "config/evil-rebellion"]
-	path = config/evil-rebellion
-	url = https://github.com/tarleb/evil-rebellion
-[submodule "config/helm-bibtex"]
-	path = config/helm-bibtex
-	url = http://github.com/tmalsburg/helm-bibtex
+[submodule ".spacemacs.d.symlink/material-theme"]
+	path = .spacemacs.d.symlink/material-theme
+	url = https://github.com/cpaulik/emacs-material-theme
+[submodule ".config/awesome/lain"]
+	path = .config/awesome/lain
+	url=https://github.com/copycat-killer/lain
+
