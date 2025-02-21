@@ -45,10 +45,6 @@ values."
      colors
      ;; custom_org_config
      docker
-     (dart
-      :variables lsp-dart-sdk-dir "/Users/cpaulik/Downloads/flutter/bin/cache/dart-sdk/")
-     (elfeed
-      :variables rmh-elfeed-org-files (list "~/Dropbox/org/feeds.org"))
      emacs-lisp
      (git
       :variables
@@ -56,11 +52,7 @@ values."
      html
      javascript
      kubernetes
-     (latex
-      :variables latex-view-with-pdf-tools t)
      markdown
-     (org
-      :variables org-enable-reveal-js-support t)
      lsp
      (python
       :variables
@@ -69,15 +61,12 @@ values."
       python-enable-yapf-format-on-save nil
       python-auto-set-local-pyenv-version nil
       python-test-runner 'pytest)
-     ;; research-config
      restclient
      rust
-     (semantic :disabled-for emacs-lisp)
      (shell
       :variables
       shell-default-shell 'term
       shell-default-term-shell "/bin/zsh")
-     shell-scripts
      (spell-checking
       :variables spell-checking-enable-by-default nil)
      syntax-checking
@@ -91,11 +80,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
-   '(gruvbox-theme
-     (copilot :location (recipe
-                         :fetcher github
-                         :repo "copilot-emacs/copilot.el"
-                         :files ("*.el" "dist"))))
+   '(gruvbox-theme)
 
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -365,7 +350,7 @@ values."
    ;; If non-nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
 
    ;; If non-nil the frame is undecorated when Emacs starts up. Combine this
    ;; variable with `dotspacemacs-maximized-at-startup' in OSX to obtain
@@ -456,6 +441,13 @@ values."
    ;; (default '("rg" "ag" "pt" "ack" "grep"))
    dotspacemacs-search-tools '("ag" "rg" "pt" "ack" "grep")
 
+   ;; The backend used for undo/redo functionality. Possible values are
+   ;; `undo-fu', `undo-redo' and `undo-tree' see also `evil-undo-system'.
+   ;; Note that saved undo history does not get transferred when changing
+   ;; your undo system. The default is currently `undo-fu' as `undo-tree'
+   ;; is not maintained anymore and `undo-redo' is very basic."
+   dotspacemacs-undo-system 'undo-fu
+
    ;; Format specification for setting the frame title.
    ;; %a - the `abbreviated-file-name', or `buffer-name'
    ;; %t - `projectile-project-name'
@@ -519,6 +511,15 @@ values."
    ;; If non-nil then byte-compile some of Spacemacs files.
    dotspacemacs-byte-compile nil))
 
+(defun dotspacemacs/user-env ()
+  "Environment variables setup.
+This function defines the environment variables for your Emacs session. By
+default it calls `spacemacs/load-spacemacs-env' which loads the environment
+variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
+See the header of this file for more information."
+  (spacemacs/load-spacemacs-env)
+  )
+
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -550,7 +551,6 @@ Either returns home or work at the moment"
     ;; work machine
     (setq shell-file-name "/bin/zsh")
     (setenv "SHELL" "/bin/zsh")
-    (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e" t)
     (setq dotspacemacs-default-font '("Hack Nerd Font Propo"
                                       :size 13
                                       :weight normal
@@ -592,49 +592,12 @@ you should place your code here."
     ;; disable inline previews
     (delq 'company-preview-if-just-one-frontend company-frontends))
 
-  ;; (with-eval-after-load 'copilot
-  ;;   (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
-  ;;   (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
-  ;;   (define-key copilot-completion-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
-  ;;   (define-key copilot-completion-map (kbd "C-<tab>") 'copilot-accept-completion-by-word))
-
-  ;; (add-hook 'prog-mode-hook 'copilot-mode)
-
-  (when (eq (dotfiles/machine-location) 'work)
-    ;; work machine
-    (setq user-full-name "Christoph Paulik"
-          user-mail-address "christoph.paulik@geo.tuwien.ac.at")
-    (setenv "NO_PROXY" "dvlp1.geo.tuwien.ac.at,localhost,127.0.0.1")
-    (setenv "no_proxy" "dvlp1.geo.tuwien.ac.at,localhost,127.0.0.1")
-    )
   (when (eq (dotfiles/machine-location) 'home)
     ;; home laptop
     (setq user-full-name "Christoph Paulik"
           user-mail-address "cpaulik@gmail.com")
 
     (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
-
-  (use-package erc
-    :defer t
-    :commands connect-erc
-    :init (spacemacs/set-leader-keys "oe" 'connect-erc)
-    :config
-    (progn
-      (setq erc-autojoin-channels-alist
-            '(("0.0" "#syl20bnr/spacemacs")))
-      (defun connect-erc ()
-        (interactive)
-        (erc-tls :server "irc.gitter.im" :nick "cpaulik" :password nil))))
-
-
-  (spacemacs|define-custom-layout "@Start"
-    :binding "s"
-    :body
-    (progn
-      (org-agenda nil "A")
-      (delete-other-windows)
-      (split-window-right)
-      (mu4e)))
 
   (defun endless/fill-or-unfill ()
     "Like `fill-paragraph', but unfill if used twice."
@@ -660,17 +623,11 @@ you should place your code here."
 
   ;; disable all the space-doc stuff
   (setq spacemacs-space-doc-modificators nil)
-  (setq-default tab-width 4)
 
   (setq evil-move-beyond-eol t)
   (customize-set-variable 'evil-want-Y-yank-to-eol t)
 
   (setq helm-window-prefer-horizontal-split t)
-  (require 'gptel)
-  (gptel-make-ollama "Ollama"             ;Any name of your choosing
-                     :host "localhost:11434"               ;Where it's running
-                     :stream t                             ;Stream responses
-                     :models '("llama3.1:latest"))          ;List of models
 
   ;; enable fundamental-mode snippets for all modes
   (add-hook 'yas-minor-mode-hook
@@ -694,6 +651,6 @@ you should place your code here."
   (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
   (setq doc-view-resolution 300)
   (setq vc-follow-symlinks t)
-  (setq lsp-pyls-plugins-jedi-use-pyenv-environment t)
   ;; set default browser
+  (setq lsp-pyright-langserver-command "basedpyright")
   (setq browse-url-browser-function 'browse-url-generic))
