@@ -1,0 +1,49 @@
+#!/bin/bash
+
+DOTFILES_ROOT=$(pwd)
+
+#symlink dotfiles into home directory
+install_dotfiles () {
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  for src in $(find "$DOTFILES_ROOT/" -maxdepth 2 -name '*.symlink')
+  do
+    dst="$HOME/$(basename "${src%.*}")"
+    ln -s "$src" "$dst"
+  done
+}
+
+install_dotfiles
+#setup oh-my-zsh
+git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
+cd ~/.oh-my-zsh/custom/plugins
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+#setup powerlevel 10k theme for zsh
+cd ~/.oh-my-zsh/custom/
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+cd $DOTFILES_ROOT
+
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+brew install eza
+brew install fzf
+brew install bat
+brew install zoxide
+brew install --cask font-hack-nerd-font
+
+#setup spacemacs
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+#setup submodules of this repository
+git submodule init
+git submodule update
+
+
+# symlink config folder
+ln -s $DOTFILES_ROOT/.config/* ~/.config
+# symlink bin folder
+mkdir ~/bin
+ln -s $DOTFILES_ROOT/bin/* ~/bin
+
+# symlink espanso folder
+ln -s $DOTFILES_ROOT/espanso ~/Library/Application\ Support/

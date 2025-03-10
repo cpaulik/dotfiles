@@ -1,5 +1,2 @@
 *~
-elpa
-session*
-semanticdb
-projectile*
+*.pyc

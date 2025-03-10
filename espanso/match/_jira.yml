@@ -1,0 +1,32 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+
+matches:
+  # Simple text replacement
+  - trigger: ";code"
+    replace: |
+             {code}
+             $|$
+             {code}
+  - trigger: ";lic" #link from clipboard
+    replace: "{{output}}"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+      - name: output
+        type: script
+        params:
+          args:
+            - /usr/bin/python3
+            - /Users/christoph/Library/Application Support/espanso/scripts/clipboard_link_jira.py
+  - trigger: ";link"
+    replace: "[$|$|]"
+  - trigger: "``" #fake inline code
+    replace: "\\{\\{{color:#00875A}$|${color}\\}\\}"
