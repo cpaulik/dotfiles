@@ -30,6 +30,7 @@ brew install fzf
 brew install bat
 brew install zoxide
 brew install --cask font-hack-nerd-font
+brew install ghostty
 
 #setup spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d

@@ -1,0 +1,82 @@
+theme = GruvboxDark
+font-size = 12
+font-family = Hack Nerd Font Mono
+
+background-opacity = 0.9
+background-blur = true
+
+shell-integration = zsh
+
+keybind = shift+space>w>l=goto_split:right
+keybind = shift+space>w>h=goto_split:left
+keybind = shift+space>w>j=goto_split:up
+keybind = shift+space>w>k=goto_split:down
+keybind = shift+space>w>2=new_split:right
+keybind = shift+space>w>v=new_split:right
+keybind = shift+space>w>shift+l=new_split:right
+keybind = shift+space>w>shift+h=new_split:left
+keybind = shift+space>w>shift+j=new_split:down
+keybind = shift+space>w>shift+k=new_split:up
+keybind = shift+space>w>m=toggle_split_zoom
+keybind = shift+space>f>e>r=reload_config
+keybind = shift+space>w>f=toggle_fullscreen
+keybind = shift+space>t>h=previous_tab
+keybind = shift+space>t>l=next_tab
+keybind = shift+space>b>d=close_window
+
+# super + ctrl  + equal           equalize_splits
+# super + ctrl  + up              resize_split:up,10
+# super + ctrl  + down            resize_split:down,10
+# super + ctrl  + right           resize_split:right,10
+# super + ctrl  + left            resize_split:left,10
+# super + shift + j               write_screen_file:paste
+# super + shift + v               paste_from_selection
+# super + shift + left_bracket    previous_tab
+# super + shift + right_bracket   next_tab
+# super + shift + up              jump_to_prompt:-1
+# super + shift + down            jump_to_prompt:1
+# ctrl  + shift + tab             previous_tab
+# super + a                       select_all
+# super + c                       copy_to_clipboard
+# super + k                       clear_screen
+# super + n                       new_window
+# super + q                       quit
+# super + t                       new_tab
+# super + v                       paste_from_clipboard
+# super + w                       close_surface
+# super + zero                    reset_font_size
+# super + physical:one            goto_tab:1
+# super + physical:two            goto_tab:2
+# super + physical:three          goto_tab:3
+# super + physical:four           goto_tab:4
+# super + physical:five           goto_tab:5
+# super + physical:six            goto_tab:6
+# super + physical:seven          goto_tab:7
+# super + physical:eight          goto_tab:8
+# super + comma                   open_config
+# super + minus                   decrease_font_size:1
+# super + plus                    increase_font_size:1
+# super + equal                   increase_font_size:1
+# super + left_bracket            goto_split:previous
+# super + right_bracket           goto_split:next
+# super + up                      jump_to_prompt:-1
+# super + down                    jump_to_prompt:1
+# super + right                   text:\x05
+# super + left                    text:\x01
+# super + home                    scroll_to_top
+# super + end                     scroll_to_bottom
+# super + page_up                 scroll_page_up
+# super + page_down               scroll_page_down
+# super + enter                   toggle_fullscreen
+# super + backspace               text:\x15
+# alt   + right                   esc:f
+# alt   + left                    esc:b
+# ctrl  + tab                     next_tab
+# shift + up                      adjust_selection:up
+# shift + down                    adjust_selection:down
+# shift + right                   adjust_selection:right
+# shift + left                    adjust_selection:left
+# shift + home                    adjust_selection:home
+# shift + end                     adjust_selection:end
+# shift + page_up                 adjust_selection:page_up
+# shift + page_down               adjust_selection:page_down
