@@ -31,6 +31,8 @@ brew install bat
 brew install zoxide
 brew install --cask font-hack-nerd-font
 brew install ghostty
+# yazi + dependencies
+brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
 
 #setup spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
