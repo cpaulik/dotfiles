@@ -15,6 +15,16 @@ install_dotfiles () {
 }
 
 install_dotfiles
+
+# symlink config folder
+ln -s $DOTFILES_ROOT/.config/* ~/.config
+# symlink bin folder
+mkdir ~/bin
+ln -s $DOTFILES_ROOT/bin/* ~/bin
+
+# symlink espanso folder
+ln -s $DOTFILES_ROOT/espanso ~/Library/Application\ Support/
+
 #setup oh-my-zsh
 git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
 cd ~/.oh-my-zsh/custom/plugins
@@ -31,8 +41,10 @@ brew install bat
 brew install zoxide
 brew install --cask font-hack-nerd-font
 brew install ghostty
+brew install helix
 # yazi + dependencies
 brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
+ya pack -a bennyyip/gruvbox-dark
 
 #setup spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
@@ -42,11 +54,3 @@ git submodule init
 git submodule update
 
 
-# symlink config folder
-ln -s $DOTFILES_ROOT/.config/* ~/.config
-# symlink bin folder
-mkdir ~/bin
-ln -s $DOTFILES_ROOT/bin/* ~/bin
-
-# symlink espanso folder
-ln -s $DOTFILES_ROOT/espanso ~/Library/Application\ Support/
