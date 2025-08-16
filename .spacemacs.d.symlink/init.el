@@ -543,7 +543,7 @@ Either returns home or work at the moment"
       (cdr (assoc system-name machines))))
 
   (setq dotspacemacs-default-font '("Hack Nerd Font Propo"
-                                    :size 13
+                                    :size 12
                                     :weight normal
                                     :width normal
                                     :powerline-scale 1.1))
@@ -552,7 +552,7 @@ Either returns home or work at the moment"
     (setq shell-file-name "/bin/zsh")
     (setenv "SHELL" "/bin/zsh")
     (setq dotspacemacs-default-font '("Hack Nerd Font Propo"
-                                      :size 13
+                                      :size 12
                                       :weight normal
                                       :width normal
                                       :powerline-scale 1.3)
