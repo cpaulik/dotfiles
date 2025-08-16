@@ -1,4 +1,2 @@
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
 export GIT_EDITOR=vim
 export EDITOR=vim
