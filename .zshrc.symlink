@@ -126,6 +126,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+zstyle ':completion:*' list-prompt   '' # disable asking if I want to see N completions
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
