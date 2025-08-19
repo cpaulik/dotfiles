@@ -43,6 +43,7 @@ brew install --cask font-hack-nerd-font
 brew install ghostty
 brew install helix
 brew install --cask nikitabobko/tap/aerospace
+brew install carapace
 # yazi + dependencies
 brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
 ya pack -a bennyyip/gruvbox-dark
