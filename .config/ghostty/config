@@ -7,6 +7,8 @@ background-blur = true
 
 shell-integration = zsh
 
+scrollback-limit = 52428800
+
 keybind = shift+space>w>l=goto_split:right
 keybind = shift+space>w>h=goto_split:left
 keybind = shift+space>w>j=goto_split:up
