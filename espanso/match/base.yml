@@ -16,6 +16,9 @@ matches:
 
   # But matches can also be dynamic:
 
+
+  - trigger: "*home"
+    replace: "[home](home.md)"
   # Print the current date
   - trigger: ":date"
     replace: "{{mydate}}"
