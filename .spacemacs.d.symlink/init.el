@@ -53,6 +53,7 @@ values."
      javascript
      kubernetes
      markdown
+     obsidian
      lsp
      (python
       :variables
