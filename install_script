@@ -50,6 +50,7 @@ brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagema
 ya pack -a bennyyip/gruvbox-dark
 
 brew install nvim
+brew install lazygit
 stow nvim
 
 brew install tmux
