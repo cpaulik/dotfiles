@@ -1,0 +1,12 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.editor.mini-files",
+    "lazyvim.plugins.extras.lang.python"
+  ],
+  "install_version": 8,
+  "news": {
+    "NEWS.md": "10960"
+  },
+  "version": 8
+}
