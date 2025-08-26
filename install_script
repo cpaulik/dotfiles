@@ -3,12 +3,11 @@
 DOTFILES_ROOT=$(pwd)
 
 #symlink dotfiles into home directory
-install_dotfiles () {
+install_dotfiles() {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find "$DOTFILES_ROOT/" -maxdepth 2 -name '*.symlink')
-  do
+  for src in $(find "$DOTFILES_ROOT/" -maxdepth 2 -name '*.symlink'); do
     dst="$HOME/$(basename "${src%.*}")"
     ln -s "$src" "$dst"
   done
@@ -35,6 +34,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/cu
 cd $DOTFILES_ROOT
 
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+brew install stow
 brew install eza
 brew install fzf
 brew install bat
@@ -49,11 +49,15 @@ brew install carapace
 brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
 ya pack -a bennyyip/gruvbox-dark
 
+brew install nvim
+stow nvim
+
+brew install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 #setup spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 #setup submodules of this repository
 git submodule init
 git submodule update
-
-
