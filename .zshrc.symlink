@@ -87,13 +87,18 @@ alias l="eza -l --icons --git -a"
 # navigation
 alias ..='cd ..'
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/cpaulik/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cpaulik/google-cloud-sdk/path.zsh.inc'; fi
 
 source <(fzf --zsh)
 
 eval "$(zoxide init zsh)"
 alias cd="z"
 
+
 export BAT_THEME=gruvbox-dark
+export LANG=en_US.UTF-8
+
 alias cat="$(which bat)"
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
