@@ -2,7 +2,9 @@
   "extras": [
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.mini-files",
-    "lazyvim.plugins.extras.lang.python"
+    "lazyvim.plugins.extras.editor.telescope",
+    "lazyvim.plugins.extras.lang.python",
+    "lazyvim.plugins.extras.util.project"
   ],
   "install_version": 8,
   "news": {
