@@ -80,8 +80,9 @@ alias lsg='ls | grep'
 alias llg='ll | grep'
 alias lag='la | grep'
 
-alias ls="eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions"
-alias ll="eza -l --icons=always"
+alias ls="eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions -a"
+alias ll="eza -l --icons=always -a"
+alias l="eza -l --icons --git -a"
 
 # navigation
 alias ..='cd ..'
