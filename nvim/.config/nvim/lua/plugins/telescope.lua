@@ -19,6 +19,23 @@ return {
             ["<esc>"] = actions.close,
           },
         },
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
+          "-g",
+          "!.git",
+        },
+      },
+      pickers = {
+        find_files = {
+          find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+        },
       },
     }
   end,
