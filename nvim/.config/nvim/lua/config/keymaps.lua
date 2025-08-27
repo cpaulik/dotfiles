@@ -12,15 +12,13 @@ local wk = require("which-key")
 wk.add({
   { "<leader>p", group = "projects" },
 }) -- group
-vim.keymap.set(
-  "n",
-  "<leader>ff",
-  ":Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>",
-  { desc = "Find Files" }
-)
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find Files" })
+vim.keymap.set("n", "<leader>sp", ":Telescope find_files<CR>", { desc = "Search Project" })
+vim.keymap.set("n", "<leader>pf", ":Telescope find_files<CR>", { desc = "Project Files" })
+
 vim.keymap.set(
   "n",
   "<leader>sp",
-  ":Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>",
-  { desc = "Search Project" }
+  ":lua require('telescope.builtin').live_grep()<cr>",
+  { desc = "Find in Project Files" }
 )
