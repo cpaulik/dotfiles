@@ -8,9 +8,10 @@ bind * list-clients
 
 bind H previous-window
 bind L next-window
+bind Space next-layout
 
 bind r command-prompt "rename-window %%"
-bind R source-file ~/.config/tmux/tmux.conf
+bind R source-file ~/tmux.conf
 bind ^A last-window
 bind ^W list-windows
 bind w list-windows
@@ -29,20 +30,26 @@ bind -r -T prefix , resize-pane -L 20
 bind -r -T prefix . resize-pane -R 20
 bind -r -T prefix - resize-pane -D 7
 bind -r -T prefix = resize-pane -U 7
+bind-key -T prefix V select-layout main-vertical
+# bind-key -T prefix  elect-layout even-vertical
 bind : command-prompt
 bind * setw synchronize-panes
 bind P set pane-border-status
 bind c kill-pane
 bind x swap-pane -D
 bind S choose-session
-bind R source-file ~/.config/tmux/tmux.conf
+bind R source-file ~/.tmux.conf
+
 bind K send-keys "clear"\; send-keys "Enter"
 bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind -T prefix Escape copy-mode 
+bind-key -T copy-mode-vi i send-keys -X cancel 
 
 set-option -g default-terminal 'screen-256color'
 set-option -g terminal-overrides ',xterm-256color:RGB'
 
-set -g prefix ^A
+set -g prefix C-Space
+bind C-Space send-prefix
 set -g base-index 1              # start indexing windows at 1 instead of 0
 set -g detach-on-destroy off     # don't exit from tmux when closing a session
 set -g escape-time 0             # zero-out escape time delay
@@ -63,7 +70,6 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @plugin 'fcsonline/tmux-thumbs'
 set -g @plugin 'sainnhe/tmux-fzf'
 set -g @plugin 'wfxr/tmux-fzf-url'
 set -g @plugin 'egel/tmux-gruvbox'
@@ -79,7 +85,7 @@ set -g @floax-bind 'p'
 set -g @floax-change-path 'true'
 set -g @sessionx-bind-zo-new-window 'ctrl-y'
 set -g @sessionx-auto-accept 'off'
-set -g @sessionx-custom-paths '/Users/omerxx/dotfiles'
+set -g @sessionx-custom-paths '~/dotfiles'
 set -g @sessionx-bind 'o'
 set -g @sessionx-x-path '~/dotfiles'
 set -g @sessionx-window-height '85%'
