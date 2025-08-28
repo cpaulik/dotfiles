@@ -22,3 +22,4 @@ vim.keymap.set(
   ":lua require('telescope.builtin').live_grep()<cr>",
   { desc = "Find in Project Files" }
 )
+vim.keymap.set("n", "<leader>fy", ':let @+ = expand("%:p")<CR>', { desc = "Copy Filename" })
