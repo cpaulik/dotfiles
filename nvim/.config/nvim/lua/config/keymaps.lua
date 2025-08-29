@@ -12,9 +12,15 @@ local wk = require("which-key")
 wk.add({
   { "<leader>p", group = "projects" },
 }) -- group
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find Files" })
+vim.keymap.set("n", "<leader>ff", function()
+  require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+end, { desc = "mini.files" })
+vim.keymap.set("n", "<leader>fF", function()
+  require("mini.files").open(vim.uv.cwd(), true)
+end, { desc = "mini.files (cwd)" })
 vim.keymap.set("n", "<leader>sp", ":Telescope find_files<CR>", { desc = "Search Project" })
 vim.keymap.set("n", "<leader>pf", ":Telescope find_files<CR>", { desc = "Project Files" })
+vim.keymap.set("n", "<leader>fd", ":call delete(expand('%')) | bdelete!<CR>", { desc = "Delete File" })
 
 vim.keymap.set(
   "n",
