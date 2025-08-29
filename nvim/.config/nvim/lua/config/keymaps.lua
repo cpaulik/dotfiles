@@ -23,3 +23,9 @@ vim.keymap.set(
   { desc = "Find in Project Files" }
 )
 vim.keymap.set("n", "<leader>fy", ':let @+ = expand("%:p")<CR>', { desc = "Copy Filename" })
+wk.add({
+  { "<leader>o", group = "Obsidian" },
+}) -- group
+vim.keymap.set("n", "<leader>oo", ":Obsidian quick_switch<CR>", { desc = "Obsidian" })
+vim.keymap.set("n", "<leader>os", ":Obsidian search<CR>", { desc = "Search" })
+vim.keymap.set("n", "<leader>od", ":Obsidian today<CR>", { desc = "Today" })
