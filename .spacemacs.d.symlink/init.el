@@ -44,6 +44,7 @@ values."
       auto-completion-enable-help-tooltip nil)
      colors
      ;; custom_org_config
+     dap
      docker
      emacs-lisp
      (git
@@ -51,6 +52,7 @@ values."
       git-gutter-use-fringe t)
      html
      javascript
+     (java :variables java-backend 'lsp)
      kubernetes
      markdown
      obsidian
