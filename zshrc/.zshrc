@@ -23,7 +23,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(command-not-found pip pyenv emacs wd zsh-syntax-highlighting)
+plugins=(command-not-found pip emacs wd zsh-syntax-highlighting)
 
 # User configuration
 
