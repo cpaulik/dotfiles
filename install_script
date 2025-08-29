@@ -15,8 +15,14 @@ install_dotfiles() {
 
 install_dotfiles
 
-# symlink config folder
-ln -s $DOTFILES_ROOT/.config/* ~/.config
+# stow config packages
+stow aerospace
+stow alacritty
+stow ghostty
+stow helix
+stow yazi
+stow nvim
+
 # symlink bin folder
 mkdir ~/bin
 ln -s $DOTFILES_ROOT/bin/* ~/bin
@@ -51,7 +57,6 @@ ya pack -a bennyyip/gruvbox-dark
 
 brew install nvim
 brew install lazygit
-stow nvim
 
 brew install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

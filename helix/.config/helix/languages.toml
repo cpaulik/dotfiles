@@ -1,0 +1,11 @@
+[language-server]
+jdtls = { command = "jdtls" }
+
+[[language]]
+name = "java"
+scope = "source.java"
+injection-regex = "java"
+file-types = ["java"]
+roots = ["pom.xml", "build.gradle", ]
+indent = { tab-width = 4, unit = "    " }
+language-servers = [ "jdtls" ]
