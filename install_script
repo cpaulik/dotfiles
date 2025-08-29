@@ -2,18 +2,13 @@
 
 DOTFILES_ROOT=$(pwd)
 
-#symlink dotfiles into home directory
-install_dotfiles() {
-
-  local overwrite_all=false backup_all=false skip_all=false
-
-  for src in $(find "$DOTFILES_ROOT/" -maxdepth 2 -name '*.symlink'); do
-    dst="$HOME/$(basename "${src%.*}")"
-    ln -s "$src" "$dst"
-  done
-}
-
-install_dotfiles
+# stow dotfile packages
+stow zshenv
+stow zprofile
+stow p10k-zsh
+stow tmux
+stow zshrc
+stow vim
 
 # stow config packages
 stow aerospace
