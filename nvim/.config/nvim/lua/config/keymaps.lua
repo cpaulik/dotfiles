@@ -21,6 +21,7 @@ end, { desc = "mini.files (cwd)" })
 vim.keymap.set("n", "<leader>sp", ":Telescope find_files<CR>", { desc = "Search Project" })
 vim.keymap.set("n", "<leader>pf", ":Telescope find_files<CR>", { desc = "Project Files" })
 vim.keymap.set("n", "<leader>fd", ":call delete(expand('%')) | bdelete!<CR>", { desc = "Delete File" })
+vim.keymap.set("n", "<leader><space>", ":", { desc = "Cmdline" })
 
 vim.keymap.set(
   "n",
