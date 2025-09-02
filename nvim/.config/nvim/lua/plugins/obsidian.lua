@@ -1,7 +1,7 @@
 return {
   {
     "obsidian-nvim/obsidian.nvim",
-    version = "3.11.0", -- recommended, use latest release instead of latest commit
+    -- version = "3.12", -- recommended, use latest release instead of latest commit
     ---@module 'obsidian'
     ---@type obsidian.config
     opts = {
@@ -32,6 +32,14 @@ return {
           vim.keymap.set("n", "<localleader>ob", "<cmd>Obsidian backlinks<cr>", {
             buffer = note.bufnr,
             desc = "Backlinks",
+          })
+          vim.keymap.set("n", "<localleader>ol", "<cmd>Obsidian link_new<cr>", {
+            buffer = note.bufnr,
+            desc = "New link",
+          })
+          vim.keymap.set("n", "<localleader>or", "<cmd>Obsidian rename<cr>", {
+            buffer = note.bufnr,
+            desc = "Rename",
           })
         end,
       },
