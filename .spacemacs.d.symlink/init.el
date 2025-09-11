@@ -538,6 +538,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
        (add-to-list 'git-link-commit-remote-alist
                     '("code\\.earth\\.planet\\.com" git-link-commit-gitlab))))
 
+  (setq evil-respect-visual-line-mode t)
+  (global-visual-line-mode 1)
+  (global-display-line-numbers-mode 1)
 
   (defun dotfiles/machine-location ()
     "Get the machine location.
@@ -646,14 +649,10 @@ you should place your code here."
   (setq delete-by-moving-to-trash nil)
   (setq wdired-allow-to-change-permissions t)
   (setq compilation-finish-function nil)
-  ;; Make evil-mode up/down operate in screen lines instead of logical lines
-  (define-key evil-normal-state-map "j" 'evil-next-visual-line)
-  (define-key evil-normal-state-map "k" 'evil-previous-visual-line)
-  ;; Also in visual mode
-  (define-key evil-visual-state-map "j" 'evil-next-visual-line)
-  (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
   (setq doc-view-resolution 300)
   (setq vc-follow-symlinks t)
+  (require `tramp)
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   ;; set default browser
   (setq lsp-pyright-langserver-command "basedpyright")
   (setq browse-url-browser-function 'browse-url-generic))
