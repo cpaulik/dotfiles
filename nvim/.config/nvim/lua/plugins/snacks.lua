@@ -4,6 +4,7 @@ return {
     opts = {
       gitbrowse = {
         remote_patterns = {
+          { "^git@code%.earth%.planet%.com:(.+)%.git$", "https://hello.planet.com/code/%1" },
           { "^(https?://.*)%.git$", "%1" },
           { "^git@(.+):(.+)%.git$", "https://%1/%2" },
           { "^git@(.+):(.+)$", "https://%1/%2" },
@@ -17,7 +18,6 @@ return {
           { "^git@(.*)", "https://%1" },
           { ":%d+", "" },
           { "%.git$", "" },
-          { "^ssh://git@code%.planet%.com/$", "https://hello.planet.com/code/" },
         },
         url_patterns = {
           ["planet%.com"] = {

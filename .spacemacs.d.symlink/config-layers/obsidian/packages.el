@@ -32,7 +32,7 @@
       "oo" 'obsidian-capture)
     :custom
     ;; location of obsidian vault
-    (obsidian-directory "/Users/cpaulik/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes")
+    (obsidian-directory "/Users/christoph/Documents/todos/")
     ;; Default location for new notes from `obsidian-capture'
     (obsidian-inbox-directory "Inbox")))
 
