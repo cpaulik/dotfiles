@@ -33,9 +33,17 @@ vim.keymap.set("n", "<leader>fy", ':let @+ = expand("%:p")<CR>', { desc = "Copy 
 wk.add({
   { "<leader>o", group = "Obsidian" },
 }) -- group
+vim.keymap.set("n", "<leader>fd", ":call delete(expand('%')) | bdelete!<CR>", { desc = "Delete File" })
+
+-- obsidian
 vim.keymap.set("n", "<leader>oo", ":Obsidian quick_switch<CR>", { desc = "Obsidian" })
 vim.keymap.set("n", "<leader>os", ":Obsidian search<CR>", { desc = "Search" })
 vim.keymap.set("n", "<leader>od", ":Obsidian today<CR>", { desc = "Today" })
 vim.keymap.set("n", "<leader>ot", ":Obsidian tomorrow<CR>", { desc = "Tomorrow" })
 vim.keymap.set("n", "<leader>oT", ":Obsidian tags<CR>", { desc = "Tags" })
 vim.keymap.set("n", "<leader>oy", ":Obsidian yesterday<CR>", { desc = "Yesterday" })
+
+-- git
+vim.keymap.set("n", "<leader>gs", function()
+  Snacks.lazygit({ cwd = LazyVim.root.git() })
+end, { desc = "Lazygit (Root Dir)" })
