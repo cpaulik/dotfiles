@@ -37,4 +37,5 @@ vim.keymap.set("n", "<leader>oo", ":Obsidian quick_switch<CR>", { desc = "Obsidi
 vim.keymap.set("n", "<leader>os", ":Obsidian search<CR>", { desc = "Search" })
 vim.keymap.set("n", "<leader>od", ":Obsidian today<CR>", { desc = "Today" })
 vim.keymap.set("n", "<leader>ot", ":Obsidian tomorrow<CR>", { desc = "Tomorrow" })
-vim.keymap.set("n", "<leader>oT", ":Obsidian tags<CR>", { desc = "Tomorrow" })
+vim.keymap.set("n", "<leader>oT", ":Obsidian tags<CR>", { desc = "Tags" })
+vim.keymap.set("n", "<leader>oy", ":Obsidian yesterday<CR>", { desc = "Yesterday" })
