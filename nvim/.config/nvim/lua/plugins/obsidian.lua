@@ -19,6 +19,10 @@ return {
       -- Optional, if you keep notes in a specific subdirectory of your vault.
       notes_subdir = "Inbox",
 
+      daily_notes = {
+        -- Optional, if you keep daily notes in a separate directory.
+        folder = "Diary",
+      },
       -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
       completion = {
         -- Set to false to disable completion.
