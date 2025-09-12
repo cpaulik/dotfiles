@@ -96,7 +96,7 @@ alias cd="z"
 export BAT_THEME=gruvbox-dark
 export LANG=en_US.UTF-8
 
-alias cat="$(which bat)"
+alias cat="bat"
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
