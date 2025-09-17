@@ -9,6 +9,7 @@ style = "beam"
 [window]
 opacity = 0.9
 blur = true
+decorations = "Buttonless"
 
 # Colors (Gruvbox dark)
 
