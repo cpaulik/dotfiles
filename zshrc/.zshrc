@@ -88,8 +88,11 @@ alias ..='cd ..'
 
 source <(fzf --zsh)
 
-eval "$(zoxide init zsh)"
-alias cd="z"
+if [[ "$CLAUDECODE" != "1" ]]; then
+    eval "$(zoxide init zsh)"
+    alias cd="z"
+fi
+
 
 
 export BAT_THEME=gruvbox-dark
