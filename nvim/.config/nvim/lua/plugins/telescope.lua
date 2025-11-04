@@ -33,6 +33,7 @@ return {
           "-g",
           "!.git",
         },
+        layout_strategy = "vertical",
       },
       pickers = {
         find_files = {
