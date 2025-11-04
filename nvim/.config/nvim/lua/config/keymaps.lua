@@ -29,6 +29,12 @@ vim.keymap.set(
   ":lua require('telescope.builtin').live_grep()<cr>",
   { desc = "Find in Project Files" }
 )
+vim.keymap.set(
+  "n",
+  "<leader>sP",
+  ":lua require('telescope.builtin').grep_string()<cr>",
+  { desc = "Find string in Project Files" }
+)
 vim.keymap.set("n", "<leader>fy", ':let @+ = expand("%:p")<CR>', { desc = "Copy Filename" })
 wk.add({
   { "<leader>o", group = "Obsidian" },
