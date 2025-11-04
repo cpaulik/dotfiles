@@ -142,7 +142,19 @@ export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home
 
+export PIP_EXTRA_INDEX_URL='https://pypi.prod.planet-labs.com/simple/'
+
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home
+. "$HOME/.cargo/env"
 
 # export NVM_DIR="$HOME/.nvm"
 #   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+
+export CLOUDSDK_PYTHON=/Users/christoph/.pyenv/versions/3.12.1/bin/python
+
+export CLAUDE_CODE_USE_VERTEX=1
+export CLOUD_ML_REGION=us-east5
+export ANTHROPIC_VERTEX_PROJECT_ID=engine-468307
+
+curl-planet() { curl -H "Authorization: Bearer $(planet --auth-profile planet-user auth print-access-token)" "$@"; }
