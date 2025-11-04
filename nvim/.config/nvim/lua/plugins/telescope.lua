@@ -16,6 +16,8 @@ return {
             ["<C-p>"] = actions.preview_scrolling_up,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
+            ["<C-l>"] = actions.select_vertical,
+            ["<C-f>"] = actions.to_fuzzy_refine,
             ["<esc>"] = actions.close,
           },
         },
