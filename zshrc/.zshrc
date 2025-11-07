@@ -93,7 +93,7 @@ if [[ "$CLAUDECODE" != "1" ]]; then
     alias cd="z"
 fi
 
-
+alias vim="nvim"
 
 export BAT_THEME=gruvbox-dark
 export LANG=en_US.UTF-8
