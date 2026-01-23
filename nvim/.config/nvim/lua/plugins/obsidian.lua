@@ -30,9 +30,12 @@ return {
         blink = true,
         create_new = true,
       },
+      footer = {
+        enabled = false,
+      },
 
       callbacks = {
-        enter_note = function(_, note)
+        enter_note = function(note)
           vim.keymap.set("n", "<localleader>ob", "<cmd>Obsidian backlinks<cr>", {
             buffer = note.bufnr,
             desc = "Backlinks",
