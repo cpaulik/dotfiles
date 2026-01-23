@@ -6,6 +6,9 @@ size = 12
 [cursor]
 style = "beam"
 
+[bell]
+duration = 0
+
 [window]
 opacity = 0.9
 blur = true
