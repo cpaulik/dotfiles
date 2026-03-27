@@ -1,0 +1,5 @@
+return {
+  {
+    "trixnz/sops.nvim",
+  },
+}
