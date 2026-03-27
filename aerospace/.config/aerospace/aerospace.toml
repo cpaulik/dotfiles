@@ -126,7 +126,7 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     alt-enter = 'exec-and-forget alacritty msg create-window || alacritty'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    alt-slash = 'layout tiles vertical'
+    alt-slash = 'layout tiles vertical horizontal'
     alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
@@ -170,7 +170,6 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     alt-r = 'workspace R'
     alt-s = 'workspace S'
     alt-t = 'workspace T'
-    alt-u = 'workspace U'
     alt-v = 'workspace V'
     alt-w = 'workspace W'
     alt-x = 'workspace X'
@@ -202,7 +201,6 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     alt-shift-r = 'move-node-to-workspace R --focus-follows-window'
     alt-shift-s = 'move-node-to-workspace S --focus-follows-window'
     alt-shift-t = 'move-node-to-workspace T --focus-follows-window'
-    alt-shift-u = 'move-node-to-workspace U --focus-follows-window'
     alt-shift-v = 'move-node-to-workspace V --focus-follows-window'
     alt-shift-w = 'move-node-to-workspace W --focus-follows-window'
     alt-shift-x = 'move-node-to-workspace X --focus-follows-window'
