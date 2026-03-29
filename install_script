@@ -15,6 +15,7 @@ stow aerospace
 stow alacritty
 stow ghostty
 stow nvim
+stow sesh
 
 # symlink bin folder
 mkdir ~/bin
