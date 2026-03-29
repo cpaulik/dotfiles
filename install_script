@@ -14,8 +14,6 @@ stow vim
 stow aerospace
 stow alacritty
 stow ghostty
-stow helix
-stow yazi
 stow nvim
 
 # symlink bin folder
@@ -43,12 +41,9 @@ brew install zoxide
 brew install --cask font-hack-nerd-font
 brew install ghostty
 brew install --cask alacritty
-brew install helix
 brew install --cask nikitabobko/tap/aerospace
 brew install carapace
-# yazi + dependencies
-brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
-ya pack -a bennyyip/gruvbox-dark
+brew install sesh
 
 brew install nvim
 brew install lazygit
