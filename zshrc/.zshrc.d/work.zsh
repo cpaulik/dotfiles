@@ -11,17 +11,6 @@ export CLAUDE_CODE_USE_VERTEX=1
 export CLOUD_ML_REGION=us-east5
 export ANTHROPIC_VERTEX_PROJECT_ID=engine-468307
 
-curl-planet() { curl -k -H "Authorization: Bearer $(planet --auth-profile planet-user auth print-access-token)" "$@"; }
+export FRESH_CLAUDE_DIR="/Users/christoph/workspace/analysis-engine-meta"
 
-aem() {
-  local session_name="${1:-aem}"
-  local dir="/Users/christoph/workspace/analysis-engine-meta"
-  tmux new-session -d -s "$session_name" -n "aem" -c "$dir" "claude" \; \
-    split-window -h -t "$session_name" -c "$dir" "nvim" \; \
-    select-pane -t "$session_name" -L
-  if [ -n "$TMUX" ]; then
-    tmux switch-client -t "$session_name"
-  else
-    tmux attach-session -t "$session_name"
-  fi
-}
+curl-planet() { curl -k -H "Authorization: Bearer $(planet --auth-profile planet-user auth print-access-token)" "$@"; }
