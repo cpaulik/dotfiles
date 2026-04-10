@@ -16,6 +16,7 @@ stow alacritty
 stow ghostty
 stow nvim
 stow sesh
+stow gitignore
 
 # symlink bin folder
 mkdir ~/bin
