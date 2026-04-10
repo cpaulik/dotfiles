@@ -147,3 +147,16 @@ eval "$(direnv hook zsh)"
 
 [[ -f ~/.machine-profile ]] && source ~/.zshrc.d/$(cat ~/.machine-profile).zsh 2>/dev/null
 [[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
+
+fresh_claude() {
+  local session_name="${1:-claude}"
+  local dir="${FRESH_CLAUDE_DIR:-$HOME}"
+  tmux new-session -d -s "$session_name" -n "claude" -c "$dir" "claude" \; \
+    split-window -h -t "$session_name" -c "$dir" "nvim" \; \
+    select-pane -t "$session_name" -L
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$session_name"
+  else
+    tmux attach-session -t "$session_name"
+  fi
+}
