@@ -3,4 +3,4 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/node_modules/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-[[ -f ~/.zprofile.local ]] && source ~/.zprofile.local
+[[ -f ~/.machine-profile ]] && source ~/.zprofile.d/$(cat ~/.machine-profile).zsh 2>/dev/null
