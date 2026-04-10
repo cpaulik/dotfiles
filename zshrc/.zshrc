@@ -145,5 +145,5 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init - zsh)"
 eval "$(direnv hook zsh)"
 
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -f ~/.machine-profile ]] && source ~/.zshrc.d/$(cat ~/.machine-profile).zsh 2>/dev/null
 [[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh

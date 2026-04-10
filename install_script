@@ -2,6 +2,18 @@
 
 DOTFILES_ROOT=$(pwd)
 
+# set up machine profile if it doesn't exist
+if [[ ! -f ~/.machine-profile ]]; then
+  echo "Is this a work or home machine?"
+  select profile in work home; do
+    if [[ -n "$profile" ]]; then
+      echo "$profile" > ~/.machine-profile
+      echo "Set machine profile to: $profile"
+      break
+    fi
+  done
+fi
+
 # stow dotfile packages
 stow zshenv
 stow zprofile
