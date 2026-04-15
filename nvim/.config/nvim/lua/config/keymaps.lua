@@ -38,6 +38,7 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>fy", ':let @+ = expand("%:p")<CR>', { desc = "Copy Filename" })
 wk.add({
   { "<leader>o", group = "Obsidian" },
+  { "<leader>gw", group = "Worktrees" },
 }) -- group
 vim.keymap.set("n", "<leader>fd", ":call delete(expand('%')) | bdelete!<CR>", { desc = "Delete File" })
 
@@ -50,6 +51,34 @@ vim.keymap.set("n", "<leader>oT", ":Obsidian tags<CR>", { desc = "Tags" })
 vim.keymap.set("n", "<leader>oy", ":Obsidian yesterday<CR>", { desc = "Yesterday" })
 
 -- git
+local lazygit_newdir = vim.fn.expand("~/.lazygit_newdir")
+vim.env.LAZYGIT_NEW_DIR_FILE = lazygit_newdir
+
 vim.keymap.set("n", "<leader>gs", function()
-  Snacks.lazygit({ cwd = LazyVim.root.git() })
+  Snacks.lazygit({
+    cwd = LazyVim.root.git(),
+    win = {
+      on_close = function()
+        local f = io.open(lazygit_newdir, "r")
+        if f then
+          local dir = f:read("*a"):gsub("%s+$", "")
+          f:close()
+          os.remove(lazygit_newdir)
+          if dir ~= "" and vim.fn.isdirectory(dir) == 1 then
+            vim.schedule(function()
+              local current_file = vim.fn.expand("%:t")
+              vim.cmd("cd " .. vim.fn.fnameescape(dir))
+              -- try to open the same file in the new worktree
+              if current_file ~= "" then
+                local new_file = dir .. "/" .. current_file
+                if vim.fn.filereadable(new_file) == 1 then
+                  vim.cmd("edit " .. vim.fn.fnameescape(new_file))
+                end
+              end
+            end)
+          end
+        end
+      end,
+    },
+  })
 end, { desc = "Lazygit (Root Dir)" })
