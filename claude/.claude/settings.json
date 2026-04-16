@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.tmux/plugins/tmux-claude-status/hooks/better-hook.sh UserPromptSubmit"
+            "command": "~/.tmux/plugins/tmux-agent-status/hooks/better-hook.sh UserPromptSubmit"
           }
         ]
       }
@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.tmux/plugins/tmux-claude-status/hooks/better-hook.sh PreToolUse"
+            "command": "~/.tmux/plugins/tmux-agent-status/hooks/better-hook.sh PreToolUse"
           }
         ]
       }
@@ -26,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.tmux/plugins/tmux-claude-status/hooks/better-hook.sh Stop"
+            "command": "~/.tmux/plugins/tmux-agent-status/hooks/better-hook.sh Stop"
           }
         ]
       }
@@ -36,7 +36,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.tmux/plugins/tmux-claude-status/hooks/better-hook.sh Notification"
+            "command": "~/.tmux/plugins/tmux-agent-status/hooks/better-hook.sh Notification"
           }
         ]
       }
