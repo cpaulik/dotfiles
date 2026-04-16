@@ -29,6 +29,7 @@ stow ghostty
 stow nvim
 stow sesh
 stow gitignore
+stow claude
 
 # symlink bin folder
 mkdir ~/bin
