@@ -1,46 +1,75 @@
 {
-  "model": "claude-opus-4-6",
+  "permissions": {
+    "allow": [
+      "Bash(tmux *)"
+    ]
+  },
+  "model": "claude-opus-4-7",
   "hooks": {
-    "UserPromptSubmit": [
+    "SessionStart": [
       {
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "~/.tmux/plugins/tmux-agent-status/hooks/better-hook.sh UserPromptSubmit"
+            "command": "~/.tmux/plugins/tmux-agent-helper/scripts/claude-hook.sh",
+            "timeout": 5
           }
         ]
       }
     ],
-    "PreToolUse": [
+    "UserPromptSubmit": [
       {
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "~/.tmux/plugins/tmux-agent-status/hooks/better-hook.sh PreToolUse"
+            "command": "~/.tmux/plugins/tmux-agent-helper/scripts/claude-hook.sh",
+            "timeout": 5
           }
         ]
       }
     ],
     "Stop": [
       {
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "~/.tmux/plugins/tmux-agent-status/hooks/better-hook.sh Stop"
+            "command": "~/.tmux/plugins/tmux-agent-helper/scripts/claude-hook.sh",
+            "timeout": 5
           }
         ]
       }
     ],
     "Notification": [
       {
+        "matcher": "permission_prompt|idle_prompt",
         "hooks": [
           {
             "type": "command",
-            "command": "~/.tmux/plugins/tmux-agent-status/hooks/better-hook.sh Notification"
+            "command": "~/.tmux/plugins/tmux-agent-helper/scripts/claude-hook.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.tmux/plugins/tmux-agent-helper/scripts/claude-hook.sh",
+            "timeout": 5
           }
         ]
       }
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "skill-creator@claude-plugins-official": true
@@ -53,14 +82,6 @@
       }
     }
   },
-  "permissions": {
-    "allow": [
-      "Bash(tmux *)"
-    ]
-  },
   "alwaysThinkingEnabled": true,
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline-command.sh"
-  }
+  "awaySummaryEnabled": false
 }
