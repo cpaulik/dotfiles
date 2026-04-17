@@ -1,12 +1,17 @@
 local function get_workspace()
   local f = io.open(os.getenv("HOME") .. "/.machine-profile", "r")
   local profile = f and f:read("*l") or "home"
-  if f then f:close() end
+  if f then
+    f:close()
+  end
 
   if profile == "work" then
     return { name = "work", path = os.getenv("HOME") .. "/Documents/todos" }
   else
-    return { name = "personal", path = os.getenv("HOME") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes" }
+    return {
+      name = "personal",
+      path = os.getenv("HOME") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes",
+    }
   end
 end
 
@@ -17,7 +22,7 @@ return {
     ---@type obsidian.config
     opts = {
       workspaces = { get_workspace() },
-
+      legacy_commands = false,
       -- Optional, if you keep notes in a specific subdirectory of your vault.
       notes_subdir = "Inbox",
 
@@ -53,7 +58,9 @@ return {
         end,
       },
       -- Either 'wiki' or 'markdown'.
-      preferred_link_style = "markdown",
+      link = {
+        style = "markdown",
+      },
 
       ui = {
         enable = false, -- disabled since using render-markdown.nvim
