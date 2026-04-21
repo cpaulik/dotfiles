@@ -8,7 +8,7 @@ export PIP_EXTRA_INDEX_URL='https://pypi.prod.planet-labs.com/simple/'
 export CLOUDSDK_PYTHON=/Users/christoph/.pyenv/versions/3.12.1/bin/python
 
 export CLAUDE_CODE_USE_VERTEX=1
-export CLOUD_ML_REGION=us-east5
+export CLOUD_ML_REGION=global
 export ANTHROPIC_VERTEX_PROJECT_ID=engine-468307
 
 export FRESH_CLAUDE_DIR="/Users/christoph/workspace/analysis-engine-meta"

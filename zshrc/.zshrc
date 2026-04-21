@@ -151,8 +151,10 @@ eval "$(direnv hook zsh)"
 fresh_claude() {
   local session_name="${1:-claude}"
   local dir="${FRESH_CLAUDE_DIR:-$HOME}"
-  tmux new-session -d -s "$session_name" -n "claude" -c "$dir" "claude -n $session_name" \; \
-    split-window -h -t "$session_name" -c "$dir" "nvim" \; \
+  tmux new-session -d -s "$session_name" -n "claude" -c "$dir" \; \
+    send-keys -t "$session_name" "claude -n $session_name" Enter \; \
+    split-window -h -t "$session_name" -c "$dir" \; \
+    send-keys -t "$session_name" "nvim" Enter \; \
     select-pane -t "$session_name" -L
   if [ -n "$TMUX" ]; then
     tmux switch-client -t "$session_name"
