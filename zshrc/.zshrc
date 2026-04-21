@@ -26,9 +26,10 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(zsh-syntax-highlighting)
 
 # Faster compinit: skip security check unless dump is >24h old
+ZSH_DISABLE_COMPFIX=true
 autoload -Uz compinit
 if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-  compinit
+  compinit -u
 else
   compinit -C
 fi
