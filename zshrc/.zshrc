@@ -23,7 +23,26 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(command-not-found pip emacs wd zsh-syntax-highlighting nvm)
+plugins=(zsh-syntax-highlighting)
+
+# Faster compinit: skip security check unless dump is >24h old
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+
+# Lazy-load nvm — defer the ~600ms nvm.sh source until first use
+export NVM_DIR="$HOME/.nvm"
+_lazy_nvm() {
+  unset -f nvm node npm npx _lazy_nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+}
+nvm()  { _lazy_nvm; nvm  "$@"; }
+node() { _lazy_nvm; node "$@"; }
+npm()  { _lazy_nvm; npm  "$@"; }
+npx()  { _lazy_nvm; npx  "$@"; }
 
 # User configuration
 
