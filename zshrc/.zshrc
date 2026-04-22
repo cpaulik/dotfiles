@@ -8,10 +8,8 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
-# Minimal init: source only powerlevel10k + zsh-syntax-highlighting from the
-# oh-my-zsh install (skipping oh-my-zsh.sh itself saves ~500ms on every shell).
-export ZSH=$HOME/.oh-my-zsh
-fpath=($ZSH/custom/plugins/zsh-syntax-highlighting $ZSH/functions $ZSH/completions $fpath)
+# Minimal zsh init: just powerlevel10k + zsh-syntax-highlighting, no framework.
+fpath=($HOME/.zsh/plugins/zsh-syntax-highlighting $fpath)
 
 # Cached compinit: only re-scan fpath once per day
 autoload -Uz compinit
@@ -30,7 +28,7 @@ SAVEHIST=10000
 setopt extended_history hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify share_history
 
 # Powerlevel10k
-source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+source $HOME/.zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # Lazy-load nvm — defer the ~600ms nvm.sh source until first use
 export NVM_DIR="$HOME/.nvm"
@@ -189,4 +187,4 @@ fresh_claude() {
 }
 
 # Must be sourced last: zsh-syntax-highlighting hooks into widgets at source time
-source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
