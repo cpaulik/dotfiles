@@ -8,31 +8,29 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
-# Path to your oh-my-zsh installation.
-
+# Minimal init: source only powerlevel10k + zsh-syntax-highlighting from the
+# oh-my-zsh install (skipping oh-my-zsh.sh itself saves ~500ms on every shell).
 export ZSH=$HOME/.oh-my-zsh
+fpath=($ZSH/custom/plugins/zsh-syntax-highlighting $ZSH/functions $ZSH/completions $fpath)
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-plugins=(zsh-syntax-highlighting)
-
-# Faster compinit: skip security check unless dump is >24h old
-ZSH_DISABLE_COMPFIX=true
+# Cached compinit: only re-scan fpath once per day
 autoload -Uz compinit
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-  compinit -u
+_zcompdump="${ZDOTDIR:-$HOME}/.zcompdump-${HOST/.*/}-${ZSH_VERSION}"
+if [[ -n "$_zcompdump"(#qN.mh-24) ]]; then
+  compinit -C -d "$_zcompdump"
 else
-  compinit -C
+  compinit -u -d "$_zcompdump"
 fi
+unset _zcompdump
+
+# History (previously provided by oh-my-zsh lib/history.zsh)
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
+setopt extended_history hist_expire_dups_first hist_ignore_dups hist_ignore_space hist_verify share_history
+
+# Powerlevel10k
+source $ZSH/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # Lazy-load nvm — defer the ~600ms nvm.sh source until first use
 export NVM_DIR="$HOME/.nvm"
@@ -44,12 +42,6 @@ nvm()  { _lazy_nvm; nvm  "$@"; }
 node() { _lazy_nvm; node "$@"; }
 npm()  { _lazy_nvm; npm  "$@"; }
 npx()  { _lazy_nvm; npx  "$@"; }
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # environment variables for virtualenvwrapper
 export PROJECT_HOME=$HOME/workspace
@@ -162,7 +154,20 @@ export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+# Inline pyenv init without `pyenv rehash` (skips ~300ms on every shell startup;
+# run `pyenv rehash` manually after installing Python versions or packages).
+export PYENV_SHELL=zsh
+export PATH="$PYENV_ROOT/shims:$PATH"
+for _f in /opt/homebrew/Cellar/pyenv/*/completions/pyenv.zsh(N); do source "$_f"; break; done
+unset _f
+pyenv() {
+  local command=${1:-}
+  [ "$#" -gt 0 ] && shift
+  case "$command" in
+    rehash|shell) eval "$(command pyenv "sh-$command" "$@")" ;;
+    *) command pyenv "$command" "$@" ;;
+  esac
+}
 eval "$(direnv hook zsh)"
 
 [[ -f ~/.machine-profile ]] && source ~/.zshrc.d/$(cat ~/.machine-profile).zsh 2>/dev/null
@@ -182,3 +187,6 @@ fresh_claude() {
     tmux attach-session -t "$session_name"
   fi
 }
+
+# Must be sourced last: zsh-syntax-highlighting hooks into widgets at source time
+source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
