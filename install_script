@@ -61,10 +61,3 @@ brew install lazygit
 
 brew install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-#setup spacemacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
-#setup submodules of this repository
-git submodule init
-git submodule update
