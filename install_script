@@ -38,14 +38,10 @@ ln -s $DOTFILES_ROOT/bin/* ~/bin
 # symlink espanso folder
 ln -s $DOTFILES_ROOT/espanso ~/Library/Application\ Support/
 
-#setup oh-my-zsh
-git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
-cd ~/.oh-my-zsh/custom/plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-#setup powerlevel 10k theme for zsh
-cd ~/.oh-my-zsh/custom/
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
-cd $DOTFILES_ROOT
+#setup zsh plugins (no framework — loaded directly by zshrc for fast startup)
+mkdir -p ~/.zsh/plugins ~/.zsh/themes
+git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/themes/powerlevel10k
 
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 brew install stow
