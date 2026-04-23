@@ -1,0 +1,63 @@
+#!/bin/bash
+
+DOTFILES_ROOT=$(pwd)
+
+# set up machine profile if it doesn't exist
+if [[ ! -f ~/.machine-profile ]]; then
+  echo "Is this a work or home machine?"
+  select profile in work home; do
+    if [[ -n "$profile" ]]; then
+      echo "$profile" > ~/.machine-profile
+      echo "Set machine profile to: $profile"
+      break
+    fi
+  done
+fi
+
+# stow dotfile packages
+stow zshenv
+stow zprofile
+stow p10k-zsh
+stow tmux
+stow zshrc
+stow vim
+
+# stow config packages
+stow aerospace
+stow alacritty
+stow ghostty
+stow nvim
+stow sesh
+stow gitignore
+stow claude
+
+# symlink bin folder
+mkdir ~/bin
+ln -s $DOTFILES_ROOT/bin/* ~/bin
+
+# symlink espanso folder
+ln -s $DOTFILES_ROOT/espanso ~/Library/Application\ Support/
+
+#setup zsh plugins (no framework — loaded directly by zshrc for fast startup)
+mkdir -p ~/.zsh/plugins ~/.zsh/themes
+git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/themes/powerlevel10k
+
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+brew install stow
+brew install eza
+brew install fzf
+brew install bat
+brew install zoxide
+brew install --cask font-hack-nerd-font
+brew install ghostty
+brew install --cask alacritty
+brew install --cask nikitabobko/tap/aerospace
+brew install carapace
+brew install sesh
+
+brew install nvim
+brew install lazygit
+
+brew install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
