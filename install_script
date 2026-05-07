@@ -7,7 +7,7 @@ if [[ ! -f ~/.machine-profile ]]; then
   echo "Is this a work or home machine?"
   select profile in work home; do
     if [[ -n "$profile" ]]; then
-      echo "$profile" > ~/.machine-profile
+      echo "$profile" >~/.machine-profile
       echo "Set machine profile to: $profile"
       break
     fi
@@ -30,6 +30,7 @@ stow nvim
 stow sesh
 stow gitignore
 stow claude
+stow worktrunk
 
 # symlink bin folder
 mkdir ~/bin
@@ -49,6 +50,7 @@ brew install eza
 brew install fzf
 brew install bat
 brew install zoxide
+brew install worktrunk
 brew install --cask font-hack-nerd-font
 brew install ghostty
 brew install --cask alacritty

@@ -1,0 +1,5 @@
+[post-start]
+copy = "wt step copy-ignored"
+
+[pre-remove]
+tmux = "tmux kill-session -t {{ branch | sanitize }} 2>/dev/null || true"

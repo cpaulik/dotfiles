@@ -173,12 +173,14 @@ eval "$(direnv hook zsh)"
 
 fresh_claude() {
   local session_name="${1:-claude}"
-  local dir="${FRESH_CLAUDE_DIR:-$HOME}"
-  tmux new-session -d -s "$session_name" -n "claude" -c "$dir" \; \
-    send-keys -t "$session_name" "claude -n $session_name" Enter \; \
-    split-window -h -t "$session_name" -c "$dir" \; \
-    send-keys -t "$session_name" "nvim" Enter \; \
-    select-pane -t "$session_name" -L
+  local dir="${2:-${FRESH_CLAUDE_DIR:-$HOME}}"
+  if ! tmux has-session -t "=$session_name" 2>/dev/null; then
+    tmux new-session -d -s "$session_name" -n "claude" -c "$dir" \; \
+      send-keys -t "$session_name" "claude -n $session_name" Enter \; \
+      split-window -h -t "$session_name" -c "$dir" \; \
+      send-keys -t "$session_name" "nvim" Enter \; \
+      select-pane -t "$session_name" -L
+  fi
   if [ -n "$TMUX" ]; then
     tmux switch-client -t "$session_name"
   else
@@ -188,3 +190,7 @@ fresh_claude() {
 
 # Must be sourced last: zsh-syntax-highlighting hooks into widgets at source time
 source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+alias wtc="wt switch --create -x 'zsh -ic \"fresh_claude {{ branch | sanitize }} {{ worktree_path }}\"'"
