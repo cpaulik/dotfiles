@@ -95,6 +95,10 @@ alias l="eza -l --icons --git -a"
 
 # navigation
 alias ..='cd ..'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
 
 source <(fzf --zsh)
 
