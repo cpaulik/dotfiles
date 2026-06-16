@@ -198,3 +198,6 @@ source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
 alias wtc="wt switch --create -x 'zsh -ic \"fresh_claude {{ branch | sanitize }} {{ worktree_path }}\"'"
+alias lg="lazygit"
+
+if command -v mise >/dev/null 2>&1; then eval "$(mise activate zsh)"; fi
