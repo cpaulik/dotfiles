@@ -1,2 +1,16 @@
 * Installation
 clone this repository and call the =install_script=
+
+* git-browse
+=bin/git-browse= opens the current repo in the browser at the current branch
+and directory (GitLab =/-/tree/= and GitHub =/tree/= aware). Bound to
+=prefix + g= in tmux for the current pane's folder.
+
+When the SSH remote host differs from the web host, map it once:
+#+begin_src sh
+git config --global browse.host.<ssh-host> https://<web-host>/
+# e.g.
+git config --global browse.host.code.earth.planet.com https://hello.planet.com/code/
+#+end_src
+Without a mapping the web host is derived from the remote.
+

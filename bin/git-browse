@@ -1,0 +1,68 @@
+#!/usr/bin/env zsh
+# Open the current repo in the browser at the current branch + directory.
+# Works with GitLab (/-/tree/) and GitHub (/tree/), self-hosted or not.
+#
+# When the SSH remote host differs from the web host (common at work), set a
+# mapping once via git config, e.g.:
+#   git config --global browse.host.git.work.example.com https://gitlab.work.example.com/
+# The key is browse.host.<ssh-host>, the value is the web base url (with or
+# without group/project — group/project is taken from the remote path).
+# Without a mapping the host is derived straight from the remote.
+#
+# Usage: git-browse [path]
+#   path  optional file/dir to open instead of $PWD
+
+set -e
+
+target="${1:-.}"
+[[ -e "$target" ]] || { echo "git-browse: no such path: $target" >&2; exit 1; }
+if [[ -d "$target" ]]; then
+  cd "$target"
+else
+  cd "$(dirname "$target")"   # a file: browse its containing directory
+fi
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+remote="$(git config --get branch."$branch".remote 2>/dev/null || true)"
+remote="${remote:-origin}"
+raw="$(git remote get-url "$remote" 2>/dev/null)" \
+  || { echo "git-browse: no remote '$remote'" >&2; exit 1; }
+raw="${raw%.git}"
+
+# Split the remote into ssh_host + repo path (group/project).
+# Note: avoid the variable name `path` — in zsh it is tied to $PATH.
+case "$raw" in
+  git@*)        rest="${raw#git@}"; ssh_host="${rest%%:*}"; repopath="${rest#*:}" ;;
+  ssh://git@*)  rest="${raw#ssh://git@}"; ssh_host="${rest%%/*}"; ssh_host="${ssh_host%%:*}"; repopath="${rest#*/}" ;;
+  http://*)     rest="${raw#http://}";  ssh_host="${rest%%/*}"; repopath="${rest#*/}" ;;
+  https://*)    rest="${raw#https://}"; ssh_host="${rest%%/*}"; repopath="${rest#*/}" ;;
+  *) echo "git-browse: unrecognized remote url: $raw" >&2; exit 1 ;;
+esac
+
+# Look up a configured web base for this ssh host; else derive from the host.
+web="$(git config --get "browse.host.$ssh_host" 2>/dev/null || true)"
+if [[ -n "$web" ]]; then
+  base="${web%/}/$repopath"
+else
+  base="https://$ssh_host/$repopath"
+fi
+host="${${base#https://}%%/*}"
+
+relpath="$(git rev-parse --show-prefix)"; relpath="${relpath%/}"
+
+if [[ "$host" == *github* ]]; then sep="tree"; else sep="-/tree"; fi
+
+if [[ -n "$relpath" ]]; then
+  open_url="$base/$sep/$branch/$relpath"
+elif [[ "$branch" != "HEAD" ]]; then
+  open_url="$base/$sep/$branch"
+else
+  open_url="$base"
+fi
+
+echo "$open_url"
+if command -v open >/dev/null 2>&1; then
+  open "$open_url"
+elif command -v xdg-open >/dev/null 2>&1; then
+  xdg-open "$open_url"
+fi

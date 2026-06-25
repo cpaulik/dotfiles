@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+# Reload tmux config + source ~/.zshrc in every idle zsh pane.
+
+tmux source-file ~/.tmux.conf
+
+reloaded=0
+while IFS=' ' read -r pane cmd; do
+  if [[ "$cmd" == "zsh" ]]; then
+    tmux send-keys -t "$pane" ' source ~/.zshrc' Enter
+    ((reloaded++))
+  fi
+done < <(tmux list-panes -a -F '#{pane_id} #{pane_current_command}')
+
+tmux display-message "Refreshed tmux + zsh in $reloaded pane(s)"
