@@ -19,7 +19,9 @@ stow zshenv
 stow zprofile
 stow p10k-zsh
 stow tmux
-stow zshrc
+# --no-folding keeps ~/.zshrc.d a real dir so the private repo (work.zsh) can
+# drop files into it; see README.
+stow --no-folding zshrc
 stow vim
 
 # stow config packages
