@@ -1,5 +1,8 @@
 *~
-elpa
-session*
-semanticdb
-projectile*
+*.pyc
+
+# Global gitignore has a leftover Eclipse `bin/` rule; re-include this repo's bin/
+!bin/
+
+# Machine-private config lives in a separate private repo, never commit it here
+zshrc/.zshrc.d/work.zsh
